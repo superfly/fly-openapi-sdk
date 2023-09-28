@@ -1,4 +1,4 @@
-# FlyApi::VolumesApi
+# FlySDK::VolumesApi
 
 All URIs are relative to *https://api.machines.dev/v1*
 
@@ -22,9 +22,9 @@ All URIs are relative to *https://api.machines.dev/v1*
 
 ```ruby
 require 'time'
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-api_instance = FlyApi::VolumesApi.new
+api_instance = FlySDK::VolumesApi.new
 app_name = 'app_name_example' # String | Fly App Name
 volume_id = 'volume_id_example' # String | Volume ID
 
@@ -32,7 +32,7 @@ begin
   
   result = api_instance.volume_delete(app_name, volume_id)
   p result
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling VolumesApi->volume_delete: #{e}"
 end
 ```
@@ -50,7 +50,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Volume>
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling VolumesApi->volume_delete_with_http_info: #{e}"
 end
 ```
@@ -86,17 +86,17 @@ No authorization required
 
 ```ruby
 require 'time'
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-api_instance = FlyApi::VolumesApi.new
+api_instance = FlySDK::VolumesApi.new
 app_name = 'app_name_example' # String | Fly App Name
-request = FlyApi::CreateVolumeRequest.new # CreateVolumeRequest | Request body
+request = FlySDK::CreateVolumeRequest.new # CreateVolumeRequest | Request body
 
 begin
   
   result = api_instance.volumes_create(app_name, request)
   p result
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling VolumesApi->volumes_create: #{e}"
 end
 ```
@@ -114,7 +114,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Volume>
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling VolumesApi->volumes_create_with_http_info: #{e}"
 end
 ```
@@ -150,18 +150,18 @@ No authorization required
 
 ```ruby
 require 'time'
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-api_instance = FlyApi::VolumesApi.new
+api_instance = FlySDK::VolumesApi.new
 app_name = 'app_name_example' # String | Fly App Name
 volume_id = 'volume_id_example' # String | Volume ID
-request = FlyApi::ExtendVolumeRequest.new # ExtendVolumeRequest | Request body
+request = FlySDK::ExtendVolumeRequest.new # ExtendVolumeRequest | Request body
 
 begin
   
   result = api_instance.volumes_extend(app_name, volume_id, request)
   p result
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling VolumesApi->volumes_extend: #{e}"
 end
 ```
@@ -179,7 +179,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <ExtendVolumeResponse>
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling VolumesApi->volumes_extend_with_http_info: #{e}"
 end
 ```
@@ -216,9 +216,9 @@ No authorization required
 
 ```ruby
 require 'time'
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-api_instance = FlyApi::VolumesApi.new
+api_instance = FlySDK::VolumesApi.new
 app_name = 'app_name_example' # String | Fly App Name
 volume_id = 'volume_id_example' # String | Volume ID
 
@@ -226,7 +226,7 @@ begin
   
   result = api_instance.volumes_get_by_id(app_name, volume_id)
   p result
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling VolumesApi->volumes_get_by_id: #{e}"
 end
 ```
@@ -244,7 +244,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Volume>
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling VolumesApi->volumes_get_by_id_with_http_info: #{e}"
 end
 ```
@@ -280,9 +280,9 @@ No authorization required
 
 ```ruby
 require 'time'
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-api_instance = FlyApi::VolumesApi.new
+api_instance = FlySDK::VolumesApi.new
 app_name = 'app_name_example' # String | Fly App Name
 volume_id = 'volume_id_example' # String | Volume ID
 
@@ -290,7 +290,7 @@ begin
   
   result = api_instance.volumes_get_snapshots(app_name, volume_id)
   p result
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling VolumesApi->volumes_get_snapshots: #{e}"
 end
 ```
@@ -308,7 +308,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<VolumeSnapshot>>
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling VolumesApi->volumes_get_snapshots_with_http_info: #{e}"
 end
 ```
@@ -344,16 +344,16 @@ No authorization required
 
 ```ruby
 require 'time'
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-api_instance = FlyApi::VolumesApi.new
+api_instance = FlySDK::VolumesApi.new
 app_name = 'app_name_example' # String | Fly App Name
 
 begin
   
   result = api_instance.volumes_list(app_name)
   p result
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling VolumesApi->volumes_list: #{e}"
 end
 ```
@@ -371,7 +371,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<Volume>>
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling VolumesApi->volumes_list_with_http_info: #{e}"
 end
 ```

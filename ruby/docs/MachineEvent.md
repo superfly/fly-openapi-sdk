@@ -1,4 +1,4 @@
-# FlyApi::MachineEvent
+# FlySDK::MachineEvent
 
 ## Properties
 
@@ -14,9 +14,9 @@
 ## Example
 
 ```ruby
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-instance = FlyApi::MachineEvent.new(
+instance = FlySDK::MachineEvent.new(
   id: null,
   request: null,
   source: null,

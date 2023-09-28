@@ -1,4 +1,4 @@
-# FlyApi::ExtendVolumeRequest
+# FlySDK::ExtendVolumeRequest
 
 ## Properties
 
@@ -9,9 +9,9 @@
 ## Example
 
 ```ruby
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-instance = FlyApi::ExtendVolumeRequest.new(
+instance = FlySDK::ExtendVolumeRequest.new(
   size_gb: null
 )
 ```

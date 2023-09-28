@@ -1,4 +1,4 @@
-# FlyApi::Lease
+# FlySDK::Lease
 
 ## Properties
 
@@ -12,9 +12,9 @@
 ## Example
 
 ```ruby
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-instance = FlyApi::Lease.new(
+instance = FlySDK::Lease.new(
   description: null,
   expires_at: null,
   nonce: null,

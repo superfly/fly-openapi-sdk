@@ -1,4 +1,4 @@
-# FlyApi::ProcessStat
+# FlySDK::ProcessStat
 
 ## Properties
 
@@ -16,9 +16,9 @@
 ## Example
 
 ```ruby
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-instance = FlyApi::ProcessStat.new(
+instance = FlySDK::ProcessStat.new(
   command: null,
   cpu: null,
   directory: null,

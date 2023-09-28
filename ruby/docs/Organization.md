@@ -1,4 +1,4 @@
-# FlyApi::Organization
+# FlySDK::Organization
 
 ## Properties
 
@@ -10,9 +10,9 @@
 ## Example
 
 ```ruby
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-instance = FlyApi::Organization.new(
+instance = FlySDK::Organization.new(
   name: null,
   slug: null
 )

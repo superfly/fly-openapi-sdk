@@ -7,5 +7,5 @@ rvm:
 script:
   - bundle install --path vendor/bundle
   - bundle exec rspec
-  - gem build fly-api-ruby.gemspec
-  - gem install ./fly-api-ruby-1.0.0.gem
+  - gem build fly-sdk-ruby.gemspec
+  - gem install ./fly-sdk-ruby-1.0.0.gem

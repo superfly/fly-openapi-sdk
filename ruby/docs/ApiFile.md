@@ -1,4 +1,4 @@
-# FlyApi::ApiFile
+# FlySDK::ApiFile
 
 ## Properties
 
@@ -11,9 +11,9 @@
 ## Example
 
 ```ruby
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-instance = FlyApi::ApiFile.new(
+instance = FlySDK::ApiFile.new(
   guest_path: null,
   raw_value: null,
   secret_name: null

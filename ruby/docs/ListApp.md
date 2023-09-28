@@ -1,4 +1,4 @@
-# FlyApi::ListApp
+# FlySDK::ListApp
 
 ## Properties
 
@@ -11,9 +11,9 @@
 ## Example
 
 ```ruby
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-instance = FlyApi::ListApp.new(
+instance = FlySDK::ListApp.new(
   machine_count: null,
   name: null,
   network: null

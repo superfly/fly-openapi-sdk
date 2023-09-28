@@ -1,4 +1,4 @@
-# FlyApi::ImageRef
+# FlySDK::ImageRef
 
 ## Properties
 
@@ -13,9 +13,9 @@
 ## Example
 
 ```ruby
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-instance = FlyApi::ImageRef.new(
+instance = FlySDK::ImageRef.new(
   digest: null,
   labels: null,
   registry: null,

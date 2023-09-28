@@ -1,4 +1,4 @@
-# FlyApi::ApiHTTPOptions
+# FlySDK::ApiHTTPOptions
 
 ## Properties
 
@@ -10,9 +10,9 @@
 ## Example
 
 ```ruby
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-instance = FlyApi::ApiHTTPOptions.new(
+instance = FlySDK::ApiHTTPOptions.new(
   compress: null,
   response: null
 )

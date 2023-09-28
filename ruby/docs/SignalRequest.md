@@ -1,4 +1,4 @@
-# FlyApi::SignalRequest
+# FlySDK::SignalRequest
 
 ## Properties
 
@@ -9,9 +9,9 @@
 ## Example
 
 ```ruby
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-instance = FlyApi::SignalRequest.new(
+instance = FlySDK::SignalRequest.new(
   signal: null
 )
 ```

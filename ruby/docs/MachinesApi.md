@@ -1,4 +1,4 @@
-# FlyApi::MachinesApi
+# FlySDK::MachinesApi
 
 All URIs are relative to *https://api.machines.dev/v1*
 
@@ -40,16 +40,16 @@ All URIs are relative to *https://api.machines.dev/v1*
 
 ```ruby
 require 'time'
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-api_instance = FlyApi::MachinesApi.new
+api_instance = FlySDK::MachinesApi.new
 app_name = 'app_name_example' # String | Fly App Name
 machine_id = 'machine_id_example' # String | Machine ID
 
 begin
   
   api_instance.machines_cordon(app_name, machine_id)
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling MachinesApi->machines_cordon: #{e}"
 end
 ```
@@ -67,7 +67,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling MachinesApi->machines_cordon_with_http_info: #{e}"
 end
 ```
@@ -103,17 +103,17 @@ No authorization required
 
 ```ruby
 require 'time'
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-api_instance = FlyApi::MachinesApi.new
+api_instance = FlySDK::MachinesApi.new
 app_name = 'app_name_example' # String | Fly App Name
-request = FlyApi::CreateMachineRequest.new # CreateMachineRequest | Create machine request
+request = FlySDK::CreateMachineRequest.new # CreateMachineRequest | Create machine request
 
 begin
   
   result = api_instance.machines_create(app_name, request)
   p result
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling MachinesApi->machines_create: #{e}"
 end
 ```
@@ -131,7 +131,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Machine>
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling MachinesApi->machines_create_with_http_info: #{e}"
 end
 ```
@@ -167,18 +167,18 @@ No authorization required
 
 ```ruby
 require 'time'
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-api_instance = FlyApi::MachinesApi.new
+api_instance = FlySDK::MachinesApi.new
 app_name = 'app_name_example' # String | Fly App Name
 machine_id = 'machine_id_example' # String | Machine ID
-request = FlyApi::CreateLeaseRequest.new # CreateLeaseRequest | Request body
+request = FlySDK::CreateLeaseRequest.new # CreateLeaseRequest | Request body
 
 begin
   
   result = api_instance.machines_create_lease(app_name, machine_id, request)
   p result
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling MachinesApi->machines_create_lease: #{e}"
 end
 ```
@@ -196,7 +196,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Lease>
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling MachinesApi->machines_create_lease_with_http_info: #{e}"
 end
 ```
@@ -233,16 +233,16 @@ No authorization required
 
 ```ruby
 require 'time'
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-api_instance = FlyApi::MachinesApi.new
+api_instance = FlySDK::MachinesApi.new
 app_name = 'app_name_example' # String | Fly App Name
 machine_id = 'machine_id_example' # String | Machine ID
 
 begin
   
   api_instance.machines_delete(app_name, machine_id)
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling MachinesApi->machines_delete: #{e}"
 end
 ```
@@ -260,7 +260,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling MachinesApi->machines_delete_with_http_info: #{e}"
 end
 ```
@@ -296,9 +296,9 @@ No authorization required
 
 ```ruby
 require 'time'
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-api_instance = FlyApi::MachinesApi.new
+api_instance = FlySDK::MachinesApi.new
 app_name = 'app_name_example' # String | Fly App Name
 machine_id = 'machine_id_example' # String | Machine ID
 key = 'key_example' # String | Metadata Key
@@ -306,7 +306,7 @@ key = 'key_example' # String | Metadata Key
 begin
   
   api_instance.machines_delete_metadata(app_name, machine_id, key)
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling MachinesApi->machines_delete_metadata: #{e}"
 end
 ```
@@ -324,7 +324,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling MachinesApi->machines_delete_metadata_with_http_info: #{e}"
 end
 ```
@@ -361,18 +361,18 @@ No authorization required
 
 ```ruby
 require 'time'
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-api_instance = FlyApi::MachinesApi.new
+api_instance = FlySDK::MachinesApi.new
 app_name = 'app_name_example' # String | Fly App Name
 machine_id = 'machine_id_example' # String | Machine ID
-request = FlyApi::MachineExecRequest.new # MachineExecRequest | Request body
+request = FlySDK::MachineExecRequest.new # MachineExecRequest | Request body
 
 begin
   
   result = api_instance.machines_exec(app_name, machine_id, request)
   p result
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling MachinesApi->machines_exec: #{e}"
 end
 ```
@@ -390,7 +390,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => String
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling MachinesApi->machines_exec_with_http_info: #{e}"
 end
 ```
@@ -427,9 +427,9 @@ No authorization required
 
 ```ruby
 require 'time'
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-api_instance = FlyApi::MachinesApi.new
+api_instance = FlySDK::MachinesApi.new
 app_name = 'app_name_example' # String | Fly App Name
 opts = {
   include_deleted: true, # Boolean | Include deleted machines
@@ -440,7 +440,7 @@ begin
   
   result = api_instance.machines_list(app_name, opts)
   p result
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling MachinesApi->machines_list: #{e}"
 end
 ```
@@ -458,7 +458,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<Machine>>
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling MachinesApi->machines_list_with_http_info: #{e}"
 end
 ```
@@ -495,9 +495,9 @@ No authorization required
 
 ```ruby
 require 'time'
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-api_instance = FlyApi::MachinesApi.new
+api_instance = FlySDK::MachinesApi.new
 app_name = 'app_name_example' # String | Fly App Name
 machine_id = 'machine_id_example' # String | Machine ID
 
@@ -505,7 +505,7 @@ begin
   
   result = api_instance.machines_list_events(app_name, machine_id)
   p result
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling MachinesApi->machines_list_events: #{e}"
 end
 ```
@@ -523,7 +523,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<MachineEvent>>
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling MachinesApi->machines_list_events_with_http_info: #{e}"
 end
 ```
@@ -559,9 +559,9 @@ No authorization required
 
 ```ruby
 require 'time'
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-api_instance = FlyApi::MachinesApi.new
+api_instance = FlySDK::MachinesApi.new
 app_name = 'app_name_example' # String | Fly App Name
 machine_id = 'machine_id_example' # String | Machine ID
 opts = {
@@ -573,7 +573,7 @@ begin
   
   result = api_instance.machines_list_processes(app_name, machine_id, opts)
   p result
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling MachinesApi->machines_list_processes: #{e}"
 end
 ```
@@ -591,7 +591,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<ProcessStat>>
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling MachinesApi->machines_list_processes_with_http_info: #{e}"
 end
 ```
@@ -629,9 +629,9 @@ No authorization required
 
 ```ruby
 require 'time'
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-api_instance = FlyApi::MachinesApi.new
+api_instance = FlySDK::MachinesApi.new
 app_name = 'app_name_example' # String | Fly App Name
 machine_id = 'machine_id_example' # String | Machine ID
 
@@ -639,7 +639,7 @@ begin
   
   result = api_instance.machines_list_versions(app_name, machine_id)
   p result
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling MachinesApi->machines_list_versions: #{e}"
 end
 ```
@@ -657,7 +657,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<MachineVersion>>
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling MachinesApi->machines_list_versions_with_http_info: #{e}"
 end
 ```
@@ -693,16 +693,16 @@ No authorization required
 
 ```ruby
 require 'time'
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-api_instance = FlyApi::MachinesApi.new
+api_instance = FlySDK::MachinesApi.new
 app_name = 'app_name_example' # String | Fly App Name
 machine_id = 'machine_id_example' # String | Machine ID
 
 begin
   
   api_instance.machines_release_lease(app_name, machine_id)
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling MachinesApi->machines_release_lease: #{e}"
 end
 ```
@@ -720,7 +720,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling MachinesApi->machines_release_lease_with_http_info: #{e}"
 end
 ```
@@ -756,9 +756,9 @@ No authorization required
 
 ```ruby
 require 'time'
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-api_instance = FlyApi::MachinesApi.new
+api_instance = FlySDK::MachinesApi.new
 app_name = 'app_name_example' # String | Fly App Name
 machine_id = 'machine_id_example' # String | Machine ID
 opts = {
@@ -768,7 +768,7 @@ opts = {
 begin
   
   api_instance.machines_restart(app_name, machine_id, opts)
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling MachinesApi->machines_restart: #{e}"
 end
 ```
@@ -786,7 +786,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling MachinesApi->machines_restart_with_http_info: #{e}"
 end
 ```
@@ -823,9 +823,9 @@ No authorization required
 
 ```ruby
 require 'time'
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-api_instance = FlyApi::MachinesApi.new
+api_instance = FlySDK::MachinesApi.new
 app_name = 'app_name_example' # String | Fly App Name
 machine_id = 'machine_id_example' # String | Machine ID
 
@@ -833,7 +833,7 @@ begin
   
   result = api_instance.machines_show(app_name, machine_id)
   p result
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling MachinesApi->machines_show: #{e}"
 end
 ```
@@ -851,7 +851,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Machine>
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling MachinesApi->machines_show_with_http_info: #{e}"
 end
 ```
@@ -887,9 +887,9 @@ No authorization required
 
 ```ruby
 require 'time'
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-api_instance = FlyApi::MachinesApi.new
+api_instance = FlySDK::MachinesApi.new
 app_name = 'app_name_example' # String | Fly App Name
 machine_id = 'machine_id_example' # String | Machine ID
 
@@ -897,7 +897,7 @@ begin
   
   result = api_instance.machines_show_lease(app_name, machine_id)
   p result
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling MachinesApi->machines_show_lease: #{e}"
 end
 ```
@@ -915,7 +915,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Lease>
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling MachinesApi->machines_show_lease_with_http_info: #{e}"
 end
 ```
@@ -951,9 +951,9 @@ No authorization required
 
 ```ruby
 require 'time'
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-api_instance = FlyApi::MachinesApi.new
+api_instance = FlySDK::MachinesApi.new
 app_name = 'app_name_example' # String | Fly App Name
 machine_id = 'machine_id_example' # String | Machine ID
 
@@ -961,7 +961,7 @@ begin
   
   result = api_instance.machines_show_metadata(app_name, machine_id)
   p result
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling MachinesApi->machines_show_metadata: #{e}"
 end
 ```
@@ -979,7 +979,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => Hash&lt;String, String&gt;
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling MachinesApi->machines_show_metadata_with_http_info: #{e}"
 end
 ```
@@ -1015,17 +1015,17 @@ No authorization required
 
 ```ruby
 require 'time'
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-api_instance = FlyApi::MachinesApi.new
+api_instance = FlySDK::MachinesApi.new
 app_name = 'app_name_example' # String | Fly App Name
 machine_id = 'machine_id_example' # String | Machine ID
-request = FlyApi::SignalRequest.new # SignalRequest | Request body
+request = FlySDK::SignalRequest.new # SignalRequest | Request body
 
 begin
   
   api_instance.machines_signal(app_name, machine_id, request)
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling MachinesApi->machines_signal: #{e}"
 end
 ```
@@ -1043,7 +1043,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling MachinesApi->machines_signal_with_http_info: #{e}"
 end
 ```
@@ -1080,16 +1080,16 @@ No authorization required
 
 ```ruby
 require 'time'
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-api_instance = FlyApi::MachinesApi.new
+api_instance = FlySDK::MachinesApi.new
 app_name = 'app_name_example' # String | Fly App Name
 machine_id = 'machine_id_example' # String | Machine ID
 
 begin
   
   api_instance.machines_start(app_name, machine_id)
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling MachinesApi->machines_start: #{e}"
 end
 ```
@@ -1107,7 +1107,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling MachinesApi->machines_start_with_http_info: #{e}"
 end
 ```
@@ -1143,19 +1143,19 @@ No authorization required
 
 ```ruby
 require 'time'
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-api_instance = FlyApi::MachinesApi.new
+api_instance = FlySDK::MachinesApi.new
 app_name = 'app_name_example' # String | Fly App Name
 machine_id = 'machine_id_example' # String | Machine ID
 opts = {
-  request: FlyApi::StopRequest.new # StopRequest | Optional request body
+  request: FlySDK::StopRequest.new # StopRequest | Optional request body
 }
 
 begin
   
   api_instance.machines_stop(app_name, machine_id, opts)
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling MachinesApi->machines_stop: #{e}"
 end
 ```
@@ -1173,7 +1173,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling MachinesApi->machines_stop_with_http_info: #{e}"
 end
 ```
@@ -1212,16 +1212,16 @@ No authorization required
 
 ```ruby
 require 'time'
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-api_instance = FlyApi::MachinesApi.new
+api_instance = FlySDK::MachinesApi.new
 app_name = 'app_name_example' # String | Fly App Name
 machine_id = 'machine_id_example' # String | Machine ID
 
 begin
   
   api_instance.machines_uncordon(app_name, machine_id)
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling MachinesApi->machines_uncordon: #{e}"
 end
 ```
@@ -1239,7 +1239,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling MachinesApi->machines_uncordon_with_http_info: #{e}"
 end
 ```
@@ -1275,18 +1275,18 @@ No authorization required
 
 ```ruby
 require 'time'
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-api_instance = FlyApi::MachinesApi.new
+api_instance = FlySDK::MachinesApi.new
 app_name = 'app_name_example' # String | Fly App Name
 machine_id = 'machine_id_example' # String | Machine ID
-request = FlyApi::UpdateMachineRequest.new # UpdateMachineRequest | Request body
+request = FlySDK::UpdateMachineRequest.new # UpdateMachineRequest | Request body
 
 begin
   
   result = api_instance.machines_update(app_name, machine_id, request)
   p result
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling MachinesApi->machines_update: #{e}"
 end
 ```
@@ -1304,7 +1304,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Machine>
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling MachinesApi->machines_update_with_http_info: #{e}"
 end
 ```
@@ -1341,9 +1341,9 @@ No authorization required
 
 ```ruby
 require 'time'
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-api_instance = FlyApi::MachinesApi.new
+api_instance = FlySDK::MachinesApi.new
 app_name = 'app_name_example' # String | Fly App Name
 machine_id = 'machine_id_example' # String | Machine ID
 key = 'key_example' # String | Metadata Key
@@ -1351,7 +1351,7 @@ key = 'key_example' # String | Metadata Key
 begin
   
   api_instance.machines_update_metadata(app_name, machine_id, key)
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling MachinesApi->machines_update_metadata: #{e}"
 end
 ```
@@ -1369,7 +1369,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling MachinesApi->machines_update_metadata_with_http_info: #{e}"
 end
 ```
@@ -1406,9 +1406,9 @@ No authorization required
 
 ```ruby
 require 'time'
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-api_instance = FlyApi::MachinesApi.new
+api_instance = FlySDK::MachinesApi.new
 app_name = 'app_name_example' # String | Fly App Name
 machine_id = 'machine_id_example' # String | Machine ID
 opts = {
@@ -1420,7 +1420,7 @@ opts = {
 begin
   
   api_instance.machines_wait(app_name, machine_id, opts)
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling MachinesApi->machines_wait: #{e}"
 end
 ```
@@ -1438,7 +1438,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling MachinesApi->machines_wait_with_http_info: #{e}"
 end
 ```

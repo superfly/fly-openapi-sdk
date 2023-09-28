@@ -1,4 +1,4 @@
-# FlyApi::ApiMachineInit
+# FlySDK::ApiMachineInit
 
 ## Properties
 
@@ -14,9 +14,9 @@
 ## Example
 
 ```ruby
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-instance = FlyApi::ApiMachineInit.new(
+instance = FlySDK::ApiMachineInit.new(
   cmd: null,
   entrypoint: null,
   exec: null,

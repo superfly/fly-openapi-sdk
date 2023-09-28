@@ -1,4 +1,4 @@
-# FlyApi::ListAppsResponse
+# FlySDK::ListAppsResponse
 
 ## Properties
 
@@ -10,9 +10,9 @@
 ## Example
 
 ```ruby
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-instance = FlyApi::ListAppsResponse.new(
+instance = FlySDK::ListAppsResponse.new(
   apps: null,
   total_apps: null
 )

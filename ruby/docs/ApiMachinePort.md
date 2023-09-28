@@ -1,4 +1,4 @@
-# FlyApi::ApiMachinePort
+# FlySDK::ApiMachinePort
 
 ## Properties
 
@@ -16,9 +16,9 @@
 ## Example
 
 ```ruby
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-instance = FlyApi::ApiMachinePort.new(
+instance = FlySDK::ApiMachinePort.new(
   end_port: null,
   force_https: null,
   handlers: null,

@@ -1,4 +1,4 @@
-# FlyApi::Volume
+# FlySDK::Volume
 
 ## Properties
 
@@ -23,9 +23,9 @@
 ## Example
 
 ```ruby
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-instance = FlyApi::Volume.new(
+instance = FlySDK::Volume.new(
   attached_alloc_id: null,
   attached_machine_id: null,
   block_size: null,

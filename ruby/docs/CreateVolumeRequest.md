@@ -1,4 +1,4 @@
-# FlyApi::CreateVolumeRequest
+# FlySDK::CreateVolumeRequest
 
 ## Properties
 
@@ -18,9 +18,9 @@
 ## Example
 
 ```ruby
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-instance = FlyApi::CreateVolumeRequest.new(
+instance = FlySDK::CreateVolumeRequest.new(
   compute: null,
   encrypted: null,
   fstype: null,

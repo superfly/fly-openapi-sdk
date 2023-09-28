@@ -1,4 +1,4 @@
-# FlyApi::ApiProxyProtoOptions
+# FlySDK::ApiProxyProtoOptions
 
 ## Properties
 
@@ -9,9 +9,9 @@
 ## Example
 
 ```ruby
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-instance = FlyApi::ApiProxyProtoOptions.new(
+instance = FlySDK::ApiProxyProtoOptions.new(
   version: null
 )
 ```

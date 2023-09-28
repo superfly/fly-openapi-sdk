@@ -1,4 +1,4 @@
-# FlyApi::CreateAppRequest
+# FlySDK::CreateAppRequest
 
 ## Properties
 
@@ -11,9 +11,9 @@
 ## Example
 
 ```ruby
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-instance = FlyApi::CreateAppRequest.new(
+instance = FlySDK::CreateAppRequest.new(
   app_name: null,
   network: null,
   org_slug: null

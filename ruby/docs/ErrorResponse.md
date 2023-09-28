@@ -1,4 +1,4 @@
-# FlyApi::ErrorResponse
+# FlySDK::ErrorResponse
 
 ## Properties
 
@@ -11,9 +11,9 @@
 ## Example
 
 ```ruby
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-instance = FlyApi::ErrorResponse.new(
+instance = FlySDK::ErrorResponse.new(
   details: null,
   error: null,
   status: null

@@ -1,4 +1,4 @@
-# FlyApi::MachineVersion
+# FlySDK::MachineVersion
 
 ## Properties
 
@@ -10,9 +10,9 @@
 ## Example
 
 ```ruby
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-instance = FlyApi::MachineVersion.new(
+instance = FlySDK::MachineVersion.new(
   user_config: null,
   version: null
 )

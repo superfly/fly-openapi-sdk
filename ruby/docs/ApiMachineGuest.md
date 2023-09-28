@@ -1,4 +1,4 @@
-# FlyApi::ApiMachineGuest
+# FlySDK::ApiMachineGuest
 
 ## Properties
 
@@ -13,9 +13,9 @@
 ## Example
 
 ```ruby
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-instance = FlyApi::ApiMachineGuest.new(
+instance = FlySDK::ApiMachineGuest.new(
   cpu_kind: null,
   cpus: null,
   gpu_kind: null,

@@ -1,4 +1,4 @@
-# FlyApi::UpdateMachineRequest
+# FlySDK::UpdateMachineRequest
 
 ## Properties
 
@@ -16,9 +16,9 @@
 ## Example
 
 ```ruby
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-instance = FlyApi::UpdateMachineRequest.new(
+instance = FlySDK::UpdateMachineRequest.new(
   config: null,
   current_version: null,
   lease_ttl: null,

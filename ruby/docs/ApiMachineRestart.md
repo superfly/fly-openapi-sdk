@@ -1,4 +1,4 @@
-# FlyApi::ApiMachineRestart
+# FlySDK::ApiMachineRestart
 
 ## Properties
 
@@ -10,9 +10,9 @@
 ## Example
 
 ```ruby
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-instance = FlyApi::ApiMachineRestart.new(
+instance = FlySDK::ApiMachineRestart.new(
   max_retries: null,
   policy: null
 )

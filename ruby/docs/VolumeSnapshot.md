@@ -1,4 +1,4 @@
-# FlyApi::VolumeSnapshot
+# FlySDK::VolumeSnapshot
 
 ## Properties
 
@@ -12,9 +12,9 @@
 ## Example
 
 ```ruby
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-instance = FlyApi::VolumeSnapshot.new(
+instance = FlySDK::VolumeSnapshot.new(
   created_at: null,
   digest: null,
   id: null,

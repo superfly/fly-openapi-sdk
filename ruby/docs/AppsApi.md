@@ -1,4 +1,4 @@
-# FlyApi::AppsApi
+# FlySDK::AppsApi
 
 All URIs are relative to *https://api.machines.dev/v1*
 
@@ -20,15 +20,15 @@ All URIs are relative to *https://api.machines.dev/v1*
 
 ```ruby
 require 'time'
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-api_instance = FlyApi::AppsApi.new
-request = FlyApi::CreateAppRequest.new # CreateAppRequest | App body
+api_instance = FlySDK::AppsApi.new
+request = FlySDK::CreateAppRequest.new # CreateAppRequest | App body
 
 begin
   
   api_instance.apps_create(request)
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling AppsApi->apps_create: #{e}"
 end
 ```
@@ -46,7 +46,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling AppsApi->apps_create_with_http_info: #{e}"
 end
 ```
@@ -81,15 +81,15 @@ No authorization required
 
 ```ruby
 require 'time'
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-api_instance = FlyApi::AppsApi.new
+api_instance = FlySDK::AppsApi.new
 app_name = 'app_name_example' # String | Fly App Name
 
 begin
   
   api_instance.apps_delete(app_name)
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling AppsApi->apps_delete: #{e}"
 end
 ```
@@ -107,7 +107,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling AppsApi->apps_delete_with_http_info: #{e}"
 end
 ```
@@ -142,9 +142,9 @@ No authorization required
 
 ```ruby
 require 'time'
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-api_instance = FlyApi::AppsApi.new
+api_instance = FlySDK::AppsApi.new
 opts = {
   org_slug: 'org_slug_example' # String | The org slug, or 'personal', to filter apps
 }
@@ -153,7 +153,7 @@ begin
   
   result = api_instance.apps_list(opts)
   p result
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling AppsApi->apps_list: #{e}"
 end
 ```
@@ -171,7 +171,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <ListAppsResponse>
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling AppsApi->apps_list_with_http_info: #{e}"
 end
 ```
@@ -206,16 +206,16 @@ No authorization required
 
 ```ruby
 require 'time'
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-api_instance = FlyApi::AppsApi.new
+api_instance = FlySDK::AppsApi.new
 app_name = 'app_name_example' # String | Fly App Name
 
 begin
   
   result = api_instance.apps_show(app_name)
   p result
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling AppsApi->apps_show: #{e}"
 end
 ```
@@ -233,7 +233,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <App>
-rescue FlyApi::ApiError => e
+rescue FlySDK::ApiError => e
   puts "Error when calling AppsApi->apps_show_with_http_info: #{e}"
 end
 ```

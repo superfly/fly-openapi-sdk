@@ -1,4 +1,4 @@
-# FlyApi::ListenSocket
+# FlySDK::ListenSocket
 
 ## Properties
 
@@ -10,9 +10,9 @@
 ## Example
 
 ```ruby
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-instance = FlyApi::ListenSocket.new(
+instance = FlySDK::ListenSocket.new(
   address: null,
   proto: null
 )

@@ -1,4 +1,4 @@
-# FlyApi::ApiMachineMount
+# FlySDK::ApiMachineMount
 
 ## Properties
 
@@ -13,9 +13,9 @@
 ## Example
 
 ```ruby
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-instance = FlyApi::ApiMachineMount.new(
+instance = FlySDK::ApiMachineMount.new(
   encrypted: null,
   name: null,
   path: null,

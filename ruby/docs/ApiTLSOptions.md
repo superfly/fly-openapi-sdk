@@ -1,4 +1,4 @@
-# FlyApi::ApiTLSOptions
+# FlySDK::ApiTLSOptions
 
 ## Properties
 
@@ -11,9 +11,9 @@
 ## Example
 
 ```ruby
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-instance = FlyApi::ApiTLSOptions.new(
+instance = FlySDK::ApiTLSOptions.new(
   alpn: null,
   default_self_signed: null,
   versions: null

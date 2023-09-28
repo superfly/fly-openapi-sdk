@@ -1,4 +1,4 @@
-# FlyApi::MainStatusCode
+# FlySDK::MainStatusCode
 
 ## Properties
 
@@ -8,8 +8,8 @@
 ## Example
 
 ```ruby
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-instance = FlyApi::MainStatusCode.new()
+instance = FlySDK::MainStatusCode.new()
 ```
 

@@ -1,4 +1,4 @@
-# FlyApi::ApiMachineMetrics
+# FlySDK::ApiMachineMetrics
 
 ## Properties
 
@@ -10,9 +10,9 @@
 ## Example
 
 ```ruby
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-instance = FlyApi::ApiMachineMetrics.new(
+instance = FlySDK::ApiMachineMetrics.new(
   path: null,
   port: null
 )

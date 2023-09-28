@@ -1,4 +1,4 @@
-# FlyApi::ApiStatic
+# FlySDK::ApiStatic
 
 ## Properties
 
@@ -10,9 +10,9 @@
 ## Example
 
 ```ruby
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-instance = FlyApi::ApiStatic.new(
+instance = FlySDK::ApiStatic.new(
   guest_path: null,
   url_prefix: null
 )

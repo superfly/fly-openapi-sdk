@@ -1,4 +1,4 @@
-# FlyApi::MachineExecRequest
+# FlySDK::MachineExecRequest
 
 ## Properties
 
@@ -11,9 +11,9 @@
 ## Example
 
 ```ruby
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-instance = FlyApi::MachineExecRequest.new(
+instance = FlySDK::MachineExecRequest.new(
   cmd: null,
   command: null,
   timeout: null

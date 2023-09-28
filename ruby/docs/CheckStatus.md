@@ -1,4 +1,4 @@
-# FlyApi::CheckStatus
+# FlySDK::CheckStatus
 
 ## Properties
 
@@ -12,9 +12,9 @@
 ## Example
 
 ```ruby
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-instance = FlyApi::CheckStatus.new(
+instance = FlySDK::CheckStatus.new(
   name: null,
   output: null,
   status: null,

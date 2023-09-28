@@ -1,4 +1,4 @@
-# FlyApi::ExtendVolumeResponse
+# FlySDK::ExtendVolumeResponse
 
 ## Properties
 
@@ -10,9 +10,9 @@
 ## Example
 
 ```ruby
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-instance = FlyApi::ExtendVolumeResponse.new(
+instance = FlySDK::ExtendVolumeResponse.new(
   needs_restart: null,
   volume: null
 )

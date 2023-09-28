@@ -1,4 +1,4 @@
-# FlyApi::ApiMachineServiceConcurrency
+# FlySDK::ApiMachineServiceConcurrency
 
 ## Properties
 
@@ -11,9 +11,9 @@
 ## Example
 
 ```ruby
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-instance = FlyApi::ApiMachineServiceConcurrency.new(
+instance = FlySDK::ApiMachineServiceConcurrency.new(
   hard_limit: null,
   soft_limit: null,
   type: null

@@ -1,4 +1,4 @@
-# FlyApi::ApiMachineHTTPHeader
+# FlySDK::ApiMachineHTTPHeader
 
 ## Properties
 
@@ -10,9 +10,9 @@
 ## Example
 
 ```ruby
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-instance = FlyApi::ApiMachineHTTPHeader.new(
+instance = FlySDK::ApiMachineHTTPHeader.new(
   name: null,
   values: null
 )

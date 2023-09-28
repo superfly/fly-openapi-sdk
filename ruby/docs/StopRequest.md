@@ -1,4 +1,4 @@
-# FlyApi::StopRequest
+# FlySDK::StopRequest
 
 ## Properties
 
@@ -10,9 +10,9 @@
 ## Example
 
 ```ruby
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-instance = FlyApi::StopRequest.new(
+instance = FlySDK::StopRequest.new(
   signal: null,
   timeout: null
 )

@@ -12,14 +12,14 @@ OpenAPI Generator version: 7.1.0-SNAPSHOT
 
 require 'spec_helper'
 
-describe FlyApi::Configuration do
-  let(:config) { FlyApi::Configuration.default }
+describe FlySDK::Configuration do
+  let(:config) { FlySDK::Configuration.default }
 
   before(:each) do
     # uncomment below to setup host and base_path
     # require 'URI'
     # uri = URI.parse("https://api.machines.dev/v1")
-    # FlyApi.configure do |c|
+    # FlySDK.configure do |c|
     #   c.host = uri.host
     #   c.base_path = uri.path
     # end

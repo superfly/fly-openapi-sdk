@@ -1,4 +1,4 @@
-# FlyApi::ApiDNSConfig
+# FlySDK::ApiDNSConfig
 
 ## Properties
 
@@ -9,9 +9,9 @@
 ## Example
 
 ```ruby
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-instance = FlyApi::ApiDNSConfig.new(
+instance = FlySDK::ApiDNSConfig.new(
   skip_registration: null
 )
 ```

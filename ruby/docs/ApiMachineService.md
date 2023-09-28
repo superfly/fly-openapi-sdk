@@ -1,4 +1,4 @@
-# FlyApi::ApiMachineService
+# FlySDK::ApiMachineService
 
 ## Properties
 
@@ -18,9 +18,9 @@
 ## Example
 
 ```ruby
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-instance = FlyApi::ApiMachineService.new(
+instance = FlySDK::ApiMachineService.new(
   autostart: null,
   autostop: null,
   checks: null,

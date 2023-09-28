@@ -1,4 +1,4 @@
-# FlyApi::CreateLeaseRequest
+# FlySDK::CreateLeaseRequest
 
 ## Properties
 
@@ -10,9 +10,9 @@
 ## Example
 
 ```ruby
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-instance = FlyApi::CreateLeaseRequest.new(
+instance = FlySDK::CreateLeaseRequest.new(
   description: null,
   ttl: null
 )

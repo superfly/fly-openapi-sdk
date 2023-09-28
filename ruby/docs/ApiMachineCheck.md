@@ -1,4 +1,4 @@
-# FlyApi::ApiMachineCheck
+# FlySDK::ApiMachineCheck
 
 ## Properties
 
@@ -19,9 +19,9 @@
 ## Example
 
 ```ruby
-require 'fly-api-ruby'
+require 'fly-sdk-ruby'
 
-instance = FlyApi::ApiMachineCheck.new(
+instance = FlySDK::ApiMachineCheck.new(
   grace_period: null,
   headers: null,
   interval: null,
