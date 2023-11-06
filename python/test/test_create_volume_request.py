@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from fly-sdk.models.create_volume_request import CreateVolumeRequest  # noqa: E501
+from fly-sdk.models.create_volume_request import CreateVolumeRequest
 
 class TestCreateVolumeRequest(unittest.TestCase):
     """CreateVolumeRequest unit test stubs"""
@@ -33,13 +33,14 @@ class TestCreateVolumeRequest(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `CreateVolumeRequest`
         """
-        model = CreateVolumeRequest()  # noqa: E501
+        model = CreateVolumeRequest()
         if include_optional:
             return CreateVolumeRequest(
                 compute = fly-sdk.models.api/machine_guest.api.MachineGuest(
                     cpu_kind = '', 
                     cpus = 56, 
                     gpu_kind = '', 
+                    host_dedication_id = '', 
                     kernel_args = [
                         ''
                         ], 
@@ -52,6 +53,7 @@ class TestCreateVolumeRequest(unittest.TestCase):
                 require_unique_zone = True,
                 size_gb = 56,
                 snapshot_id = '',
+                snapshot_retention = 56,
                 source_volume_id = ''
             )
         else:

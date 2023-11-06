@@ -14,14 +14,14 @@
 
 import unittest
 
-from fly-sdk.api.volumes_api import VolumesApi  # noqa: E501
+from fly-sdk.api.volumes_api import VolumesApi
 
 
 class TestVolumesApi(unittest.TestCase):
     """VolumesApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = VolumesApi()  # noqa: E501
+        self.api = VolumesApi()
 
     def tearDown(self) -> None:
         pass
@@ -58,6 +58,12 @@ class TestVolumesApi(unittest.TestCase):
 
     def test_volumes_list(self) -> None:
         """Test case for volumes_list
+
+        """
+        pass
+
+    def test_volumes_update(self) -> None:
+        """Test case for volumes_update
 
         """
         pass

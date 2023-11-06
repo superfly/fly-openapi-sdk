@@ -22,7 +22,9 @@ describe FlySDK::MainStatusCode do
 
   describe 'test an instance of MainStatusCode' do
     it 'should create an instance of MainStatusCode' do
-      expect(instance).to be_instance_of(FlySDK::MainStatusCode)
+      # uncomment below to test the instance creation
+      #expect(instance).to be_instance_of(FlySDK::MainStatusCode)
     end
   end
+
 end

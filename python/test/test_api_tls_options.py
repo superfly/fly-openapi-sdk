@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from fly-sdk.models.api_tls_options import ApiTLSOptions  # noqa: E501
+from fly-sdk.models.api_tls_options import ApiTLSOptions
 
 class TestApiTLSOptions(unittest.TestCase):
     """ApiTLSOptions unit test stubs"""
@@ -33,7 +33,7 @@ class TestApiTLSOptions(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `ApiTLSOptions`
         """
-        model = ApiTLSOptions()  # noqa: E501
+        model = ApiTLSOptions()
         if include_optional:
             return ApiTLSOptions(
                 alpn = [

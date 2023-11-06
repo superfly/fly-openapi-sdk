@@ -22,9 +22,11 @@ describe FlySDK::MachineEvent do
 
   describe 'test an instance of MachineEvent' do
     it 'should create an instance of MachineEvent' do
-      expect(instance).to be_instance_of(FlySDK::MachineEvent)
+      # uncomment below to test the instance creation
+      #expect(instance).to be_instance_of(FlySDK::MachineEvent)
     end
   end
+
   describe 'test attribute "id"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

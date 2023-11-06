@@ -22,6 +22,7 @@ type ApiMachineGuest struct {
 	CpuKind *string `json:"cpu_kind,omitempty"`
 	Cpus *int32 `json:"cpus,omitempty"`
 	GpuKind *string `json:"gpu_kind,omitempty"`
+	HostDedicationId *string `json:"host_dedication_id,omitempty"`
 	KernelArgs []string `json:"kernel_args,omitempty"`
 	MemoryMb *int32 `json:"memory_mb,omitempty"`
 }
@@ -139,6 +140,38 @@ func (o *ApiMachineGuest) SetGpuKind(v string) {
 	o.GpuKind = &v
 }
 
+// GetHostDedicationId returns the HostDedicationId field value if set, zero value otherwise.
+func (o *ApiMachineGuest) GetHostDedicationId() string {
+	if o == nil || IsNil(o.HostDedicationId) {
+		var ret string
+		return ret
+	}
+	return *o.HostDedicationId
+}
+
+// GetHostDedicationIdOk returns a tuple with the HostDedicationId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ApiMachineGuest) GetHostDedicationIdOk() (*string, bool) {
+	if o == nil || IsNil(o.HostDedicationId) {
+		return nil, false
+	}
+	return o.HostDedicationId, true
+}
+
+// HasHostDedicationId returns a boolean if a field has been set.
+func (o *ApiMachineGuest) HasHostDedicationId() bool {
+	if o != nil && !IsNil(o.HostDedicationId) {
+		return true
+	}
+
+	return false
+}
+
+// SetHostDedicationId gets a reference to the given string and assigns it to the HostDedicationId field.
+func (o *ApiMachineGuest) SetHostDedicationId(v string) {
+	o.HostDedicationId = &v
+}
+
 // GetKernelArgs returns the KernelArgs field value if set, zero value otherwise.
 func (o *ApiMachineGuest) GetKernelArgs() []string {
 	if o == nil || IsNil(o.KernelArgs) {
@@ -221,6 +254,9 @@ func (o ApiMachineGuest) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.GpuKind) {
 		toSerialize["gpu_kind"] = o.GpuKind
+	}
+	if !IsNil(o.HostDedicationId) {
+		toSerialize["host_dedication_id"] = o.HostDedicationId
 	}
 	if !IsNil(o.KernelArgs) {
 		toSerialize["kernel_args"] = o.KernelArgs

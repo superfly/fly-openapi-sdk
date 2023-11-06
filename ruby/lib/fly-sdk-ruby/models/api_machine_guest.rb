@@ -21,6 +21,8 @@ module FlySDK
 
     attr_accessor :gpu_kind
 
+    attr_accessor :host_dedication_id
+
     attr_accessor :kernel_args
 
     attr_accessor :memory_mb
@@ -31,6 +33,7 @@ module FlySDK
         :'cpu_kind' => :'cpu_kind',
         :'cpus' => :'cpus',
         :'gpu_kind' => :'gpu_kind',
+        :'host_dedication_id' => :'host_dedication_id',
         :'kernel_args' => :'kernel_args',
         :'memory_mb' => :'memory_mb'
       }
@@ -47,6 +50,7 @@ module FlySDK
         :'cpu_kind' => :'String',
         :'cpus' => :'Integer',
         :'gpu_kind' => :'String',
+        :'host_dedication_id' => :'String',
         :'kernel_args' => :'Array<String>',
         :'memory_mb' => :'Integer'
       }
@@ -85,6 +89,10 @@ module FlySDK
         self.gpu_kind = attributes[:'gpu_kind']
       end
 
+      if attributes.key?(:'host_dedication_id')
+        self.host_dedication_id = attributes[:'host_dedication_id']
+      end
+
       if attributes.key?(:'kernel_args')
         if (value = attributes[:'kernel_args']).is_a?(Array)
           self.kernel_args = value
@@ -119,6 +127,7 @@ module FlySDK
           cpu_kind == o.cpu_kind &&
           cpus == o.cpus &&
           gpu_kind == o.gpu_kind &&
+          host_dedication_id == o.host_dedication_id &&
           kernel_args == o.kernel_args &&
           memory_mb == o.memory_mb
     end
@@ -132,7 +141,7 @@ module FlySDK
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [cpu_kind, cpus, gpu_kind, kernel_args, memory_mb].hash
+      [cpu_kind, cpus, gpu_kind, host_dedication_id, kernel_args, memory_mb].hash
     end
 
     # Builds the object from hash
@@ -197,7 +206,7 @@ module FlySDK
       else # model
         # models (e.g. Pet) or oneOf
         klass = FlySDK.const_get(type)
-        klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+        klass.respond_to?(:openapi_any_of) || klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
       end
     end
 

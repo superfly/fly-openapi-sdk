@@ -54,6 +54,7 @@ docs/ProcessStat.md
 docs/SignalRequest.md
 docs/StopRequest.md
 docs/UpdateMachineRequest.md
+docs/UpdateVolumeRequest.md
 docs/Volume.md
 docs/VolumeSnapshot.md
 docs/VolumesAPI.md
@@ -104,6 +105,7 @@ model_process_stat.go
 model_signal_request.go
 model_stop_request.go
 model_update_machine_request.go
+model_update_volume_request.go
 model_volume.go
 model_volume_snapshot.go
 response.go

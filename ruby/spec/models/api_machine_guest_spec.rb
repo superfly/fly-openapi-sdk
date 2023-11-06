@@ -22,9 +22,11 @@ describe FlySDK::ApiMachineGuest do
 
   describe 'test an instance of ApiMachineGuest' do
     it 'should create an instance of ApiMachineGuest' do
-      expect(instance).to be_instance_of(FlySDK::ApiMachineGuest)
+      # uncomment below to test the instance creation
+      #expect(instance).to be_instance_of(FlySDK::ApiMachineGuest)
     end
   end
+
   describe 'test attribute "cpu_kind"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -38,6 +40,12 @@ describe FlySDK::ApiMachineGuest do
   end
 
   describe 'test attribute "gpu_kind"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "host_dedication_id"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

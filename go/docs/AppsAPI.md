@@ -158,7 +158,7 @@ import (
 )
 
 func main() {
-    orgSlug := "orgSlug_example" // string | The org slug, or 'personal', to filter apps (optional)
+    orgSlug := "orgSlug_example" // string | The org slug, or 'personal', to filter apps
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

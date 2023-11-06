@@ -14,14 +14,14 @@
 
 import unittest
 
-from fly-sdk.api.machines_api import MachinesApi  # noqa: E501
+from fly-sdk.api.machines_api import MachinesApi
 
 
 class TestMachinesApi(unittest.TestCase):
     """MachinesApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = MachinesApi()  # noqa: E501
+        self.api = MachinesApi()
 
     def tearDown(self) -> None:
         pass

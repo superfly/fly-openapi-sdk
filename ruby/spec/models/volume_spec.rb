@@ -22,9 +22,11 @@ describe FlySDK::Volume do
 
   describe 'test an instance of Volume' do
     it 'should create an instance of Volume' do
-      expect(instance).to be_instance_of(FlySDK::Volume)
+      # uncomment below to test the instance creation
+      #expect(instance).to be_instance_of(FlySDK::Volume)
     end
   end
+
   describe 'test attribute "attached_alloc_id"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -98,6 +100,12 @@ describe FlySDK::Volume do
   end
 
   describe 'test attribute "size_gb"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "snapshot_retention"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

@@ -18,27 +18,32 @@ import re  # noqa: F401
 import json
 
 
-from typing import Optional
+from typing import Any, ClassVar, Dict, List, Optional
 from pydantic import BaseModel, StrictStr
 from pydantic import Field
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class ApiFile(BaseModel):
     """
     ApiFile
-    """
+    """ # noqa: E501
     guest_path: Optional[StrictStr] = Field(default=None, description="GuestPath is the path on the machine where the file will be written and must be an absolute path. i.e. /full/path/to/file.json")
     raw_value: Optional[StrictStr] = Field(default=None, description="RawValue containts the base64 encoded string of the file contents.")
     secret_name: Optional[StrictStr] = Field(default=None, description="SecretName is the name of the secret that contains the base64 encoded file contents.")
-    __properties = ["guest_path", "raw_value", "secret_name"]
+    __properties: ClassVar[List[str]] = ["guest_path", "raw_value", "secret_name"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
@@ -46,28 +51,38 @@ class ApiFile(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> ApiFile:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of ApiFile from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> ApiFile:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of ApiFile from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return ApiFile.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = ApiFile.parse_obj({
+        _obj = cls.model_validate({
             "guest_path": obj.get("guest_path"),
             "raw_value": obj.get("raw_value"),
             "secret_name": obj.get("secret_name")

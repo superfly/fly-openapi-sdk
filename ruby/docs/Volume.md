@@ -17,6 +17,7 @@
 | **name** | **String** |  | [optional] |
 | **region** | **String** |  | [optional] |
 | **size_gb** | **Integer** |  | [optional] |
+| **snapshot_retention** | **Integer** |  | [optional] |
 | **state** | **String** |  | [optional] |
 | **zone** | **String** |  | [optional] |
 
@@ -39,6 +40,7 @@ instance = FlySDK::Volume.new(
   name: null,
   region: null,
   size_gb: null,
+  snapshot_retention: null,
   state: null,
   zone: null
 )

@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **CpuKind** | Pointer to **string** |  | [optional] 
 **Cpus** | Pointer to **int32** |  | [optional] 
 **GpuKind** | Pointer to **string** |  | [optional] 
+**HostDedicationId** | Pointer to **string** |  | [optional] 
 **KernelArgs** | Pointer to **[]string** |  | [optional] 
 **MemoryMb** | Pointer to **int32** |  | [optional] 
 
@@ -103,6 +104,31 @@ SetGpuKind sets GpuKind field to given value.
 `func (o *ApiMachineGuest) HasGpuKind() bool`
 
 HasGpuKind returns a boolean if a field has been set.
+
+### GetHostDedicationId
+
+`func (o *ApiMachineGuest) GetHostDedicationId() string`
+
+GetHostDedicationId returns the HostDedicationId field if non-nil, zero value otherwise.
+
+### GetHostDedicationIdOk
+
+`func (o *ApiMachineGuest) GetHostDedicationIdOk() (*string, bool)`
+
+GetHostDedicationIdOk returns a tuple with the HostDedicationId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHostDedicationId
+
+`func (o *ApiMachineGuest) SetHostDedicationId(v string)`
+
+SetHostDedicationId sets HostDedicationId field to given value.
+
+### HasHostDedicationId
+
+`func (o *ApiMachineGuest) HasHostDedicationId() bool`
+
+HasHostDedicationId returns a boolean if a field has been set.
 
 ### GetKernelArgs
 

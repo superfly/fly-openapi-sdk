@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from fly-sdk.models.api_machine_init import ApiMachineInit  # noqa: E501
+from fly-sdk.models.api_machine_init import ApiMachineInit
 
 class TestApiMachineInit(unittest.TestCase):
     """ApiMachineInit unit test stubs"""
@@ -33,7 +33,7 @@ class TestApiMachineInit(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `ApiMachineInit`
         """
-        model = ApiMachineInit()  # noqa: E501
+        model = ApiMachineInit()
         if include_optional:
             return ApiMachineInit(
                 cmd = [

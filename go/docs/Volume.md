@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **Name** | Pointer to **string** |  | [optional] 
 **Region** | Pointer to **string** |  | [optional] 
 **SizeGb** | Pointer to **int32** |  | [optional] 
+**SnapshotRetention** | Pointer to **int32** |  | [optional] 
 **State** | Pointer to **string** |  | [optional] 
 **Zone** | Pointer to **string** |  | [optional] 
 
@@ -363,6 +364,31 @@ SetSizeGb sets SizeGb field to given value.
 `func (o *Volume) HasSizeGb() bool`
 
 HasSizeGb returns a boolean if a field has been set.
+
+### GetSnapshotRetention
+
+`func (o *Volume) GetSnapshotRetention() int32`
+
+GetSnapshotRetention returns the SnapshotRetention field if non-nil, zero value otherwise.
+
+### GetSnapshotRetentionOk
+
+`func (o *Volume) GetSnapshotRetentionOk() (*int32, bool)`
+
+GetSnapshotRetentionOk returns a tuple with the SnapshotRetention field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSnapshotRetention
+
+`func (o *Volume) SetSnapshotRetention(v int32)`
+
+SetSnapshotRetention sets SnapshotRetention field to given value.
+
+### HasSnapshotRetention
+
+`func (o *Volume) HasSnapshotRetention() bool`
+
+HasSnapshotRetention returns a boolean if a field has been set.
 
 ### GetState
 

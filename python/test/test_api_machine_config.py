@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from fly-sdk.models.api_machine_config import ApiMachineConfig  # noqa: E501
+from fly-sdk.models.api_machine_config import ApiMachineConfig
 
 class TestApiMachineConfig(unittest.TestCase):
     """ApiMachineConfig unit test stubs"""
@@ -33,7 +33,7 @@ class TestApiMachineConfig(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `ApiMachineConfig`
         """
-        model = ApiMachineConfig()  # noqa: E501
+        model = ApiMachineConfig()
         if include_optional:
             return ApiMachineConfig(
                 auto_destroy = True,
@@ -73,11 +73,11 @@ class TestApiMachineConfig(unittest.TestCase):
                     cpu_kind = '', 
                     cpus = 56, 
                     gpu_kind = '', 
+                    host_dedication_id = '', 
                     kernel_args = [
                         ''
                         ], 
                     memory_mb = 56, ),
-                host_dedication_id = '',
                 image = '',
                 init = fly-sdk.models.api/machine_init.api.MachineInit(
                     cmd = [

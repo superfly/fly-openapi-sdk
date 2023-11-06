@@ -22,9 +22,11 @@ describe FlySDK::ApiMachineRestart do
 
   describe 'test an instance of ApiMachineRestart' do
     it 'should create an instance of ApiMachineRestart' do
-      expect(instance).to be_instance_of(FlySDK::ApiMachineRestart)
+      # uncomment below to test the instance creation
+      #expect(instance).to be_instance_of(FlySDK::ApiMachineRestart)
     end
   end
+
   describe 'test attribute "max_retries"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

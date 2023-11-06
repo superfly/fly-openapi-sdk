@@ -77,5 +77,6 @@ from fly-sdk.models.process_stat import ProcessStat
 from fly-sdk.models.signal_request import SignalRequest
 from fly-sdk.models.stop_request import StopRequest
 from fly-sdk.models.update_machine_request import UpdateMachineRequest
+from fly-sdk.models.update_volume_request import UpdateVolumeRequest
 from fly-sdk.models.volume import Volume
 from fly-sdk.models.volume_snapshot import VolumeSnapshot

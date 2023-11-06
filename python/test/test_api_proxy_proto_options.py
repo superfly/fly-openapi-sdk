@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from fly-sdk.models.api_proxy_proto_options import ApiProxyProtoOptions  # noqa: E501
+from fly-sdk.models.api_proxy_proto_options import ApiProxyProtoOptions
 
 class TestApiProxyProtoOptions(unittest.TestCase):
     """ApiProxyProtoOptions unit test stubs"""
@@ -33,7 +33,7 @@ class TestApiProxyProtoOptions(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `ApiProxyProtoOptions`
         """
-        model = ApiProxyProtoOptions()  # noqa: E501
+        model = ApiProxyProtoOptions()
         if include_optional:
             return ApiProxyProtoOptions(
                 version = ''

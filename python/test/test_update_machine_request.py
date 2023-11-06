@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from fly-sdk.models.update_machine_request import UpdateMachineRequest  # noqa: E501
+from fly-sdk.models.update_machine_request import UpdateMachineRequest
 
 class TestUpdateMachineRequest(unittest.TestCase):
     """UpdateMachineRequest unit test stubs"""
@@ -33,7 +33,7 @@ class TestUpdateMachineRequest(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `UpdateMachineRequest`
         """
-        model = UpdateMachineRequest()  # noqa: E501
+        model = UpdateMachineRequest()
         if include_optional:
             return UpdateMachineRequest(
                 config = fly-sdk.models.api/machine_config.api.MachineConfig(
@@ -74,11 +74,11 @@ class TestUpdateMachineRequest(unittest.TestCase):
                         cpu_kind = '', 
                         cpus = 56, 
                         gpu_kind = '', 
+                        host_dedication_id = '', 
                         kernel_args = [
                             ''
                             ], 
                         memory_mb = 56, ), 
-                    host_dedication_id = '', 
                     image = '', 
                     init = fly-sdk.models.api/machine_init.api.MachineInit(
                         cmd = [

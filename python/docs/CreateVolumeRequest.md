@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **require_unique_zone** | **bool** |  | [optional] 
 **size_gb** | **int** |  | [optional] 
 **snapshot_id** | **str** | restore from snapshot | [optional] 
+**snapshot_retention** | **int** |  | [optional] 
 **source_volume_id** | **str** | fork from remote volume | [optional] 
 
 ## Example

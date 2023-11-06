@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **name** | **str** |  | [optional] 
 **region** | **str** |  | [optional] 
 **size_gb** | **int** |  | [optional] 
+**snapshot_retention** | **int** |  | [optional] 
 **state** | **str** |  | [optional] 
 **zone** | **str** |  | [optional] 
 

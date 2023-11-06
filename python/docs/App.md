@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **str** |  | [optional] 
 **name** | **str** |  | [optional] 
 **organization** | [**Organization**](Organization.md) |  | [optional] 
 **status** | **str** |  | [optional] 

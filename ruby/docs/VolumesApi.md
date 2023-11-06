@@ -10,6 +10,7 @@ All URIs are relative to *https://api.machines.dev/v1*
 | [**volumes_get_by_id**](VolumesApi.md#volumes_get_by_id) | **GET** /apps/{app_name}/volumes/{volume_id} |  |
 | [**volumes_get_snapshots**](VolumesApi.md#volumes_get_snapshots) | **GET** /apps/{app_name}/volumes/{volume_id}/snapshots |  |
 | [**volumes_list**](VolumesApi.md#volumes_list) | **GET** /apps/{app_name}/volumes |  |
+| [**volumes_update**](VolumesApi.md#volumes_update) | **POST** /apps/{app_name}/volumes/{volume_id} |  |
 
 
 ## volume_delete
@@ -393,5 +394,71 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## volumes_update
+
+> <Volume> volumes_update(app_name, volume_id, request)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'fly-sdk-ruby'
+
+api_instance = FlySDK::VolumesApi.new
+app_name = 'app_name_example' # String | Fly App Name
+volume_id = 'volume_id_example' # String | Volume ID
+request = FlySDK::UpdateVolumeRequest.new # UpdateVolumeRequest | Request body
+
+begin
+  
+  result = api_instance.volumes_update(app_name, volume_id, request)
+  p result
+rescue FlySDK::ApiError => e
+  puts "Error when calling VolumesApi->volumes_update: #{e}"
+end
+```
+
+#### Using the volumes_update_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Volume>, Integer, Hash)> volumes_update_with_http_info(app_name, volume_id, request)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.volumes_update_with_http_info(app_name, volume_id, request)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Volume>
+rescue FlySDK::ApiError => e
+  puts "Error when calling VolumesApi->volumes_update_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **app_name** | **String** | Fly App Name |  |
+| **volume_id** | **String** | Volume ID |  |
+| **request** | [**UpdateVolumeRequest**](UpdateVolumeRequest.md) | Request body |  |
+
+### Return type
+
+[**Volume**](Volume.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 

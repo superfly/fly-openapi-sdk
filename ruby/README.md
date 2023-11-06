@@ -105,6 +105,7 @@ Class | Method | HTTP request | Description
 *FlySDK::VolumesApi* | [**volumes_get_by_id**](docs/VolumesApi.md#volumes_get_by_id) | **GET** /apps/{app_name}/volumes/{volume_id} | 
 *FlySDK::VolumesApi* | [**volumes_get_snapshots**](docs/VolumesApi.md#volumes_get_snapshots) | **GET** /apps/{app_name}/volumes/{volume_id}/snapshots | 
 *FlySDK::VolumesApi* | [**volumes_list**](docs/VolumesApi.md#volumes_list) | **GET** /apps/{app_name}/volumes | 
+*FlySDK::VolumesApi* | [**volumes_update**](docs/VolumesApi.md#volumes_update) | **POST** /apps/{app_name}/volumes/{volume_id} | 
 
 
 ## Documentation for Models
@@ -153,6 +154,7 @@ Class | Method | HTTP request | Description
  - [FlySDK::SignalRequest](docs/SignalRequest.md)
  - [FlySDK::StopRequest](docs/StopRequest.md)
  - [FlySDK::UpdateMachineRequest](docs/UpdateMachineRequest.md)
+ - [FlySDK::UpdateVolumeRequest](docs/UpdateVolumeRequest.md)
  - [FlySDK::Volume](docs/Volume.md)
  - [FlySDK::VolumeSnapshot](docs/VolumeSnapshot.md)
 

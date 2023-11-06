@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from fly-sdk.models.machine_version import MachineVersion  # noqa: E501
+from fly-sdk.models.machine_version import MachineVersion
 
 class TestMachineVersion(unittest.TestCase):
     """MachineVersion unit test stubs"""
@@ -33,7 +33,7 @@ class TestMachineVersion(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `MachineVersion`
         """
-        model = MachineVersion()  # noqa: E501
+        model = MachineVersion()
         if include_optional:
             return MachineVersion(
                 user_config = fly-sdk.models.api/machine_config.api.MachineConfig(
@@ -74,11 +74,11 @@ class TestMachineVersion(unittest.TestCase):
                         cpu_kind = '', 
                         cpus = 56, 
                         gpu_kind = '', 
+                        host_dedication_id = '', 
                         kernel_args = [
                             ''
                             ], 
                         memory_mb = 56, ), 
-                    host_dedication_id = '', 
                     image = '', 
                     init = fly-sdk.models.api/machine_init.api.MachineInit(
                         cmd = [

@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from fly-sdk.models.create_machine_request import CreateMachineRequest  # noqa: E501
+from fly-sdk.models.create_machine_request import CreateMachineRequest
 
 class TestCreateMachineRequest(unittest.TestCase):
     """CreateMachineRequest unit test stubs"""
@@ -33,7 +33,7 @@ class TestCreateMachineRequest(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `CreateMachineRequest`
         """
-        model = CreateMachineRequest()  # noqa: E501
+        model = CreateMachineRequest()
         if include_optional:
             return CreateMachineRequest(
                 config = fly-sdk.models.api/machine_config.api.MachineConfig(
@@ -74,11 +74,11 @@ class TestCreateMachineRequest(unittest.TestCase):
                         cpu_kind = '', 
                         cpus = 56, 
                         gpu_kind = '', 
+                        host_dedication_id = '', 
                         kernel_args = [
                             ''
                             ], 
                         memory_mb = 56, ), 
-                    host_dedication_id = '', 
                     image = '', 
                     init = fly-sdk.models.api/machine_init.api.MachineInit(
                         cmd = [

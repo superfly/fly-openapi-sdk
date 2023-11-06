@@ -32,6 +32,7 @@ type Volume struct {
 	Name *string `json:"name,omitempty"`
 	Region *string `json:"region,omitempty"`
 	SizeGb *int32 `json:"size_gb,omitempty"`
+	SnapshotRetention *int32 `json:"snapshot_retention,omitempty"`
 	State *string `json:"state,omitempty"`
 	Zone *string `json:"zone,omitempty"`
 }
@@ -469,6 +470,38 @@ func (o *Volume) SetSizeGb(v int32) {
 	o.SizeGb = &v
 }
 
+// GetSnapshotRetention returns the SnapshotRetention field value if set, zero value otherwise.
+func (o *Volume) GetSnapshotRetention() int32 {
+	if o == nil || IsNil(o.SnapshotRetention) {
+		var ret int32
+		return ret
+	}
+	return *o.SnapshotRetention
+}
+
+// GetSnapshotRetentionOk returns a tuple with the SnapshotRetention field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Volume) GetSnapshotRetentionOk() (*int32, bool) {
+	if o == nil || IsNil(o.SnapshotRetention) {
+		return nil, false
+	}
+	return o.SnapshotRetention, true
+}
+
+// HasSnapshotRetention returns a boolean if a field has been set.
+func (o *Volume) HasSnapshotRetention() bool {
+	if o != nil && !IsNil(o.SnapshotRetention) {
+		return true
+	}
+
+	return false
+}
+
+// SetSnapshotRetention gets a reference to the given int32 and assigns it to the SnapshotRetention field.
+func (o *Volume) SetSnapshotRetention(v int32) {
+	o.SnapshotRetention = &v
+}
+
 // GetState returns the State field value if set, zero value otherwise.
 func (o *Volume) GetState() string {
 	if o == nil || IsNil(o.State) {
@@ -581,6 +614,9 @@ func (o Volume) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.SizeGb) {
 		toSerialize["size_gb"] = o.SizeGb
+	}
+	if !IsNil(o.SnapshotRetention) {
+		toSerialize["snapshot_retention"] = o.SnapshotRetention
 	}
 	if !IsNil(o.State) {
 		toSerialize["state"] = o.State

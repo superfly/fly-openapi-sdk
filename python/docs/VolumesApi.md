@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**volumes_get_by_id**](VolumesApi.md#volumes_get_by_id) | **GET** /apps/{app_name}/volumes/{volume_id} | 
 [**volumes_get_snapshots**](VolumesApi.md#volumes_get_snapshots) | **GET** /apps/{app_name}/volumes/{volume_id}/snapshots | 
 [**volumes_list**](VolumesApi.md#volumes_list) | **GET** /apps/{app_name}/volumes | 
+[**volumes_update**](VolumesApi.md#volumes_update) | **POST** /apps/{app_name}/volumes/{volume_id} | 
 
 
 # **volume_delete**
@@ -407,6 +408,76 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **volumes_update**
+> Volume volumes_update(app_name, volume_id, request)
+
+
+
+### Example
+
+```python
+import time
+import os
+import fly-sdk
+from fly-sdk.models.update_volume_request import UpdateVolumeRequest
+from fly-sdk.models.volume import Volume
+from fly-sdk.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.machines.dev/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = fly-sdk.Configuration(
+    host = "https://api.machines.dev/v1"
+)
+
+
+# Enter a context with an instance of the API client
+with fly-sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = fly-sdk.VolumesApi(api_client)
+    app_name = 'app_name_example' # str | Fly App Name
+    volume_id = 'volume_id_example' # str | Volume ID
+    request = fly-sdk.UpdateVolumeRequest() # UpdateVolumeRequest | Request body
+
+    try:
+        api_response = api_instance.volumes_update(app_name, volume_id, request)
+        print("The response of VolumesApi->volumes_update:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling VolumesApi->volumes_update: %s\n" % e)
+```
+
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **app_name** | **str**| Fly App Name | 
+ **volume_id** | **str**| Volume ID | 
+ **request** | [**UpdateVolumeRequest**](UpdateVolumeRequest.md)| Request body | 
+
+### Return type
+
+[**Volume**](Volume.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad Request |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

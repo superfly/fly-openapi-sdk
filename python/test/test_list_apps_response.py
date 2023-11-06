@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from fly-sdk.models.list_apps_response import ListAppsResponse  # noqa: E501
+from fly-sdk.models.list_apps_response import ListAppsResponse
 
 class TestListAppsResponse(unittest.TestCase):
     """ListAppsResponse unit test stubs"""
@@ -33,11 +33,12 @@ class TestListAppsResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `ListAppsResponse`
         """
-        model = ListAppsResponse()  # noqa: E501
+        model = ListAppsResponse()
         if include_optional:
             return ListAppsResponse(
                 apps = [
                     fly-sdk.models.list_app.ListApp(
+                        id = '', 
                         machine_count = 56, 
                         name = '', 
                         network = fly-sdk.models.network.network(), )

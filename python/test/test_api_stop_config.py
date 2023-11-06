@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from fly-sdk.models.api_stop_config import ApiStopConfig  # noqa: E501
+from fly-sdk.models.api_stop_config import ApiStopConfig
 
 class TestApiStopConfig(unittest.TestCase):
     """ApiStopConfig unit test stubs"""
@@ -33,7 +33,7 @@ class TestApiStopConfig(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `ApiStopConfig`
         """
-        model = ApiStopConfig()  # noqa: E501
+        model = ApiStopConfig()
         if include_optional:
             return ApiStopConfig(
                 signal = '',

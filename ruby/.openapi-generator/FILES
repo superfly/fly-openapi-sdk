@@ -53,6 +53,7 @@ docs/ProcessStat.md
 docs/SignalRequest.md
 docs/StopRequest.md
 docs/UpdateMachineRequest.md
+docs/UpdateVolumeRequest.md
 docs/Volume.md
 docs/VolumeSnapshot.md
 docs/VolumesApi.md
@@ -109,6 +110,7 @@ lib/fly-sdk-ruby/models/process_stat.rb
 lib/fly-sdk-ruby/models/signal_request.rb
 lib/fly-sdk-ruby/models/stop_request.rb
 lib/fly-sdk-ruby/models/update_machine_request.rb
+lib/fly-sdk-ruby/models/update_volume_request.rb
 lib/fly-sdk-ruby/models/volume.rb
 lib/fly-sdk-ruby/models/volume_snapshot.rb
 lib/fly-sdk-ruby/version.rb
@@ -161,6 +163,7 @@ spec/models/process_stat_spec.rb
 spec/models/signal_request_spec.rb
 spec/models/stop_request_spec.rb
 spec/models/update_machine_request_spec.rb
+spec/models/update_volume_request_spec.rb
 spec/models/volume_snapshot_spec.rb
 spec/models/volume_spec.rb
 spec/spec_helper.rb

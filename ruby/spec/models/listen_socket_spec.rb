@@ -22,9 +22,11 @@ describe FlySDK::ListenSocket do
 
   describe 'test an instance of ListenSocket' do
     it 'should create an instance of ListenSocket' do
-      expect(instance).to be_instance_of(FlySDK::ListenSocket)
+      # uncomment below to test the instance creation
+      #expect(instance).to be_instance_of(FlySDK::ListenSocket)
     end
   end
+
   describe 'test attribute "address"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

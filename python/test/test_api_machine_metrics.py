@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from fly-sdk.models.api_machine_metrics import ApiMachineMetrics  # noqa: E501
+from fly-sdk.models.api_machine_metrics import ApiMachineMetrics
 
 class TestApiMachineMetrics(unittest.TestCase):
     """ApiMachineMetrics unit test stubs"""
@@ -33,7 +33,7 @@ class TestApiMachineMetrics(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `ApiMachineMetrics`
         """
-        model = ApiMachineMetrics()  # noqa: E501
+        model = ApiMachineMetrics()
         if include_optional:
             return ApiMachineMetrics(
                 path = '',

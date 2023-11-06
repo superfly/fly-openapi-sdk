@@ -15,6 +15,8 @@ require 'time'
 
 module FlySDK
   class ListApp
+    attr_accessor :id
+
     attr_accessor :machine_count
 
     attr_accessor :name
@@ -24,6 +26,7 @@ module FlySDK
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'id' => :'id',
         :'machine_count' => :'machine_count',
         :'name' => :'name',
         :'network' => :'network'
@@ -38,6 +41,7 @@ module FlySDK
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'id' => :'String',
         :'machine_count' => :'Integer',
         :'name' => :'String',
         :'network' => :'Object'
@@ -64,6 +68,10 @@ module FlySDK
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
+      end
 
       if attributes.key?(:'machine_count')
         self.machine_count = attributes[:'machine_count']
@@ -98,6 +106,7 @@ module FlySDK
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          id == o.id &&
           machine_count == o.machine_count &&
           name == o.name &&
           network == o.network
@@ -112,7 +121,7 @@ module FlySDK
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [machine_count, name, network].hash
+      [id, machine_count, name, network].hash
     end
 
     # Builds the object from hash
@@ -177,7 +186,7 @@ module FlySDK
       else # model
         # models (e.g. Pet) or oneOf
         klass = FlySDK.const_get(type)
-        klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+        klass.respond_to?(:openapi_any_of) || klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
       end
     end
 

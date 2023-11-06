@@ -22,9 +22,11 @@ describe FlySDK::ApiTLSOptions do
 
   describe 'test an instance of ApiTLSOptions' do
     it 'should create an instance of ApiTLSOptions' do
-      expect(instance).to be_instance_of(FlySDK::ApiTLSOptions)
+      # uncomment below to test the instance creation
+      #expect(instance).to be_instance_of(FlySDK::ApiTLSOptions)
     end
   end
+
   describe 'test attribute "alpn"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

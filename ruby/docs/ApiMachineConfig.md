@@ -11,7 +11,6 @@
 | **env** | **Hash&lt;String, String&gt;** | Fields managed from fly.toml If you add anything here, ensure appconfig.Config.ToMachine() is updated | [optional] |
 | **files** | [**Array&lt;ApiFile&gt;**](ApiFile.md) |  | [optional] |
 | **guest** | [**ApiMachineGuest**](ApiMachineGuest.md) |  | [optional] |
-| **host_dedication_id** | **String** |  | [optional] |
 | **image** | **String** | Set by fly deploy or fly machines commands | [optional] |
 | **init** | [**ApiMachineInit**](ApiMachineInit.md) |  | [optional] |
 | **metadata** | **Hash&lt;String, String&gt;** |  | [optional] |
@@ -39,7 +38,6 @@ instance = FlySDK::ApiMachineConfig.new(
   env: null,
   files: null,
   guest: null,
-  host_dedication_id: null,
   image: null,
   init: null,
   metadata: null,
