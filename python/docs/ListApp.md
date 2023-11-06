@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **str** |  | [optional] 
 **machine_count** | **int** |  | [optional] 
 **name** | **str** |  | [optional] 
 **network** | **object** |  | [optional] 

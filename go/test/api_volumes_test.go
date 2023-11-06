@@ -110,4 +110,19 @@ func Test_fly-sdk_VolumesAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test VolumesAPIService VolumesUpdate", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var appName string
+		var volumeId string
+
+		resp, httpRes, err := apiClient.VolumesAPI.VolumesUpdate(context.Background(), appName, volumeId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 }

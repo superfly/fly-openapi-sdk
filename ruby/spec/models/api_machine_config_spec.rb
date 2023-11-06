@@ -22,9 +22,11 @@ describe FlySDK::ApiMachineConfig do
 
   describe 'test an instance of ApiMachineConfig' do
     it 'should create an instance of ApiMachineConfig' do
-      expect(instance).to be_instance_of(FlySDK::ApiMachineConfig)
+      # uncomment below to test the instance creation
+      #expect(instance).to be_instance_of(FlySDK::ApiMachineConfig)
     end
   end
+
   describe 'test attribute "auto_destroy"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -62,12 +64,6 @@ describe FlySDK::ApiMachineConfig do
   end
 
   describe 'test attribute "guest"' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
-  describe 'test attribute "host_dedication_id"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

@@ -22,9 +22,11 @@ describe FlySDK::ApiHTTPResponseOptions do
 
   describe 'test an instance of ApiHTTPResponseOptions' do
     it 'should create an instance of ApiHTTPResponseOptions' do
-      expect(instance).to be_instance_of(FlySDK::ApiHTTPResponseOptions)
+      # uncomment below to test the instance creation
+      #expect(instance).to be_instance_of(FlySDK::ApiHTTPResponseOptions)
     end
   end
+
   describe 'test attribute "headers"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

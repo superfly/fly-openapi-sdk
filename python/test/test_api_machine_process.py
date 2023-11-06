@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from fly-sdk.models.api_machine_process import ApiMachineProcess  # noqa: E501
+from fly-sdk.models.api_machine_process import ApiMachineProcess
 
 class TestApiMachineProcess(unittest.TestCase):
     """ApiMachineProcess unit test stubs"""
@@ -33,7 +33,7 @@ class TestApiMachineProcess(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `ApiMachineProcess`
         """
-        model = ApiMachineProcess()  # noqa: E501
+        model = ApiMachineProcess()
         if include_optional:
             return ApiMachineProcess(
                 cmd = [

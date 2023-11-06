@@ -28,7 +28,6 @@ type ApiMachineConfig struct {
 	Env *map[string]string `json:"env,omitempty"`
 	Files []ApiFile `json:"files,omitempty"`
 	Guest *ApiMachineGuest `json:"guest,omitempty"`
-	HostDedicationId *string `json:"host_dedication_id,omitempty"`
 	// Set by fly deploy or fly machines commands
 	Image *string `json:"image,omitempty"`
 	Init *ApiMachineInit `json:"init,omitempty"`
@@ -287,38 +286,6 @@ func (o *ApiMachineConfig) HasGuest() bool {
 // SetGuest gets a reference to the given ApiMachineGuest and assigns it to the Guest field.
 func (o *ApiMachineConfig) SetGuest(v ApiMachineGuest) {
 	o.Guest = &v
-}
-
-// GetHostDedicationId returns the HostDedicationId field value if set, zero value otherwise.
-func (o *ApiMachineConfig) GetHostDedicationId() string {
-	if o == nil || IsNil(o.HostDedicationId) {
-		var ret string
-		return ret
-	}
-	return *o.HostDedicationId
-}
-
-// GetHostDedicationIdOk returns a tuple with the HostDedicationId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ApiMachineConfig) GetHostDedicationIdOk() (*string, bool) {
-	if o == nil || IsNil(o.HostDedicationId) {
-		return nil, false
-	}
-	return o.HostDedicationId, true
-}
-
-// HasHostDedicationId returns a boolean if a field has been set.
-func (o *ApiMachineConfig) HasHostDedicationId() bool {
-	if o != nil && !IsNil(o.HostDedicationId) {
-		return true
-	}
-
-	return false
-}
-
-// SetHostDedicationId gets a reference to the given string and assigns it to the HostDedicationId field.
-func (o *ApiMachineConfig) SetHostDedicationId(v string) {
-	o.HostDedicationId = &v
 }
 
 // GetImage returns the Image field value if set, zero value otherwise.
@@ -767,9 +734,6 @@ func (o ApiMachineConfig) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Guest) {
 		toSerialize["guest"] = o.Guest
-	}
-	if !IsNil(o.HostDedicationId) {
-		toSerialize["host_dedication_id"] = o.HostDedicationId
 	}
 	if !IsNil(o.Image) {
 		toSerialize["image"] = o.Image

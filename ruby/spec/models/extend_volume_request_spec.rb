@@ -22,9 +22,11 @@ describe FlySDK::ExtendVolumeRequest do
 
   describe 'test an instance of ExtendVolumeRequest' do
     it 'should create an instance of ExtendVolumeRequest' do
-      expect(instance).to be_instance_of(FlySDK::ExtendVolumeRequest)
+      # uncomment below to test the instance creation
+      #expect(instance).to be_instance_of(FlySDK::ExtendVolumeRequest)
     end
   end
+
   describe 'test attribute "size_gb"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

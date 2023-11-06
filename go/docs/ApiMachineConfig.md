@@ -11,7 +11,6 @@ Name | Type | Description | Notes
 **Env** | Pointer to **map[string]string** | Fields managed from fly.toml If you add anything here, ensure appconfig.Config.ToMachine() is updated | [optional] 
 **Files** | Pointer to [**[]ApiFile**](ApiFile.md) |  | [optional] 
 **Guest** | Pointer to [**ApiMachineGuest**](ApiMachineGuest.md) |  | [optional] 
-**HostDedicationId** | Pointer to **string** |  | [optional] 
 **Image** | Pointer to **string** | Set by fly deploy or fly machines commands | [optional] 
 **Init** | Pointer to [**ApiMachineInit**](ApiMachineInit.md) |  | [optional] 
 **Metadata** | Pointer to **map[string]string** |  | [optional] 
@@ -219,31 +218,6 @@ SetGuest sets Guest field to given value.
 `func (o *ApiMachineConfig) HasGuest() bool`
 
 HasGuest returns a boolean if a field has been set.
-
-### GetHostDedicationId
-
-`func (o *ApiMachineConfig) GetHostDedicationId() string`
-
-GetHostDedicationId returns the HostDedicationId field if non-nil, zero value otherwise.
-
-### GetHostDedicationIdOk
-
-`func (o *ApiMachineConfig) GetHostDedicationIdOk() (*string, bool)`
-
-GetHostDedicationIdOk returns a tuple with the HostDedicationId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetHostDedicationId
-
-`func (o *ApiMachineConfig) SetHostDedicationId(v string)`
-
-SetHostDedicationId sets HostDedicationId field to given value.
-
-### HasHostDedicationId
-
-`func (o *ApiMachineConfig) HasHostDedicationId() bool`
-
-HasHostDedicationId returns a boolean if a field has been set.
 
 ### GetImage
 

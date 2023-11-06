@@ -50,6 +50,7 @@ docs/ProcessStat.md
 docs/SignalRequest.md
 docs/StopRequest.md
 docs/UpdateMachineRequest.md
+docs/UpdateVolumeRequest.md
 docs/Volume.md
 docs/VolumeSnapshot.md
 docs/VolumesApi.md
@@ -107,6 +108,7 @@ fly-sdk/models/process_stat.py
 fly-sdk/models/signal_request.py
 fly-sdk/models/stop_request.py
 fly-sdk/models/update_machine_request.py
+fly-sdk/models/update_volume_request.py
 fly-sdk/models/volume.py
 fly-sdk/models/volume_snapshot.py
 fly-sdk/py.typed
@@ -164,6 +166,7 @@ test/test_process_stat.py
 test/test_signal_request.py
 test/test_stop_request.py
 test/test_update_machine_request.py
+test/test_update_volume_request.py
 test/test_volume.py
 test/test_volume_snapshot.py
 test/test_volumes_api.py

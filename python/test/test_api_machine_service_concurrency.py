@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from fly-sdk.models.api_machine_service_concurrency import ApiMachineServiceConcurrency  # noqa: E501
+from fly-sdk.models.api_machine_service_concurrency import ApiMachineServiceConcurrency
 
 class TestApiMachineServiceConcurrency(unittest.TestCase):
     """ApiMachineServiceConcurrency unit test stubs"""
@@ -33,7 +33,7 @@ class TestApiMachineServiceConcurrency(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `ApiMachineServiceConcurrency`
         """
-        model = ApiMachineServiceConcurrency()  # noqa: E501
+        model = ApiMachineServiceConcurrency()
         if include_optional:
             return ApiMachineServiceConcurrency(
                 hard_limit = 56,

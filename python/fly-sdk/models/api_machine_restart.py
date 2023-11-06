@@ -18,26 +18,31 @@ import re  # noqa: F401
 import json
 
 
-from typing import Optional
+from typing import Any, ClassVar, Dict, List, Optional
 from pydantic import BaseModel, StrictInt, StrictStr
 from pydantic import Field
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class ApiMachineRestart(BaseModel):
     """
     ApiMachineRestart
-    """
+    """ # noqa: E501
     max_retries: Optional[StrictInt] = Field(default=None, description="MaxRetries is only relevant with the on-failure policy.")
     policy: Optional[StrictStr] = None
-    __properties = ["max_retries", "policy"]
+    __properties: ClassVar[List[str]] = ["max_retries", "policy"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
@@ -45,28 +50,38 @@ class ApiMachineRestart(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> ApiMachineRestart:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of ApiMachineRestart from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> ApiMachineRestart:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of ApiMachineRestart from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return ApiMachineRestart.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = ApiMachineRestart.parse_obj({
+        _obj = cls.model_validate({
             "max_retries": obj.get("max_retries"),
             "policy": obj.get("policy")
         })

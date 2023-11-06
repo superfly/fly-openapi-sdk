@@ -7,6 +7,7 @@
 | **cpu_kind** | **String** |  | [optional] |
 | **cpus** | **Integer** |  | [optional] |
 | **gpu_kind** | **String** |  | [optional] |
+| **host_dedication_id** | **String** |  | [optional] |
 | **kernel_args** | **Array&lt;String&gt;** |  | [optional] |
 | **memory_mb** | **Integer** |  | [optional] |
 
@@ -19,6 +20,7 @@ instance = FlySDK::ApiMachineGuest.new(
   cpu_kind: null,
   cpus: null,
   gpu_kind: null,
+  host_dedication_id: null,
   kernel_args: null,
   memory_mb: null
 )

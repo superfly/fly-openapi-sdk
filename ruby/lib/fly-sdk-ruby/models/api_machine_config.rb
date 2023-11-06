@@ -31,8 +31,6 @@ module FlySDK
 
     attr_accessor :guest
 
-    attr_accessor :host_dedication_id
-
     # Set by fly deploy or fly machines commands
     attr_accessor :image
 
@@ -73,7 +71,6 @@ module FlySDK
         :'env' => :'env',
         :'files' => :'files',
         :'guest' => :'guest',
-        :'host_dedication_id' => :'host_dedication_id',
         :'image' => :'image',
         :'init' => :'init',
         :'metadata' => :'metadata',
@@ -105,7 +102,6 @@ module FlySDK
         :'env' => :'Hash<String, String>',
         :'files' => :'Array<ApiFile>',
         :'guest' => :'ApiMachineGuest',
-        :'host_dedication_id' => :'String',
         :'image' => :'String',
         :'init' => :'ApiMachineInit',
         :'metadata' => :'Hash<String, String>',
@@ -175,10 +171,6 @@ module FlySDK
 
       if attributes.key?(:'guest')
         self.guest = attributes[:'guest']
-      end
-
-      if attributes.key?(:'host_dedication_id')
-        self.host_dedication_id = attributes[:'host_dedication_id']
       end
 
       if attributes.key?(:'image')
@@ -273,7 +265,6 @@ module FlySDK
           env == o.env &&
           files == o.files &&
           guest == o.guest &&
-          host_dedication_id == o.host_dedication_id &&
           image == o.image &&
           init == o.init &&
           metadata == o.metadata &&
@@ -298,7 +289,7 @@ module FlySDK
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [auto_destroy, checks, disable_machine_autostart, dns, env, files, guest, host_dedication_id, image, init, metadata, metrics, mounts, processes, restart, schedule, services, size, standbys, statics, stop_config].hash
+      [auto_destroy, checks, disable_machine_autostart, dns, env, files, guest, image, init, metadata, metrics, mounts, processes, restart, schedule, services, size, standbys, statics, stop_config].hash
     end
 
     # Builds the object from hash
@@ -363,7 +354,7 @@ module FlySDK
       else # model
         # models (e.g. Pet) or oneOf
         klass = FlySDK.const_get(type)
-        klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+        klass.respond_to?(:openapi_any_of) || klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
       end
     end
 

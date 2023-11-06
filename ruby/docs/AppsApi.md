@@ -134,7 +134,7 @@ No authorization required
 
 ## apps_list
 
-> <ListAppsResponse> apps_list(opts)
+> <ListAppsResponse> apps_list(org_slug)
 
 
 
@@ -145,13 +145,11 @@ require 'time'
 require 'fly-sdk-ruby'
 
 api_instance = FlySDK::AppsApi.new
-opts = {
-  org_slug: 'org_slug_example' # String | The org slug, or 'personal', to filter apps
-}
+org_slug = 'org_slug_example' # String | The org slug, or 'personal', to filter apps
 
 begin
   
-  result = api_instance.apps_list(opts)
+  result = api_instance.apps_list(org_slug)
   p result
 rescue FlySDK::ApiError => e
   puts "Error when calling AppsApi->apps_list: #{e}"
@@ -162,12 +160,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ListAppsResponse>, Integer, Hash)> apps_list_with_http_info(opts)
+> <Array(<ListAppsResponse>, Integer, Hash)> apps_list_with_http_info(org_slug)
 
 ```ruby
 begin
   
-  data, status_code, headers = api_instance.apps_list_with_http_info(opts)
+  data, status_code, headers = api_instance.apps_list_with_http_info(org_slug)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <ListAppsResponse>
@@ -180,7 +178,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **org_slug** | **String** | The org slug, or &#39;personal&#39;, to filter apps | [optional] |
+| **org_slug** | **String** | The org slug, or &#39;personal&#39;, to filter apps |  |
 
 ### Return type
 

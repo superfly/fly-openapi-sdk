@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **RequireUniqueZone** | Pointer to **bool** |  | [optional] 
 **SizeGb** | Pointer to **int32** |  | [optional] 
 **SnapshotId** | Pointer to **string** | restore from snapshot | [optional] 
+**SnapshotRetention** | Pointer to **int32** |  | [optional] 
 **SourceVolumeId** | Pointer to **string** | fork from remote volume | [optional] 
 
 ## Methods
@@ -258,6 +259,31 @@ SetSnapshotId sets SnapshotId field to given value.
 `func (o *CreateVolumeRequest) HasSnapshotId() bool`
 
 HasSnapshotId returns a boolean if a field has been set.
+
+### GetSnapshotRetention
+
+`func (o *CreateVolumeRequest) GetSnapshotRetention() int32`
+
+GetSnapshotRetention returns the SnapshotRetention field if non-nil, zero value otherwise.
+
+### GetSnapshotRetentionOk
+
+`func (o *CreateVolumeRequest) GetSnapshotRetentionOk() (*int32, bool)`
+
+GetSnapshotRetentionOk returns a tuple with the SnapshotRetention field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSnapshotRetention
+
+`func (o *CreateVolumeRequest) SetSnapshotRetention(v int32)`
+
+SetSnapshotRetention sets SnapshotRetention field to given value.
+
+### HasSnapshotRetention
+
+`func (o *CreateVolumeRequest) HasSnapshotRetention() bool`
+
+HasSnapshotRetention returns a boolean if a field has been set.
 
 ### GetSourceVolumeId
 

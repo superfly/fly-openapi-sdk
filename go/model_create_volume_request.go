@@ -29,6 +29,7 @@ type CreateVolumeRequest struct {
 	SizeGb *int32 `json:"size_gb,omitempty"`
 	// restore from snapshot
 	SnapshotId *string `json:"snapshot_id,omitempty"`
+	SnapshotRetention *int32 `json:"snapshot_retention,omitempty"`
 	// fork from remote volume
 	SourceVolumeId *string `json:"source_volume_id,omitempty"`
 }
@@ -338,6 +339,38 @@ func (o *CreateVolumeRequest) SetSnapshotId(v string) {
 	o.SnapshotId = &v
 }
 
+// GetSnapshotRetention returns the SnapshotRetention field value if set, zero value otherwise.
+func (o *CreateVolumeRequest) GetSnapshotRetention() int32 {
+	if o == nil || IsNil(o.SnapshotRetention) {
+		var ret int32
+		return ret
+	}
+	return *o.SnapshotRetention
+}
+
+// GetSnapshotRetentionOk returns a tuple with the SnapshotRetention field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateVolumeRequest) GetSnapshotRetentionOk() (*int32, bool) {
+	if o == nil || IsNil(o.SnapshotRetention) {
+		return nil, false
+	}
+	return o.SnapshotRetention, true
+}
+
+// HasSnapshotRetention returns a boolean if a field has been set.
+func (o *CreateVolumeRequest) HasSnapshotRetention() bool {
+	if o != nil && !IsNil(o.SnapshotRetention) {
+		return true
+	}
+
+	return false
+}
+
+// SetSnapshotRetention gets a reference to the given int32 and assigns it to the SnapshotRetention field.
+func (o *CreateVolumeRequest) SetSnapshotRetention(v int32) {
+	o.SnapshotRetention = &v
+}
+
 // GetSourceVolumeId returns the SourceVolumeId field value if set, zero value otherwise.
 func (o *CreateVolumeRequest) GetSourceVolumeId() string {
 	if o == nil || IsNil(o.SourceVolumeId) {
@@ -406,6 +439,9 @@ func (o CreateVolumeRequest) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.SnapshotId) {
 		toSerialize["snapshot_id"] = o.SnapshotId
+	}
+	if !IsNil(o.SnapshotRetention) {
+		toSerialize["snapshot_retention"] = o.SnapshotRetention
 	}
 	if !IsNil(o.SourceVolumeId) {
 		toSerialize["source_volume_id"] = o.SourceVolumeId

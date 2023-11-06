@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from fly-sdk.models.api_machine_restart import ApiMachineRestart  # noqa: E501
+from fly-sdk.models.api_machine_restart import ApiMachineRestart
 
 class TestApiMachineRestart(unittest.TestCase):
     """ApiMachineRestart unit test stubs"""
@@ -33,7 +33,7 @@ class TestApiMachineRestart(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `ApiMachineRestart`
         """
-        model = ApiMachineRestart()  # noqa: E501
+        model = ApiMachineRestart()
         if include_optional:
             return ApiMachineRestart(
                 max_retries = 56,

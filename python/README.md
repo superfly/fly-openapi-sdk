@@ -114,6 +114,7 @@ Class | Method | HTTP request | Description
 *VolumesApi* | [**volumes_get_by_id**](docs/VolumesApi.md#volumes_get_by_id) | **GET** /apps/{app_name}/volumes/{volume_id} | 
 *VolumesApi* | [**volumes_get_snapshots**](docs/VolumesApi.md#volumes_get_snapshots) | **GET** /apps/{app_name}/volumes/{volume_id}/snapshots | 
 *VolumesApi* | [**volumes_list**](docs/VolumesApi.md#volumes_list) | **GET** /apps/{app_name}/volumes | 
+*VolumesApi* | [**volumes_update**](docs/VolumesApi.md#volumes_update) | **POST** /apps/{app_name}/volumes/{volume_id} | 
 
 
 ## Documentation For Models
@@ -162,6 +163,7 @@ Class | Method | HTTP request | Description
  - [SignalRequest](docs/SignalRequest.md)
  - [StopRequest](docs/StopRequest.md)
  - [UpdateMachineRequest](docs/UpdateMachineRequest.md)
+ - [UpdateVolumeRequest](docs/UpdateVolumeRequest.md)
  - [Volume](docs/Volume.md)
  - [VolumeSnapshot](docs/VolumeSnapshot.md)
 

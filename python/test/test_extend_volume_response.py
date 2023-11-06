@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from fly-sdk.models.extend_volume_response import ExtendVolumeResponse  # noqa: E501
+from fly-sdk.models.extend_volume_response import ExtendVolumeResponse
 
 class TestExtendVolumeResponse(unittest.TestCase):
     """ExtendVolumeResponse unit test stubs"""
@@ -33,7 +33,7 @@ class TestExtendVolumeResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `ExtendVolumeResponse`
         """
-        model = ExtendVolumeResponse()  # noqa: E501
+        model = ExtendVolumeResponse()
         if include_optional:
             return ExtendVolumeResponse(
                 needs_restart = True,
@@ -51,6 +51,7 @@ class TestExtendVolumeResponse(unittest.TestCase):
                     name = '', 
                     region = '', 
                     size_gb = 56, 
+                    snapshot_retention = 56, 
                     state = '', 
                     zone = '', )
             )

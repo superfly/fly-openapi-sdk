@@ -61,6 +61,7 @@ require 'fly-sdk-ruby/models/process_stat'
 require 'fly-sdk-ruby/models/signal_request'
 require 'fly-sdk-ruby/models/stop_request'
 require 'fly-sdk-ruby/models/update_machine_request'
+require 'fly-sdk-ruby/models/update_volume_request'
 require 'fly-sdk-ruby/models/volume'
 require 'fly-sdk-ruby/models/volume_snapshot'
 

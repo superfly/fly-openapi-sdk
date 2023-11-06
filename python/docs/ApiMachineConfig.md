@@ -11,7 +11,6 @@ Name | Type | Description | Notes
 **env** | **Dict[str, str]** | Fields managed from fly.toml If you add anything here, ensure appconfig.Config.ToMachine() is updated | [optional] 
 **files** | [**List[ApiFile]**](ApiFile.md) |  | [optional] 
 **guest** | [**ApiMachineGuest**](ApiMachineGuest.md) |  | [optional] 
-**host_dedication_id** | **str** |  | [optional] 
 **image** | **str** | Set by fly deploy or fly machines commands | [optional] 
 **init** | [**ApiMachineInit**](ApiMachineInit.md) |  | [optional] 
 **metadata** | **Dict[str, str]** |  | [optional] 

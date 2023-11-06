@@ -19,6 +19,7 @@ paths:
       - description: "The org slug, or 'personal', to filter apps"
         in: query
         name: org_slug
+        required: true
         schema:
           type: string
       responses:
@@ -859,6 +860,44 @@ paths:
           description: OK
       tags:
       - Volumes
+    post:
+      operationId: Volumes_update
+      parameters:
+      - description: Fly App Name
+        in: path
+        name: app_name
+        required: true
+        schema:
+          type: string
+      - description: Volume ID
+        in: path
+        name: volume_id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateVolumeRequest'
+        description: Request body
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Volume'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request
+      tags:
+      - Volumes
+      x-codegen-request-body-name: request
   /apps/{app_name}/volumes/{volume_id}/extend:
     put:
       operationId: Volumes_extend
@@ -927,8 +966,11 @@ components:
           name: name
           slug: slug
         name: name
+        id: id
         status: status
       properties:
+        id:
+          type: string
         name:
           type: string
         organization:
@@ -982,325 +1024,25 @@ components:
         name: name
         lease_ttl: 0
         region: region
-        config:
-          image: image
-          init:
-            entrypoint:
-            - entrypoint
-            - entrypoint
-            swap_size_mb: 5
-            tty: true
-            cmd:
-            - cmd
-            - cmd
-            kernel_args:
-            - kernel_args
-            - kernel_args
-            exec:
-            - exec
-            - exec
-          metadata:
-            key: metadata
-          processes:
-          - entrypoint:
-            - entrypoint
-            - entrypoint
-            cmd:
-            - cmd
-            - cmd
-            env:
-              key: env
-            user: user
-            exec:
-            - exec
-            - exec
-          - entrypoint:
-            - entrypoint
-            - entrypoint
-            cmd:
-            - cmd
-            - cmd
-            env:
-              key: env
-            user: user
-            exec:
-            - exec
-            - exec
-          restart:
-            max_retries: 7
-            policy: policy
-          auto_destroy: true
-          dns:
-            skip_registration: true
-          mounts:
-          - volume: volume
-            path: path
-            encrypted: true
-            name: name
-            size_gb: 2
-          - volume: volume
-            path: path
-            encrypted: true
-            name: name
-            size_gb: 2
-          services:
-          - min_machines_running: 4
-            protocol: protocol
-            checks:
-            - headers:
-              - values:
-                - values
-                - values
-                name: name
-              - values:
-                - values
-                - values
-                name: name
-              path: path
-              protocol: protocol
-              method: method
-              port: 0
-              tls_server_name: tls_server_name
-              interval: interval
-              tls_skip_verify: true
-              type: type
-              grace_period: grace_period
-              timeout: timeout
-            - headers:
-              - values:
-                - values
-                - values
-                name: name
-              - values:
-                - values
-                - values
-                name: name
-              path: path
-              protocol: protocol
-              method: method
-              port: 0
-              tls_server_name: tls_server_name
-              interval: interval
-              tls_skip_verify: true
-              type: type
-              grace_period: grace_period
-              timeout: timeout
-            force_instance_key: force_instance_key
-            autostart: true
-            internal_port: 2
-            ports:
-            - force_https: true
-              port: 1
-              handlers:
-              - handlers
-              - handlers
-              start_port: 1
-              tls_options:
-                alpn:
-                - alpn
-                - alpn
-                default_self_signed: true
-                versions:
-                - versions
-                - versions
-              proxy_proto_options:
-                version: version
-              end_port: 7
-              http_options:
-                compress: true
-                response:
-                  headers:
-                    key: "{}"
-            - force_https: true
-              port: 1
-              handlers:
-              - handlers
-              - handlers
-              start_port: 1
-              tls_options:
-                alpn:
-                - alpn
-                - alpn
-                default_self_signed: true
-                versions:
-                - versions
-                - versions
-              proxy_proto_options:
-                version: version
-              end_port: 7
-              http_options:
-                compress: true
-                response:
-                  headers:
-                    key: "{}"
-            force_instance_description: force_instance_description
-            autostop: true
-            concurrency:
-              soft_limit: 3
-              type: type
-              hard_limit: 9
-          - min_machines_running: 4
-            protocol: protocol
-            checks:
-            - headers:
-              - values:
-                - values
-                - values
-                name: name
-              - values:
-                - values
-                - values
-                name: name
-              path: path
-              protocol: protocol
-              method: method
-              port: 0
-              tls_server_name: tls_server_name
-              interval: interval
-              tls_skip_verify: true
-              type: type
-              grace_period: grace_period
-              timeout: timeout
-            - headers:
-              - values:
-                - values
-                - values
-                name: name
-              - values:
-                - values
-                - values
-                name: name
-              path: path
-              protocol: protocol
-              method: method
-              port: 0
-              tls_server_name: tls_server_name
-              interval: interval
-              tls_skip_verify: true
-              type: type
-              grace_period: grace_period
-              timeout: timeout
-            force_instance_key: force_instance_key
-            autostart: true
-            internal_port: 2
-            ports:
-            - force_https: true
-              port: 1
-              handlers:
-              - handlers
-              - handlers
-              start_port: 1
-              tls_options:
-                alpn:
-                - alpn
-                - alpn
-                default_self_signed: true
-                versions:
-                - versions
-                - versions
-              proxy_proto_options:
-                version: version
-              end_port: 7
-              http_options:
-                compress: true
-                response:
-                  headers:
-                    key: "{}"
-            - force_https: true
-              port: 1
-              handlers:
-              - handlers
-              - handlers
-              start_port: 1
-              tls_options:
-                alpn:
-                - alpn
-                - alpn
-                default_self_signed: true
-                versions:
-                - versions
-                - versions
-              proxy_proto_options:
-                version: version
-              end_port: 7
-              http_options:
-                compress: true
-                response:
-                  headers:
-                    key: "{}"
-            force_instance_description: force_instance_description
-            autostop: true
-            concurrency:
-              soft_limit: 3
-              type: type
-              hard_limit: 9
-          env:
-            key: env
-          statics:
-          - guest_path: guest_path
-            url_prefix: url_prefix
-          - guest_path: guest_path
-            url_prefix: url_prefix
-          schedule: schedule
-          checks:
-            key:
-              headers:
-              - values:
-                - values
-                - values
-                name: name
-              - values:
-                - values
-                - values
-                name: name
-              path: path
-              protocol: protocol
-              method: method
-              port: 0
-              tls_server_name: tls_server_name
-              interval: interval
-              tls_skip_verify: true
-              type: type
-              grace_period: grace_period
-              timeout: timeout
-          size: size
-          host_dedication_id: host_dedication_id
-          files:
-          - secret_name: secret_name
-            raw_value: raw_value
-            guest_path: guest_path
-          - secret_name: secret_name
-            raw_value: raw_value
-            guest_path: guest_path
-          guest:
-            gpu_kind: gpu_kind
-            cpus: 6
-            cpu_kind: cpu_kind
-            memory_mb: 1
-            kernel_args:
-            - kernel_args
-            - kernel_args
-          disable_machine_autostart: true
-          metrics:
-            path: path
-            port: 5
-          standbys:
-          - standbys
-          - standbys
-          stop_config:
-            signal: signal
-            timeout: timeout
+        config: "{}"
         skip_launch: true
       properties:
         config:
-          $ref: '#/components/schemas/api.MachineConfig'
+          allOf:
+          - $ref: '#/components/schemas/api.MachineConfig'
+          description: An object defining the Machine configuration
+          type: object
         lease_ttl:
           type: integer
         lsvd:
           type: boolean
         name:
+          description: "Unique name for this Machine. If omitted, one is generated\
+            \ for you"
           type: string
         region:
+          description: The target region. Omitting this param launches in the same
+            region as your WireGuard peer connection (somewhere near you).
           type: string
         skip_launch:
           type: boolean
@@ -1312,6 +1054,7 @@ components:
         compute:
           gpu_kind: gpu_kind
           cpus: 6
+          host_dedication_id: host_dedication_id
           cpu_kind: cpu_kind
           memory_mb: 1
           kernel_args:
@@ -1324,6 +1067,7 @@ components:
         size_gb: 0
         machines_only: true
         region: region
+        snapshot_retention: 6
         fstype: fstype
         source_volume_id: source_volume_id
       properties:
@@ -1346,6 +1090,8 @@ components:
         snapshot_id:
           description: restore from snapshot
           type: string
+        snapshot_retention:
+          type: integer
         source_volume_id:
           description: fork from remote volume
           type: string
@@ -1373,6 +1119,7 @@ components:
           blocks: 6
           attached_machine_id: attached_machine_id
           created_at: created_at
+          snapshot_retention: 2
           blocks_free: 5
           encrypted: true
           zone: zone
@@ -1439,9 +1186,12 @@ components:
     ListApp:
       example:
         name: name
+        id: id
         machine_count: 0
         network: "{}"
       properties:
+        id:
+          type: string
         machine_count:
           type: integer
         name:
@@ -1454,9 +1204,11 @@ components:
         total_apps: 6
         apps:
         - name: name
+          id: id
           machine_count: 0
           network: "{}"
         - name: name
+          id: id
           machine_count: 0
           network: "{}"
       properties:
@@ -1786,7 +1538,6 @@ components:
               grace_period: grace_period
               timeout: timeout
           size: size
-          host_dedication_id: host_dedication_id
           files:
           - secret_name: secret_name
             raw_value: raw_value
@@ -1797,6 +1548,7 @@ components:
           guest:
             gpu_kind: gpu_kind
             cpus: 6
+            host_dedication_id: host_dedication_id
             cpu_kind: cpu_kind
             memory_mb: 1
             kernel_args:
@@ -2186,7 +1938,6 @@ components:
               grace_period: grace_period
               timeout: timeout
           size: size
-          host_dedication_id: host_dedication_id
           files:
           - secret_name: secret_name
             raw_value: raw_value
@@ -2197,6 +1948,7 @@ components:
           guest:
             gpu_kind: gpu_kind
             cpus: 6
+            host_dedication_id: host_dedication_id
             cpu_kind: cpu_kind
             memory_mb: 1
             kernel_args:
@@ -2301,318 +2053,14 @@ components:
         current_version: current_version
         lease_ttl: 0
         region: region
-        config:
-          image: image
-          init:
-            entrypoint:
-            - entrypoint
-            - entrypoint
-            swap_size_mb: 5
-            tty: true
-            cmd:
-            - cmd
-            - cmd
-            kernel_args:
-            - kernel_args
-            - kernel_args
-            exec:
-            - exec
-            - exec
-          metadata:
-            key: metadata
-          processes:
-          - entrypoint:
-            - entrypoint
-            - entrypoint
-            cmd:
-            - cmd
-            - cmd
-            env:
-              key: env
-            user: user
-            exec:
-            - exec
-            - exec
-          - entrypoint:
-            - entrypoint
-            - entrypoint
-            cmd:
-            - cmd
-            - cmd
-            env:
-              key: env
-            user: user
-            exec:
-            - exec
-            - exec
-          restart:
-            max_retries: 7
-            policy: policy
-          auto_destroy: true
-          dns:
-            skip_registration: true
-          mounts:
-          - volume: volume
-            path: path
-            encrypted: true
-            name: name
-            size_gb: 2
-          - volume: volume
-            path: path
-            encrypted: true
-            name: name
-            size_gb: 2
-          services:
-          - min_machines_running: 4
-            protocol: protocol
-            checks:
-            - headers:
-              - values:
-                - values
-                - values
-                name: name
-              - values:
-                - values
-                - values
-                name: name
-              path: path
-              protocol: protocol
-              method: method
-              port: 0
-              tls_server_name: tls_server_name
-              interval: interval
-              tls_skip_verify: true
-              type: type
-              grace_period: grace_period
-              timeout: timeout
-            - headers:
-              - values:
-                - values
-                - values
-                name: name
-              - values:
-                - values
-                - values
-                name: name
-              path: path
-              protocol: protocol
-              method: method
-              port: 0
-              tls_server_name: tls_server_name
-              interval: interval
-              tls_skip_verify: true
-              type: type
-              grace_period: grace_period
-              timeout: timeout
-            force_instance_key: force_instance_key
-            autostart: true
-            internal_port: 2
-            ports:
-            - force_https: true
-              port: 1
-              handlers:
-              - handlers
-              - handlers
-              start_port: 1
-              tls_options:
-                alpn:
-                - alpn
-                - alpn
-                default_self_signed: true
-                versions:
-                - versions
-                - versions
-              proxy_proto_options:
-                version: version
-              end_port: 7
-              http_options:
-                compress: true
-                response:
-                  headers:
-                    key: "{}"
-            - force_https: true
-              port: 1
-              handlers:
-              - handlers
-              - handlers
-              start_port: 1
-              tls_options:
-                alpn:
-                - alpn
-                - alpn
-                default_self_signed: true
-                versions:
-                - versions
-                - versions
-              proxy_proto_options:
-                version: version
-              end_port: 7
-              http_options:
-                compress: true
-                response:
-                  headers:
-                    key: "{}"
-            force_instance_description: force_instance_description
-            autostop: true
-            concurrency:
-              soft_limit: 3
-              type: type
-              hard_limit: 9
-          - min_machines_running: 4
-            protocol: protocol
-            checks:
-            - headers:
-              - values:
-                - values
-                - values
-                name: name
-              - values:
-                - values
-                - values
-                name: name
-              path: path
-              protocol: protocol
-              method: method
-              port: 0
-              tls_server_name: tls_server_name
-              interval: interval
-              tls_skip_verify: true
-              type: type
-              grace_period: grace_period
-              timeout: timeout
-            - headers:
-              - values:
-                - values
-                - values
-                name: name
-              - values:
-                - values
-                - values
-                name: name
-              path: path
-              protocol: protocol
-              method: method
-              port: 0
-              tls_server_name: tls_server_name
-              interval: interval
-              tls_skip_verify: true
-              type: type
-              grace_period: grace_period
-              timeout: timeout
-            force_instance_key: force_instance_key
-            autostart: true
-            internal_port: 2
-            ports:
-            - force_https: true
-              port: 1
-              handlers:
-              - handlers
-              - handlers
-              start_port: 1
-              tls_options:
-                alpn:
-                - alpn
-                - alpn
-                default_self_signed: true
-                versions:
-                - versions
-                - versions
-              proxy_proto_options:
-                version: version
-              end_port: 7
-              http_options:
-                compress: true
-                response:
-                  headers:
-                    key: "{}"
-            - force_https: true
-              port: 1
-              handlers:
-              - handlers
-              - handlers
-              start_port: 1
-              tls_options:
-                alpn:
-                - alpn
-                - alpn
-                default_self_signed: true
-                versions:
-                - versions
-                - versions
-              proxy_proto_options:
-                version: version
-              end_port: 7
-              http_options:
-                compress: true
-                response:
-                  headers:
-                    key: "{}"
-            force_instance_description: force_instance_description
-            autostop: true
-            concurrency:
-              soft_limit: 3
-              type: type
-              hard_limit: 9
-          env:
-            key: env
-          statics:
-          - guest_path: guest_path
-            url_prefix: url_prefix
-          - guest_path: guest_path
-            url_prefix: url_prefix
-          schedule: schedule
-          checks:
-            key:
-              headers:
-              - values:
-                - values
-                - values
-                name: name
-              - values:
-                - values
-                - values
-                name: name
-              path: path
-              protocol: protocol
-              method: method
-              port: 0
-              tls_server_name: tls_server_name
-              interval: interval
-              tls_skip_verify: true
-              type: type
-              grace_period: grace_period
-              timeout: timeout
-          size: size
-          host_dedication_id: host_dedication_id
-          files:
-          - secret_name: secret_name
-            raw_value: raw_value
-            guest_path: guest_path
-          - secret_name: secret_name
-            raw_value: raw_value
-            guest_path: guest_path
-          guest:
-            gpu_kind: gpu_kind
-            cpus: 6
-            cpu_kind: cpu_kind
-            memory_mb: 1
-            kernel_args:
-            - kernel_args
-            - kernel_args
-          disable_machine_autostart: true
-          metrics:
-            path: path
-            port: 5
-          standbys:
-          - standbys
-          - standbys
-          stop_config:
-            signal: signal
-            timeout: timeout
+        config: "{}"
         skip_launch: true
       properties:
         config:
-          $ref: '#/components/schemas/api.MachineConfig'
+          allOf:
+          - $ref: '#/components/schemas/api.MachineConfig'
+          description: An object defining the Machine configuration
+          type: object
         current_version:
           type: string
         lease_ttl:
@@ -2620,19 +2068,31 @@ components:
         lsvd:
           type: boolean
         name:
+          description: "Unique name for this Machine. If omitted, one is generated\
+            \ for you"
           type: string
         region:
+          description: The target region. Omitting this param launches in the same
+            region as your WireGuard peer connection (somewhere near you).
           type: string
         skip_launch:
           type: boolean
         skip_service_registration:
           type: boolean
       type: object
+    UpdateVolumeRequest:
+      example:
+        snapshot_retention: 0
+      properties:
+        snapshot_retention:
+          type: integer
+      type: object
     Volume:
       example:
         blocks: 6
         attached_machine_id: attached_machine_id
         created_at: created_at
+        snapshot_retention: 2
         blocks_free: 5
         encrypted: true
         zone: zone
@@ -2671,6 +2131,8 @@ components:
         region:
           type: string
         size_gb:
+          type: integer
+        snapshot_retention:
           type: integer
         state:
           type: string
@@ -3071,7 +2533,6 @@ components:
             grace_period: grace_period
             timeout: timeout
         size: size
-        host_dedication_id: host_dedication_id
         files:
         - secret_name: secret_name
           raw_value: raw_value
@@ -3082,6 +2543,7 @@ components:
         guest:
           gpu_kind: gpu_kind
           cpus: 6
+          host_dedication_id: host_dedication_id
           cpu_kind: cpu_kind
           memory_mb: 1
           kernel_args:
@@ -3122,8 +2584,6 @@ components:
           type: array
         guest:
           $ref: '#/components/schemas/api.MachineGuest'
-        host_dedication_id:
-          type: string
         image:
           description: Set by fly deploy or fly machines commands
           type: string
@@ -3175,6 +2635,7 @@ components:
       example:
         gpu_kind: gpu_kind
         cpus: 6
+        host_dedication_id: host_dedication_id
         cpu_kind: cpu_kind
         memory_mb: 1
         kernel_args:
@@ -3186,6 +2647,8 @@ components:
         cpus:
           type: integer
         gpu_kind:
+          type: string
+        host_dedication_id:
           type: string
         kernel_args:
           items:

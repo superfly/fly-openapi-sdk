@@ -22,9 +22,11 @@ describe FlySDK::CreateVolumeRequest do
 
   describe 'test an instance of CreateVolumeRequest' do
     it 'should create an instance of CreateVolumeRequest' do
-      expect(instance).to be_instance_of(FlySDK::CreateVolumeRequest)
+      # uncomment below to test the instance creation
+      #expect(instance).to be_instance_of(FlySDK::CreateVolumeRequest)
     end
   end
+
   describe 'test attribute "compute"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -74,6 +76,12 @@ describe FlySDK::CreateVolumeRequest do
   end
 
   describe 'test attribute "snapshot_id"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "snapshot_retention"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

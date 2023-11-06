@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Dict, List, Optional
+from typing import Any, ClassVar, Dict, List, Optional
 from pydantic import BaseModel, StrictBool, StrictStr
 from pydantic import Field
 from fly-sdk.models.api_dns_config import ApiDNSConfig
@@ -33,11 +33,15 @@ from fly-sdk.models.api_machine_restart import ApiMachineRestart
 from fly-sdk.models.api_machine_service import ApiMachineService
 from fly-sdk.models.api_static import ApiStatic
 from fly-sdk.models.api_stop_config import ApiStopConfig
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class ApiMachineConfig(BaseModel):
     """
     ApiMachineConfig
-    """
+    """ # noqa: E501
     auto_destroy: Optional[StrictBool] = None
     checks: Optional[Dict[str, ApiMachineCheck]] = None
     disable_machine_autostart: Optional[StrictBool] = Field(default=None, description="Deprecated: use Service.Autostart instead")
@@ -45,7 +49,6 @@ class ApiMachineConfig(BaseModel):
     env: Optional[Dict[str, StrictStr]] = Field(default=None, description="Fields managed from fly.toml If you add anything here, ensure appconfig.Config.ToMachine() is updated")
     files: Optional[List[ApiFile]] = None
     guest: Optional[ApiMachineGuest] = None
-    host_dedication_id: Optional[StrictStr] = None
     image: Optional[StrictStr] = Field(default=None, description="Set by fly deploy or fly machines commands")
     init: Optional[ApiMachineInit] = None
     metadata: Optional[Dict[str, StrictStr]] = None
@@ -59,16 +62,17 @@ class ApiMachineConfig(BaseModel):
     standbys: Optional[List[StrictStr]] = Field(default=None, description="Standbys enable a machine to be a standby for another. In the event of a hardware failure, the standby machine will be started.")
     statics: Optional[List[ApiStatic]] = None
     stop_config: Optional[ApiStopConfig] = None
-    __properties = ["auto_destroy", "checks", "disable_machine_autostart", "dns", "env", "files", "guest", "host_dedication_id", "image", "init", "metadata", "metrics", "mounts", "processes", "restart", "schedule", "services", "size", "standbys", "statics", "stop_config"]
+    __properties: ClassVar[List[str]] = ["auto_destroy", "checks", "disable_machine_autostart", "dns", "env", "files", "guest", "image", "init", "metadata", "metrics", "mounts", "processes", "restart", "schedule", "services", "size", "standbys", "statics", "stop_config"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
@@ -76,16 +80,26 @@ class ApiMachineConfig(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> ApiMachineConfig:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of ApiMachineConfig from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         # override the default output from pydantic by calling `to_dict()` of each value in checks (dict)
         _field_dict = {}
         if self.checks:
@@ -149,15 +163,15 @@ class ApiMachineConfig(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> ApiMachineConfig:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of ApiMachineConfig from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return ApiMachineConfig.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = ApiMachineConfig.parse_obj({
+        _obj = cls.model_validate({
             "auto_destroy": obj.get("auto_destroy"),
             "checks": dict(
                 (_k, ApiMachineCheck.from_dict(_v))
@@ -170,7 +184,6 @@ class ApiMachineConfig(BaseModel):
             "env": obj.get("env"),
             "files": [ApiFile.from_dict(_item) for _item in obj.get("files")] if obj.get("files") is not None else None,
             "guest": ApiMachineGuest.from_dict(obj.get("guest")) if obj.get("guest") is not None else None,
-            "host_dedication_id": obj.get("host_dedication_id"),
             "image": obj.get("image"),
             "init": ApiMachineInit.from_dict(obj.get("init")) if obj.get("init") is not None else None,
             "metadata": obj.get("metadata"),

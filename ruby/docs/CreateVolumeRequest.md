@@ -13,6 +13,7 @@
 | **require_unique_zone** | **Boolean** |  | [optional] |
 | **size_gb** | **Integer** |  | [optional] |
 | **snapshot_id** | **String** | restore from snapshot | [optional] |
+| **snapshot_retention** | **Integer** |  | [optional] |
 | **source_volume_id** | **String** | fork from remote volume | [optional] |
 
 ## Example
@@ -30,6 +31,7 @@ instance = FlySDK::CreateVolumeRequest.new(
   require_unique_zone: null,
   size_gb: null,
   snapshot_id: null,
+  snapshot_retention: null,
   source_volume_id: null
 )
 ```

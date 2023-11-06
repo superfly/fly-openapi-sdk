@@ -34,6 +34,8 @@ module FlySDK
     # restore from snapshot
     attr_accessor :snapshot_id
 
+    attr_accessor :snapshot_retention
+
     # fork from remote volume
     attr_accessor :source_volume_id
 
@@ -49,6 +51,7 @@ module FlySDK
         :'require_unique_zone' => :'require_unique_zone',
         :'size_gb' => :'size_gb',
         :'snapshot_id' => :'snapshot_id',
+        :'snapshot_retention' => :'snapshot_retention',
         :'source_volume_id' => :'source_volume_id'
       }
     end
@@ -70,6 +73,7 @@ module FlySDK
         :'require_unique_zone' => :'Boolean',
         :'size_gb' => :'Integer',
         :'snapshot_id' => :'String',
+        :'snapshot_retention' => :'Integer',
         :'source_volume_id' => :'String'
       }
     end
@@ -131,6 +135,10 @@ module FlySDK
         self.snapshot_id = attributes[:'snapshot_id']
       end
 
+      if attributes.key?(:'snapshot_retention')
+        self.snapshot_retention = attributes[:'snapshot_retention']
+      end
+
       if attributes.key?(:'source_volume_id')
         self.source_volume_id = attributes[:'source_volume_id']
       end
@@ -165,6 +173,7 @@ module FlySDK
           require_unique_zone == o.require_unique_zone &&
           size_gb == o.size_gb &&
           snapshot_id == o.snapshot_id &&
+          snapshot_retention == o.snapshot_retention &&
           source_volume_id == o.source_volume_id
     end
 
@@ -177,7 +186,7 @@ module FlySDK
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [compute, encrypted, fstype, machines_only, name, region, require_unique_zone, size_gb, snapshot_id, source_volume_id].hash
+      [compute, encrypted, fstype, machines_only, name, region, require_unique_zone, size_gb, snapshot_id, snapshot_retention, source_volume_id].hash
     end
 
     # Builds the object from hash
@@ -242,7 +251,7 @@ module FlySDK
       else # model
         # models (e.g. Pet) or oneOf
         klass = FlySDK.const_get(type)
-        klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+        klass.respond_to?(:openapi_any_of) || klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
       end
     end
 

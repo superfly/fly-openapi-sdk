@@ -36,7 +36,7 @@ Default configuration comes with `Servers` field that contains server objects as
 
 ### Select Server Configuration
 
-For using other server than the one defined on index 0 set context value `sw.ContextServerIndex` of type `int`.
+For using other server than the one defined on index 0 set context value `fly-sdk.ContextServerIndex` of type `int`.
 
 ```golang
 ctx := context.WithValue(context.Background(), fly-sdk.ContextServerIndex, 1)
@@ -44,7 +44,7 @@ ctx := context.WithValue(context.Background(), fly-sdk.ContextServerIndex, 1)
 
 ### Templated Server URL
 
-Templated server URL is formatted using default variables from configuration or from context value `sw.ContextServerVariables` of type `map[string]string`.
+Templated server URL is formatted using default variables from configuration or from context value `fly-sdk.ContextServerVariables` of type `map[string]string`.
 
 ```golang
 ctx := context.WithValue(context.Background(), fly-sdk.ContextServerVariables, map[string]string{
@@ -58,7 +58,7 @@ Note, enum values are always validated and all unused variables are silently ign
 
 Each operation can use different server URL defined using `OperationServers` map in the `Configuration`.
 An operation is uniquely identified by `"{classname}Service.{nickname}"` string.
-Similar rules for overriding default operation server index and variables applies by using `sw.ContextOperationServerIndices` and `sw.ContextOperationServerVariables` context maps.
+Similar rules for overriding default operation server index and variables applies by using `fly-sdk.ContextOperationServerIndices` and `fly-sdk.ContextOperationServerVariables` context maps.
 
 ```golang
 ctx := context.WithValue(context.Background(), fly-sdk.ContextOperationServerIndices, map[string]int{
@@ -109,6 +109,7 @@ Class | Method | HTTP request | Description
 *VolumesAPI* | [**VolumesGetById**](docs/VolumesAPI.md#volumesgetbyid) | **Get** /apps/{app_name}/volumes/{volume_id} | 
 *VolumesAPI* | [**VolumesGetSnapshots**](docs/VolumesAPI.md#volumesgetsnapshots) | **Get** /apps/{app_name}/volumes/{volume_id}/snapshots | 
 *VolumesAPI* | [**VolumesList**](docs/VolumesAPI.md#volumeslist) | **Get** /apps/{app_name}/volumes | 
+*VolumesAPI* | [**VolumesUpdate**](docs/VolumesAPI.md#volumesupdate) | **Post** /apps/{app_name}/volumes/{volume_id} | 
 
 
 ## Documentation For Models
@@ -157,6 +158,7 @@ Class | Method | HTTP request | Description
  - [SignalRequest](docs/SignalRequest.md)
  - [StopRequest](docs/StopRequest.md)
  - [UpdateMachineRequest](docs/UpdateMachineRequest.md)
+ - [UpdateVolumeRequest](docs/UpdateVolumeRequest.md)
  - [Volume](docs/Volume.md)
  - [VolumeSnapshot](docs/VolumeSnapshot.md)
 

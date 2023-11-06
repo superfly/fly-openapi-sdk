@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from fly-sdk.models.stop_request import StopRequest  # noqa: E501
+from fly-sdk.models.stop_request import StopRequest
 
 class TestStopRequest(unittest.TestCase):
     """StopRequest unit test stubs"""
@@ -33,7 +33,7 @@ class TestStopRequest(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `StopRequest`
         """
-        model = StopRequest()  # noqa: E501
+        model = StopRequest()
         if include_optional:
             return StopRequest(
                 signal = '',

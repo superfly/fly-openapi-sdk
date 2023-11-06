@@ -19,6 +19,7 @@ var _ MappedNullable = &App{}
 
 // App struct for App
 type App struct {
+	Id *string `json:"id,omitempty"`
 	Name *string `json:"name,omitempty"`
 	Organization *Organization `json:"organization,omitempty"`
 	Status *string `json:"status,omitempty"`
@@ -39,6 +40,38 @@ func NewApp() *App {
 func NewAppWithDefaults() *App {
 	this := App{}
 	return &this
+}
+
+// GetId returns the Id field value if set, zero value otherwise.
+func (o *App) GetId() string {
+	if o == nil || IsNil(o.Id) {
+		var ret string
+		return ret
+	}
+	return *o.Id
+}
+
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *App) GetIdOk() (*string, bool) {
+	if o == nil || IsNil(o.Id) {
+		return nil, false
+	}
+	return o.Id, true
+}
+
+// HasId returns a boolean if a field has been set.
+func (o *App) HasId() bool {
+	if o != nil && !IsNil(o.Id) {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given string and assigns it to the Id field.
+func (o *App) SetId(v string) {
+	o.Id = &v
 }
 
 // GetName returns the Name field value if set, zero value otherwise.
@@ -147,6 +180,9 @@ func (o App) MarshalJSON() ([]byte, error) {
 
 func (o App) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}

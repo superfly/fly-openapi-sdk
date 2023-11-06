@@ -19,6 +19,7 @@ var _ MappedNullable = &ListApp{}
 
 // ListApp struct for ListApp
 type ListApp struct {
+	Id *string `json:"id,omitempty"`
 	MachineCount *int32 `json:"machine_count,omitempty"`
 	Name *string `json:"name,omitempty"`
 	Network map[string]interface{} `json:"network,omitempty"`
@@ -39,6 +40,38 @@ func NewListApp() *ListApp {
 func NewListAppWithDefaults() *ListApp {
 	this := ListApp{}
 	return &this
+}
+
+// GetId returns the Id field value if set, zero value otherwise.
+func (o *ListApp) GetId() string {
+	if o == nil || IsNil(o.Id) {
+		var ret string
+		return ret
+	}
+	return *o.Id
+}
+
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ListApp) GetIdOk() (*string, bool) {
+	if o == nil || IsNil(o.Id) {
+		return nil, false
+	}
+	return o.Id, true
+}
+
+// HasId returns a boolean if a field has been set.
+func (o *ListApp) HasId() bool {
+	if o != nil && !IsNil(o.Id) {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given string and assigns it to the Id field.
+func (o *ListApp) SetId(v string) {
+	o.Id = &v
 }
 
 // GetMachineCount returns the MachineCount field value if set, zero value otherwise.
@@ -147,6 +180,9 @@ func (o ListApp) MarshalJSON() ([]byte, error) {
 
 func (o ListApp) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
 	if !IsNil(o.MachineCount) {
 		toSerialize["machine_count"] = o.MachineCount
 	}

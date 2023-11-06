@@ -22,9 +22,11 @@ describe FlySDK::UpdateMachineRequest do
 
   describe 'test an instance of UpdateMachineRequest' do
     it 'should create an instance of UpdateMachineRequest' do
-      expect(instance).to be_instance_of(FlySDK::UpdateMachineRequest)
+      # uncomment below to test the instance creation
+      #expect(instance).to be_instance_of(FlySDK::UpdateMachineRequest)
     end
   end
+
   describe 'test attribute "config"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from fly-sdk.models.image_ref import ImageRef  # noqa: E501
+from fly-sdk.models.image_ref import ImageRef
 
 class TestImageRef(unittest.TestCase):
     """ImageRef unit test stubs"""
@@ -33,7 +33,7 @@ class TestImageRef(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `ImageRef`
         """
-        model = ImageRef()  # noqa: E501
+        model = ImageRef()
         if include_optional:
             return ImageRef(
                 digest = '',

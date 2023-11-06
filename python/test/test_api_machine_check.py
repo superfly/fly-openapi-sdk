@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from fly-sdk.models.api_machine_check import ApiMachineCheck  # noqa: E501
+from fly-sdk.models.api_machine_check import ApiMachineCheck
 
 class TestApiMachineCheck(unittest.TestCase):
     """ApiMachineCheck unit test stubs"""
@@ -33,7 +33,7 @@ class TestApiMachineCheck(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `ApiMachineCheck`
         """
-        model = ApiMachineCheck()  # noqa: E501
+        model = ApiMachineCheck()
         if include_optional:
             return ApiMachineCheck(
                 grace_period = '',

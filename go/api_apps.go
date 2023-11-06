@@ -270,10 +270,11 @@ func (a *AppsAPIService) AppsListExecute(r ApiAppsListRequest) (*ListAppsRespons
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-
-	if r.orgSlug != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "org_slug", r.orgSlug, "")
+	if r.orgSlug == nil {
+		return localVarReturnValue, nil, reportError("orgSlug is required and must be specified")
 	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "org_slug", r.orgSlug, "")
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 

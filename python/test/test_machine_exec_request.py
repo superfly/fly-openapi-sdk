@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from fly-sdk.models.machine_exec_request import MachineExecRequest  # noqa: E501
+from fly-sdk.models.machine_exec_request import MachineExecRequest
 
 class TestMachineExecRequest(unittest.TestCase):
     """MachineExecRequest unit test stubs"""
@@ -33,7 +33,7 @@ class TestMachineExecRequest(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `MachineExecRequest`
         """
-        model = MachineExecRequest()  # noqa: E501
+        model = MachineExecRequest()
         if include_optional:
             return MachineExecRequest(
                 cmd = '',

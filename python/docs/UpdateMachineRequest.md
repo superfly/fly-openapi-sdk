@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **current_version** | **str** |  | [optional] 
 **lease_ttl** | **int** |  | [optional] 
 **lsvd** | **bool** |  | [optional] 
-**name** | **str** |  | [optional] 
-**region** | **str** |  | [optional] 
+**name** | **str** | Unique name for this Machine. If omitted, one is generated for you | [optional] 
+**region** | **str** | The target region. Omitting this param launches in the same region as your WireGuard peer connection (somewhere near you). | [optional] 
 **skip_launch** | **bool** |  | [optional] 
 **skip_service_registration** | **bool** |  | [optional] 
 

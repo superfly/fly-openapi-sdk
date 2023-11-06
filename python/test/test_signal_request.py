@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from fly-sdk.models.signal_request import SignalRequest  # noqa: E501
+from fly-sdk.models.signal_request import SignalRequest
 
 class TestSignalRequest(unittest.TestCase):
     """SignalRequest unit test stubs"""
@@ -33,7 +33,7 @@ class TestSignalRequest(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `SignalRequest`
         """
-        model = SignalRequest()  # noqa: E501
+        model = SignalRequest()
         if include_optional:
             return SignalRequest(
                 signal = 'SIGABRT'

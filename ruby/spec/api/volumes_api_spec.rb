@@ -98,4 +98,16 @@ describe 'VolumesApi' do
     end
   end
 
+  # unit tests for volumes_update
+  # @param app_name Fly App Name
+  # @param volume_id Volume ID
+  # @param request Request body
+  # @param [Hash] opts the optional parameters
+  # @return [Volume]
+  describe 'volumes_update test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
 end

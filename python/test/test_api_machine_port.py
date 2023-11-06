@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from fly-sdk.models.api_machine_port import ApiMachinePort  # noqa: E501
+from fly-sdk.models.api_machine_port import ApiMachinePort
 
 class TestApiMachinePort(unittest.TestCase):
     """ApiMachinePort unit test stubs"""
@@ -33,7 +33,7 @@ class TestApiMachinePort(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `ApiMachinePort`
         """
-        model = ApiMachinePort()  # noqa: E501
+        model = ApiMachinePort()
         if include_optional:
             return ApiMachinePort(
                 end_port = 56,

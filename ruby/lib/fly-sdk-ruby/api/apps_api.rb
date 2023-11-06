@@ -140,27 +140,31 @@ module FlySDK
       return data, status_code, headers
     end
 
+    # @param org_slug [String] The org slug, or &#39;personal&#39;, to filter apps
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :org_slug The org slug, or &#39;personal&#39;, to filter apps
     # @return [ListAppsResponse]
-    def apps_list(opts = {})
-      data, _status_code, _headers = apps_list_with_http_info(opts)
+    def apps_list(org_slug, opts = {})
+      data, _status_code, _headers = apps_list_with_http_info(org_slug, opts)
       data
     end
 
+    # @param org_slug [String] The org slug, or &#39;personal&#39;, to filter apps
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :org_slug The org slug, or &#39;personal&#39;, to filter apps
     # @return [Array<(ListAppsResponse, Integer, Hash)>] ListAppsResponse data, response status code and response headers
-    def apps_list_with_http_info(opts = {})
+    def apps_list_with_http_info(org_slug, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AppsApi.apps_list ...'
+      end
+      # verify the required parameter 'org_slug' is set
+      if @api_client.config.client_side_validation && org_slug.nil?
+        fail ArgumentError, "Missing the required parameter 'org_slug' when calling AppsApi.apps_list"
       end
       # resource path
       local_var_path = '/apps'
 
       # query parameters
       query_params = opts[:query_params] || {}
-      query_params[:'org_slug'] = opts[:'org_slug'] if !opts[:'org_slug'].nil?
+      query_params[:'org_slug'] = org_slug
 
       # header parameters
       header_params = opts[:header_params] || {}

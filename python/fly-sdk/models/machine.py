@@ -18,18 +18,22 @@ import re  # noqa: F401
 import json
 
 
-from typing import List, Optional
+from typing import Any, ClassVar, Dict, List, Optional
 from pydantic import BaseModel, StrictStr
 from pydantic import Field
 from fly-sdk.models.api_machine_config import ApiMachineConfig
 from fly-sdk.models.check_status import CheckStatus
 from fly-sdk.models.image_ref import ImageRef
 from fly-sdk.models.machine_event import MachineEvent
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class Machine(BaseModel):
     """
     Machine
-    """
+    """ # noqa: E501
     checks: Optional[List[CheckStatus]] = None
     config: Optional[ApiMachineConfig] = None
     created_at: Optional[StrictStr] = None
@@ -43,16 +47,17 @@ class Machine(BaseModel):
     region: Optional[StrictStr] = None
     state: Optional[StrictStr] = None
     updated_at: Optional[StrictStr] = None
-    __properties = ["checks", "config", "created_at", "events", "id", "image_ref", "instance_id", "name", "nonce", "private_ip", "region", "state", "updated_at"]
+    __properties: ClassVar[List[str]] = ["checks", "config", "created_at", "events", "id", "image_ref", "instance_id", "name", "nonce", "private_ip", "region", "state", "updated_at"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
@@ -60,16 +65,26 @@ class Machine(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Machine:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of Machine from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         # override the default output from pydantic by calling `to_dict()` of each item in checks (list)
         _items = []
         if self.checks:
@@ -93,15 +108,15 @@ class Machine(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> Machine:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of Machine from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return Machine.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = Machine.parse_obj({
+        _obj = cls.model_validate({
             "checks": [CheckStatus.from_dict(_item) for _item in obj.get("checks")] if obj.get("checks") is not None else None,
             "config": ApiMachineConfig.from_dict(obj.get("config")) if obj.get("config") is not None else None,
             "created_at": obj.get("created_at"),

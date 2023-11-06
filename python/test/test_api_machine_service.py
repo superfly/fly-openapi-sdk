@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from fly-sdk.models.api_machine_service import ApiMachineService  # noqa: E501
+from fly-sdk.models.api_machine_service import ApiMachineService
 
 class TestApiMachineService(unittest.TestCase):
     """ApiMachineService unit test stubs"""
@@ -33,7 +33,7 @@ class TestApiMachineService(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `ApiMachineService`
         """
-        model = ApiMachineService()  # noqa: E501
+        model = ApiMachineService()
         if include_optional:
             return ApiMachineService(
                 autostart = True,

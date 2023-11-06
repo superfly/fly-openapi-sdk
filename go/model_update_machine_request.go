@@ -23,7 +23,9 @@ type UpdateMachineRequest struct {
 	CurrentVersion *string `json:"current_version,omitempty"`
 	LeaseTtl *int32 `json:"lease_ttl,omitempty"`
 	Lsvd *bool `json:"lsvd,omitempty"`
+	// Unique name for this Machine. If omitted, one is generated for you
 	Name *string `json:"name,omitempty"`
+	// The target region. Omitting this param launches in the same region as your WireGuard peer connection (somewhere near you).
 	Region *string `json:"region,omitempty"`
 	SkipLaunch *bool `json:"skip_launch,omitempty"`
 	SkipServiceRegistration *bool `json:"skip_service_registration,omitempty"`

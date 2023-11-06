@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from fly-sdk.models.process_stat import ProcessStat  # noqa: E501
+from fly-sdk.models.process_stat import ProcessStat
 
 class TestProcessStat(unittest.TestCase):
     """ProcessStat unit test stubs"""
@@ -33,7 +33,7 @@ class TestProcessStat(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `ProcessStat`
         """
-        model = ProcessStat()  # noqa: E501
+        model = ProcessStat()
         if include_optional:
             return ProcessStat(
                 command = '',

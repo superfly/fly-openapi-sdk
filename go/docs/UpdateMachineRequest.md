@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **CurrentVersion** | Pointer to **string** |  | [optional] 
 **LeaseTtl** | Pointer to **int32** |  | [optional] 
 **Lsvd** | Pointer to **bool** |  | [optional] 
-**Name** | Pointer to **string** |  | [optional] 
-**Region** | Pointer to **string** |  | [optional] 
+**Name** | Pointer to **string** | Unique name for this Machine. If omitted, one is generated for you | [optional] 
+**Region** | Pointer to **string** | The target region. Omitting this param launches in the same region as your WireGuard peer connection (somewhere near you). | [optional] 
 **SkipLaunch** | Pointer to **bool** |  | [optional] 
 **SkipServiceRegistration** | Pointer to **bool** |  | [optional] 
 

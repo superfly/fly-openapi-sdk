@@ -53,8 +53,8 @@ describe 'AppsApi' do
   end
 
   # unit tests for apps_list
+  # @param org_slug The org slug, or &#39;personal&#39;, to filter apps
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :org_slug The org slug, or &#39;personal&#39;, to filter apps
   # @return [ListAppsResponse]
   describe 'apps_list test' do
     it 'should work' do

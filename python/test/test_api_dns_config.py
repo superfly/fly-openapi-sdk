@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from fly-sdk.models.api_dns_config import ApiDNSConfig  # noqa: E501
+from fly-sdk.models.api_dns_config import ApiDNSConfig
 
 class TestApiDNSConfig(unittest.TestCase):
     """ApiDNSConfig unit test stubs"""
@@ -33,7 +33,7 @@ class TestApiDNSConfig(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `ApiDNSConfig`
         """
-        model = ApiDNSConfig()  # noqa: E501
+        model = ApiDNSConfig()
         if include_optional:
             return ApiDNSConfig(
                 skip_registration = True

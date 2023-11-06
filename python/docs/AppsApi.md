@@ -135,7 +135,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **apps_list**
-> ListAppsResponse apps_list(org_slug=org_slug)
+> ListAppsResponse apps_list(org_slug)
 
 
 
@@ -160,10 +160,10 @@ configuration = fly-sdk.Configuration(
 with fly-sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fly-sdk.AppsApi(api_client)
-    org_slug = 'org_slug_example' # str | The org slug, or 'personal', to filter apps (optional)
+    org_slug = 'org_slug_example' # str | The org slug, or 'personal', to filter apps
 
     try:
-        api_response = api_instance.apps_list(org_slug=org_slug)
+        api_response = api_instance.apps_list(org_slug)
         print("The response of AppsApi->apps_list:\n")
         pprint(api_response)
     except Exception as e:
@@ -176,7 +176,7 @@ with fly-sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **org_slug** | **str**| The org slug, or &#39;personal&#39;, to filter apps | [optional] 
+ **org_slug** | **str**| The org slug, or &#39;personal&#39;, to filter apps | 
 
 ### Return type
 

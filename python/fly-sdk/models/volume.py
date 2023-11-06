@@ -18,13 +18,17 @@ import re  # noqa: F401
 import json
 
 
-from typing import Optional
+from typing import Any, ClassVar, Dict, List, Optional
 from pydantic import BaseModel, StrictBool, StrictInt, StrictStr
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class Volume(BaseModel):
     """
     Volume
-    """
+    """ # noqa: E501
     attached_alloc_id: Optional[StrictStr] = None
     attached_machine_id: Optional[StrictStr] = None
     block_size: Optional[StrictInt] = None
@@ -38,18 +42,20 @@ class Volume(BaseModel):
     name: Optional[StrictStr] = None
     region: Optional[StrictStr] = None
     size_gb: Optional[StrictInt] = None
+    snapshot_retention: Optional[StrictInt] = None
     state: Optional[StrictStr] = None
     zone: Optional[StrictStr] = None
-    __properties = ["attached_alloc_id", "attached_machine_id", "block_size", "blocks", "blocks_avail", "blocks_free", "created_at", "encrypted", "fstype", "id", "name", "region", "size_gb", "state", "zone"]
+    __properties: ClassVar[List[str]] = ["attached_alloc_id", "attached_machine_id", "block_size", "blocks", "blocks_avail", "blocks_free", "created_at", "encrypted", "fstype", "id", "name", "region", "size_gb", "snapshot_retention", "state", "zone"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
@@ -57,28 +63,38 @@ class Volume(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Volume:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of Volume from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> Volume:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of Volume from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return Volume.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = Volume.parse_obj({
+        _obj = cls.model_validate({
             "attached_alloc_id": obj.get("attached_alloc_id"),
             "attached_machine_id": obj.get("attached_machine_id"),
             "block_size": obj.get("block_size"),
@@ -92,6 +108,7 @@ class Volume(BaseModel):
             "name": obj.get("name"),
             "region": obj.get("region"),
             "size_gb": obj.get("size_gb"),
+            "snapshot_retention": obj.get("snapshot_retention"),
             "state": obj.get("state"),
             "zone": obj.get("zone")
         })

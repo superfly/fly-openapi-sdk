@@ -21,8 +21,10 @@ module FlySDK
 
     attr_accessor :lsvd
 
+    # Unique name for this Machine. If omitted, one is generated for you
     attr_accessor :name
 
+    # The target region. Omitting this param launches in the same region as your WireGuard peer connection (somewhere near you).
     attr_accessor :region
 
     attr_accessor :skip_launch
@@ -213,7 +215,7 @@ module FlySDK
       else # model
         # models (e.g. Pet) or oneOf
         klass = FlySDK.const_get(type)
-        klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+        klass.respond_to?(:openapi_any_of) || klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
       end
     end
 
