@@ -18,20 +18,16 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import List, Optional
 from pydantic import BaseModel, StrictBool, StrictInt, StrictStr
 from fly-sdk.models.api_http_options import ApiHTTPOptions
 from fly-sdk.models.api_proxy_proto_options import ApiProxyProtoOptions
 from fly-sdk.models.api_tls_options import ApiTLSOptions
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
 
 class ApiMachinePort(BaseModel):
     """
     ApiMachinePort
-    """ # noqa: E501
+    """
     end_port: Optional[StrictInt] = None
     force_https: Optional[StrictBool] = None
     handlers: Optional[List[StrictStr]] = None
@@ -40,17 +36,16 @@ class ApiMachinePort(BaseModel):
     proxy_proto_options: Optional[ApiProxyProtoOptions] = None
     start_port: Optional[StrictInt] = None
     tls_options: Optional[ApiTLSOptions] = None
-    __properties: ClassVar[List[str]] = ["end_port", "force_https", "handlers", "http_options", "port", "proxy_proto_options", "start_port", "tls_options"]
+    __properties = ["end_port", "force_https", "handlers", "http_options", "port", "proxy_proto_options", "start_port", "tls_options"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True
-    }
-
+    class Config:
+        """Pydantic configuration"""
+        allow_population_by_field_name = True
+        validate_assignment = True
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.model_dump(by_alias=True))
+        return pprint.pformat(self.dict(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
@@ -58,26 +53,16 @@ class ApiMachinePort(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> ApiMachinePort:
         """Create an instance of ApiMachinePort from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
-        """Return the dictionary representation of the model using alias.
-
-        This has the following differences from calling pydantic's
-        `self.model_dump(by_alias=True)`:
-
-        * `None` is only added to the output dict for nullable fields that
-          were set at model initialization. Other fields with value `None`
-          are ignored.
-        """
-        _dict = self.model_dump(
-            by_alias=True,
-            exclude={
-            },
-            exclude_none=True,
-        )
+    def to_dict(self):
+        """Returns the dictionary representation of the model using alias"""
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of http_options
         if self.http_options:
             _dict['http_options'] = self.http_options.to_dict()
@@ -90,15 +75,15 @@ class ApiMachinePort(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: dict) -> ApiMachinePort:
         """Create an instance of ApiMachinePort from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return cls.model_validate(obj)
+            return ApiMachinePort.parse_obj(obj)
 
-        _obj = cls.model_validate({
+        _obj = ApiMachinePort.parse_obj({
             "end_port": obj.get("end_port"),
             "force_https": obj.get("force_https"),
             "handlers": obj.get("handlers"),

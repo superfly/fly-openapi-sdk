@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from fly-sdk.models.api_machine_mount import ApiMachineMount
+from fly-sdk.models.api_machine_mount import ApiMachineMount  # noqa: E501
 
 class TestApiMachineMount(unittest.TestCase):
     """ApiMachineMount unit test stubs"""
@@ -33,13 +33,16 @@ class TestApiMachineMount(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `ApiMachineMount`
         """
-        model = ApiMachineMount()
+        model = ApiMachineMount()  # noqa: E501
         if include_optional:
             return ApiMachineMount(
+                add_size_gb = 56,
                 encrypted = True,
+                extend_threshold_percent = 56,
                 name = '',
                 path = '',
                 size_gb = 56,
+                size_gb_limit = 56,
                 volume = ''
             )
         else:

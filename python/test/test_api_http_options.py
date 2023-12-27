@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from fly-sdk.models.api_http_options import ApiHTTPOptions
+from fly-sdk.models.api_http_options import ApiHTTPOptions  # noqa: E501
 
 class TestApiHTTPOptions(unittest.TestCase):
     """ApiHTTPOptions unit test stubs"""
@@ -33,10 +33,11 @@ class TestApiHTTPOptions(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `ApiHTTPOptions`
         """
-        model = ApiHTTPOptions()
+        model = ApiHTTPOptions()  # noqa: E501
         if include_optional:
             return ApiHTTPOptions(
                 compress = True,
+                h2_backend = True,
                 response = fly-sdk.models.api/http_response_options.api.HTTPResponseOptions(
                     headers = {
                         'key' : None

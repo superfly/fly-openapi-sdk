@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from fly-sdk.models.api_machine_http_header import ApiMachineHTTPHeader
+from fly-sdk.models.api_machine_http_header import ApiMachineHTTPHeader  # noqa: E501
 
 class TestApiMachineHTTPHeader(unittest.TestCase):
     """ApiMachineHTTPHeader unit test stubs"""
@@ -33,7 +33,7 @@ class TestApiMachineHTTPHeader(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `ApiMachineHTTPHeader`
         """
-        model = ApiMachineHTTPHeader()
+        model = ApiMachineHTTPHeader()  # noqa: E501
         if include_optional:
             return ApiMachineHTTPHeader(
                 name = '',

@@ -19,10 +19,13 @@ var _ MappedNullable = &ApiMachineMount{}
 
 // ApiMachineMount struct for ApiMachineMount
 type ApiMachineMount struct {
+	AddSizeGb *int32 `json:"add_size_gb,omitempty"`
 	Encrypted *bool `json:"encrypted,omitempty"`
+	ExtendThresholdPercent *int32 `json:"extend_threshold_percent,omitempty"`
 	Name *string `json:"name,omitempty"`
 	Path *string `json:"path,omitempty"`
 	SizeGb *int32 `json:"size_gb,omitempty"`
+	SizeGbLimit *int32 `json:"size_gb_limit,omitempty"`
 	Volume *string `json:"volume,omitempty"`
 }
 
@@ -41,6 +44,38 @@ func NewApiMachineMount() *ApiMachineMount {
 func NewApiMachineMountWithDefaults() *ApiMachineMount {
 	this := ApiMachineMount{}
 	return &this
+}
+
+// GetAddSizeGb returns the AddSizeGb field value if set, zero value otherwise.
+func (o *ApiMachineMount) GetAddSizeGb() int32 {
+	if o == nil || IsNil(o.AddSizeGb) {
+		var ret int32
+		return ret
+	}
+	return *o.AddSizeGb
+}
+
+// GetAddSizeGbOk returns a tuple with the AddSizeGb field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ApiMachineMount) GetAddSizeGbOk() (*int32, bool) {
+	if o == nil || IsNil(o.AddSizeGb) {
+		return nil, false
+	}
+	return o.AddSizeGb, true
+}
+
+// HasAddSizeGb returns a boolean if a field has been set.
+func (o *ApiMachineMount) HasAddSizeGb() bool {
+	if o != nil && !IsNil(o.AddSizeGb) {
+		return true
+	}
+
+	return false
+}
+
+// SetAddSizeGb gets a reference to the given int32 and assigns it to the AddSizeGb field.
+func (o *ApiMachineMount) SetAddSizeGb(v int32) {
+	o.AddSizeGb = &v
 }
 
 // GetEncrypted returns the Encrypted field value if set, zero value otherwise.
@@ -73,6 +108,38 @@ func (o *ApiMachineMount) HasEncrypted() bool {
 // SetEncrypted gets a reference to the given bool and assigns it to the Encrypted field.
 func (o *ApiMachineMount) SetEncrypted(v bool) {
 	o.Encrypted = &v
+}
+
+// GetExtendThresholdPercent returns the ExtendThresholdPercent field value if set, zero value otherwise.
+func (o *ApiMachineMount) GetExtendThresholdPercent() int32 {
+	if o == nil || IsNil(o.ExtendThresholdPercent) {
+		var ret int32
+		return ret
+	}
+	return *o.ExtendThresholdPercent
+}
+
+// GetExtendThresholdPercentOk returns a tuple with the ExtendThresholdPercent field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ApiMachineMount) GetExtendThresholdPercentOk() (*int32, bool) {
+	if o == nil || IsNil(o.ExtendThresholdPercent) {
+		return nil, false
+	}
+	return o.ExtendThresholdPercent, true
+}
+
+// HasExtendThresholdPercent returns a boolean if a field has been set.
+func (o *ApiMachineMount) HasExtendThresholdPercent() bool {
+	if o != nil && !IsNil(o.ExtendThresholdPercent) {
+		return true
+	}
+
+	return false
+}
+
+// SetExtendThresholdPercent gets a reference to the given int32 and assigns it to the ExtendThresholdPercent field.
+func (o *ApiMachineMount) SetExtendThresholdPercent(v int32) {
+	o.ExtendThresholdPercent = &v
 }
 
 // GetName returns the Name field value if set, zero value otherwise.
@@ -171,6 +238,38 @@ func (o *ApiMachineMount) SetSizeGb(v int32) {
 	o.SizeGb = &v
 }
 
+// GetSizeGbLimit returns the SizeGbLimit field value if set, zero value otherwise.
+func (o *ApiMachineMount) GetSizeGbLimit() int32 {
+	if o == nil || IsNil(o.SizeGbLimit) {
+		var ret int32
+		return ret
+	}
+	return *o.SizeGbLimit
+}
+
+// GetSizeGbLimitOk returns a tuple with the SizeGbLimit field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ApiMachineMount) GetSizeGbLimitOk() (*int32, bool) {
+	if o == nil || IsNil(o.SizeGbLimit) {
+		return nil, false
+	}
+	return o.SizeGbLimit, true
+}
+
+// HasSizeGbLimit returns a boolean if a field has been set.
+func (o *ApiMachineMount) HasSizeGbLimit() bool {
+	if o != nil && !IsNil(o.SizeGbLimit) {
+		return true
+	}
+
+	return false
+}
+
+// SetSizeGbLimit gets a reference to the given int32 and assigns it to the SizeGbLimit field.
+func (o *ApiMachineMount) SetSizeGbLimit(v int32) {
+	o.SizeGbLimit = &v
+}
+
 // GetVolume returns the Volume field value if set, zero value otherwise.
 func (o *ApiMachineMount) GetVolume() string {
 	if o == nil || IsNil(o.Volume) {
@@ -213,8 +312,14 @@ func (o ApiMachineMount) MarshalJSON() ([]byte, error) {
 
 func (o ApiMachineMount) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.AddSizeGb) {
+		toSerialize["add_size_gb"] = o.AddSizeGb
+	}
 	if !IsNil(o.Encrypted) {
 		toSerialize["encrypted"] = o.Encrypted
+	}
+	if !IsNil(o.ExtendThresholdPercent) {
+		toSerialize["extend_threshold_percent"] = o.ExtendThresholdPercent
 	}
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
@@ -224,6 +329,9 @@ func (o ApiMachineMount) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.SizeGb) {
 		toSerialize["size_gb"] = o.SizeGb
+	}
+	if !IsNil(o.SizeGbLimit) {
+		toSerialize["size_gb_limit"] = o.SizeGbLimit
 	}
 	if !IsNil(o.Volume) {
 		toSerialize["volume"] = o.Volume

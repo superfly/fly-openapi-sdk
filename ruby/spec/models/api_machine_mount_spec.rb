@@ -22,12 +22,22 @@ describe FlySDK::ApiMachineMount do
 
   describe 'test an instance of ApiMachineMount' do
     it 'should create an instance of ApiMachineMount' do
-      # uncomment below to test the instance creation
-      #expect(instance).to be_instance_of(FlySDK::ApiMachineMount)
+      expect(instance).to be_instance_of(FlySDK::ApiMachineMount)
+    end
+  end
+  describe 'test attribute "add_size_gb"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
   end
 
   describe 'test attribute "encrypted"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "extend_threshold_percent"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -46,6 +56,12 @@ describe FlySDK::ApiMachineMount do
   end
 
   describe 'test attribute "size_gb"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "size_gb_limit"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

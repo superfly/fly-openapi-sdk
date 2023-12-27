@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **digest** | **str** |  | [optional] 
 **id** | **str** |  | [optional] 
 **size** | **int** |  | [optional] 
+**status** | **str** |  | [optional] 
 
 ## Example
 

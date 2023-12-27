@@ -99,12 +99,13 @@ Class | Method | HTTP request | Description
 *FlySDK::MachinesApi* | [**machines_update**](docs/MachinesApi.md#machines_update) | **POST** /apps/{app_name}/machines/{machine_id} | 
 *FlySDK::MachinesApi* | [**machines_update_metadata**](docs/MachinesApi.md#machines_update_metadata) | **POST** /apps/{app_name}/machines/{machine_id}/metadata/{key} | 
 *FlySDK::MachinesApi* | [**machines_wait**](docs/MachinesApi.md#machines_wait) | **GET** /apps/{app_name}/machines/{machine_id}/wait | 
+*FlySDK::VolumesApi* | [**create_volume_snapshot**](docs/VolumesApi.md#create_volume_snapshot) | **POST** /apps/{app_name}/volumes/{volume_id}/snapshots | 
 *FlySDK::VolumesApi* | [**volume_delete**](docs/VolumesApi.md#volume_delete) | **DELETE** /apps/{app_name}/volumes/{volume_id} | 
 *FlySDK::VolumesApi* | [**volumes_create**](docs/VolumesApi.md#volumes_create) | **POST** /apps/{app_name}/volumes | 
 *FlySDK::VolumesApi* | [**volumes_extend**](docs/VolumesApi.md#volumes_extend) | **PUT** /apps/{app_name}/volumes/{volume_id}/extend | 
 *FlySDK::VolumesApi* | [**volumes_get_by_id**](docs/VolumesApi.md#volumes_get_by_id) | **GET** /apps/{app_name}/volumes/{volume_id} | 
-*FlySDK::VolumesApi* | [**volumes_get_snapshots**](docs/VolumesApi.md#volumes_get_snapshots) | **GET** /apps/{app_name}/volumes/{volume_id}/snapshots | 
 *FlySDK::VolumesApi* | [**volumes_list**](docs/VolumesApi.md#volumes_list) | **GET** /apps/{app_name}/volumes | 
+*FlySDK::VolumesApi* | [**volumes_list_snapshots**](docs/VolumesApi.md#volumes_list_snapshots) | **GET** /apps/{app_name}/volumes/{volume_id}/snapshots | 
 *FlySDK::VolumesApi* | [**volumes_update**](docs/VolumesApi.md#volumes_update) | **POST** /apps/{app_name}/volumes/{volume_id} | 
 
 

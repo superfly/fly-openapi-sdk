@@ -23,13 +23,16 @@ module FlySDK
 
     attr_accessor :size
 
+    attr_accessor :status
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'created_at' => :'created_at',
         :'digest' => :'digest',
         :'id' => :'id',
-        :'size' => :'size'
+        :'size' => :'size',
+        :'status' => :'status'
       }
     end
 
@@ -44,7 +47,8 @@ module FlySDK
         :'created_at' => :'String',
         :'digest' => :'String',
         :'id' => :'String',
-        :'size' => :'Integer'
+        :'size' => :'Integer',
+        :'status' => :'String'
       }
     end
 
@@ -84,6 +88,10 @@ module FlySDK
       if attributes.key?(:'size')
         self.size = attributes[:'size']
       end
+
+      if attributes.key?(:'status')
+        self.status = attributes[:'status']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -109,7 +117,8 @@ module FlySDK
           created_at == o.created_at &&
           digest == o.digest &&
           id == o.id &&
-          size == o.size
+          size == o.size &&
+          status == o.status
     end
 
     # @see the `==` method
@@ -121,7 +130,7 @@ module FlySDK
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [created_at, digest, id, size].hash
+      [created_at, digest, id, size, status].hash
     end
 
     # Builds the object from hash
@@ -186,7 +195,7 @@ module FlySDK
       else # model
         # models (e.g. Pet) or oneOf
         klass = FlySDK.const_get(type)
-        klass.respond_to?(:openapi_any_of) || klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+        klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
       end
     end
 

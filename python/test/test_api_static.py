@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from fly-sdk.models.api_static import ApiStatic
+from fly-sdk.models.api_static import ApiStatic  # noqa: E501
 
 class TestApiStatic(unittest.TestCase):
     """ApiStatic unit test stubs"""
@@ -33,7 +33,7 @@ class TestApiStatic(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `ApiStatic`
         """
-        model = ApiStatic()
+        model = ApiStatic()  # noqa: E501
         if include_optional:
             return ApiStatic(
                 guest_path = '',

@@ -22,6 +22,20 @@ func Test_fly-sdk_VolumesAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
+	t.Run("Test VolumesAPIService CreateVolumeSnapshot", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var appName string
+		var volumeId string
+
+		httpRes, err := apiClient.VolumesAPI.CreateVolumeSnapshot(context.Background(), appName, volumeId).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test VolumesAPIService VolumeDelete", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -81,21 +95,6 @@ func Test_fly-sdk_VolumesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test VolumesAPIService VolumesGetSnapshots", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var appName string
-		var volumeId string
-
-		resp, httpRes, err := apiClient.VolumesAPI.VolumesGetSnapshots(context.Background(), appName, volumeId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
 	t.Run("Test VolumesAPIService VolumesList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -103,6 +102,21 @@ func Test_fly-sdk_VolumesAPIService(t *testing.T) {
 		var appName string
 
 		resp, httpRes, err := apiClient.VolumesAPI.VolumesList(context.Background(), appName).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test VolumesAPIService VolumesListSnapshots", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var appName string
+		var volumeId string
+
+		resp, httpRes, err := apiClient.VolumesAPI.VolumesListSnapshots(context.Background(), appName, volumeId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

@@ -22,11 +22,9 @@ describe FlySDK::ListApp do
 
   describe 'test an instance of ListApp' do
     it 'should create an instance of ListApp' do
-      # uncomment below to test the instance creation
-      #expect(instance).to be_instance_of(FlySDK::ListApp)
+      expect(instance).to be_instance_of(FlySDK::ListApp)
     end
   end
-
   describe 'test attribute "id"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

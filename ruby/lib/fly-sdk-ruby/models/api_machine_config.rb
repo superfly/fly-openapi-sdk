@@ -15,6 +15,7 @@ require 'time'
 
 module FlySDK
   class ApiMachineConfig
+    # Optional boolean telling the Machine to destroy itself once it’s complete (default false)
     attr_accessor :auto_destroy
 
     attr_accessor :checks
@@ -24,14 +25,14 @@ module FlySDK
 
     attr_accessor :dns
 
-    # Fields managed from fly.toml If you add anything here, ensure appconfig.Config.ToMachine() is updated
+    # An object filled with key/value pairs to be set as environment variables
     attr_accessor :env
 
     attr_accessor :files
 
     attr_accessor :guest
 
-    # Set by fly deploy or fly machines commands
+    # The docker image to run
     attr_accessor :image
 
     attr_accessor :init
@@ -46,7 +47,6 @@ module FlySDK
 
     attr_accessor :restart
 
-    # The following fields can only be set or updated by `fly machines run|update` commands \"fly deploy\" must preserve them, if you add anything here, ensure it is propagated on deploys
     attr_accessor :schedule
 
     attr_accessor :services
@@ -354,7 +354,7 @@ module FlySDK
       else # model
         # models (e.g. Pet) or oneOf
         klass = FlySDK.const_get(type)
-        klass.respond_to?(:openapi_any_of) || klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+        klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
       end
     end
 

@@ -18,31 +18,36 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictInt, StrictStr
+from typing import Optional
+from pydantic import BaseModel, StrictInt, StrictStr, validator
 from pydantic import Field
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
 
 class ApiMachineRestart(BaseModel):
     """
-    ApiMachineRestart
-    """ # noqa: E501
-    max_retries: Optional[StrictInt] = Field(default=None, description="MaxRetries is only relevant with the on-failure policy.")
-    policy: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["max_retries", "policy"]
+    The Machine restart policy defines whether and how flyd restarts a Machine after its main process exits. See https://fly.io/docs/machines/guides-examples/machine-restart-policy/.  # noqa: E501
+    """
+    max_retries: Optional[StrictInt] = Field(default=None, description="When policy is on-failure, the maximum number of times to attempt to restart the Machine before letting it stop.")
+    policy: Optional[StrictStr] = Field(default=None, description="* no - Never try to restart a Machine automatically when its main process exits, whether that’s on purpose or on a crash. * always - Always restart a Machine automatically and never let it enter a stopped state, even when the main process exits cleanly. * on-failure - Try up to MaxRetries times to automatically restart the Machine if it exits with a non-zero exit code. Default when no explicit policy is set, and for Machines with schedules.")
+    __properties = ["max_retries", "policy"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True
-    }
+    @validator('policy')
+    def policy_validate_enum(cls, value):
+        """Validates the enum"""
+        if value is None:
+            return value
 
+        if value not in ('no', 'always', 'on-failure'):
+            raise ValueError("must be one of enum values ('no', 'always', 'on-failure')")
+        return value
+
+    class Config:
+        """Pydantic configuration"""
+        allow_population_by_field_name = True
+        validate_assignment = True
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.model_dump(by_alias=True))
+        return pprint.pformat(self.dict(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
@@ -50,38 +55,28 @@ class ApiMachineRestart(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> ApiMachineRestart:
         """Create an instance of ApiMachineRestart from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
-        """Return the dictionary representation of the model using alias.
-
-        This has the following differences from calling pydantic's
-        `self.model_dump(by_alias=True)`:
-
-        * `None` is only added to the output dict for nullable fields that
-          were set at model initialization. Other fields with value `None`
-          are ignored.
-        """
-        _dict = self.model_dump(
-            by_alias=True,
-            exclude={
-            },
-            exclude_none=True,
-        )
+    def to_dict(self):
+        """Returns the dictionary representation of the model using alias"""
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: dict) -> ApiMachineRestart:
         """Create an instance of ApiMachineRestart from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return cls.model_validate(obj)
+            return ApiMachineRestart.parse_obj(obj)
 
-        _obj = cls.model_validate({
+        _obj = ApiMachineRestart.parse_obj({
             "max_retries": obj.get("max_retries"),
             "policy": obj.get("policy")
         })

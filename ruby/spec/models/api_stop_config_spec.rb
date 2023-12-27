@@ -22,11 +22,9 @@ describe FlySDK::ApiStopConfig do
 
   describe 'test an instance of ApiStopConfig' do
     it 'should create an instance of ApiStopConfig' do
-      # uncomment below to test the instance creation
-      #expect(instance).to be_instance_of(FlySDK::ApiStopConfig)
+      expect(instance).to be_instance_of(FlySDK::ApiStopConfig)
     end
   end
-
   describe 'test attribute "signal"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

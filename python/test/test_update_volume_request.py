@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from fly-sdk.models.update_volume_request import UpdateVolumeRequest
+from fly-sdk.models.update_volume_request import UpdateVolumeRequest  # noqa: E501
 
 class TestUpdateVolumeRequest(unittest.TestCase):
     """UpdateVolumeRequest unit test stubs"""
@@ -33,7 +33,7 @@ class TestUpdateVolumeRequest(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `UpdateVolumeRequest`
         """
-        model = UpdateVolumeRequest()
+        model = UpdateVolumeRequest()  # noqa: E501
         if include_optional:
             return UpdateVolumeRequest(
                 snapshot_retention = 56

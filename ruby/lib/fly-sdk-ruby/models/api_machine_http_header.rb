@@ -14,9 +14,12 @@ require 'date'
 require 'time'
 
 module FlySDK
+  # For http checks, an array of objects with string field Name and array of strings field Values. The key/value pairs specify header and header values that will get passed with the check call.
   class ApiMachineHTTPHeader
+    # The header name
     attr_accessor :name
 
+    # The header value
     attr_accessor :values
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -170,7 +173,7 @@ module FlySDK
       else # model
         # models (e.g. Pet) or oneOf
         klass = FlySDK.const_get(type)
-        klass.respond_to?(:openapi_any_of) || klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+        klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
       end
     end
 

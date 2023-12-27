@@ -17,13 +17,13 @@ import (
 // checks if the ApiFile type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &ApiFile{}
 
-// ApiFile struct for ApiFile
+// ApiFile A file that will be written to the Machine. One of RawValue or SecretName must be set.
 type ApiFile struct {
-	// GuestPath is the path on the machine where the file will be written and must be an absolute path. i.e. /full/path/to/file.json
+	// GuestPath is the path on the machine where the file will be written and must be an absolute path. For example: /full/path/to/file.json
 	GuestPath *string `json:"guest_path,omitempty"`
-	// RawValue containts the base64 encoded string of the file contents.
+	// The base64 encoded string of the file contents.
 	RawValue *string `json:"raw_value,omitempty"`
-	// SecretName is the name of the secret that contains the base64 encoded file contents.
+	// The name of the secret that contains the base64 encoded file contents.
 	SecretName *string `json:"secret_name,omitempty"`
 }
 

@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from fly-sdk.models.check_status import CheckStatus
+from fly-sdk.models.check_status import CheckStatus  # noqa: E501
 
 class TestCheckStatus(unittest.TestCase):
     """CheckStatus unit test stubs"""
@@ -33,7 +33,7 @@ class TestCheckStatus(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `CheckStatus`
         """
-        model = CheckStatus()
+        model = CheckStatus()  # noqa: E501
         if include_optional:
             return CheckStatus(
                 name = '',

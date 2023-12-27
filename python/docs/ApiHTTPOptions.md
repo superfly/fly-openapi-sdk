@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **compress** | **bool** |  | [optional] 
+**h2_backend** | **bool** |  | [optional] 
 **response** | [**ApiHTTPResponseOptions**](ApiHTTPResponseOptions.md) |  | [optional] 
 
 ## Example

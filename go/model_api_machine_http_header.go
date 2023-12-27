@@ -17,9 +17,11 @@ import (
 // checks if the ApiMachineHTTPHeader type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &ApiMachineHTTPHeader{}
 
-// ApiMachineHTTPHeader struct for ApiMachineHTTPHeader
+// ApiMachineHTTPHeader For http checks, an array of objects with string field Name and array of strings field Values. The key/value pairs specify header and header values that will get passed with the check call.
 type ApiMachineHTTPHeader struct {
+	// The header name
 	Name *string `json:"name,omitempty"`
+	// The header value
 	Values []string `json:"values,omitempty"`
 }
 

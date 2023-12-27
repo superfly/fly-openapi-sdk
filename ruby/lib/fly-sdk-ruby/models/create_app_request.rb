@@ -17,6 +17,8 @@ module FlySDK
   class CreateAppRequest
     attr_accessor :app_name
 
+    attr_accessor :app_role_id
+
     attr_accessor :network
 
     attr_accessor :org_slug
@@ -25,6 +27,7 @@ module FlySDK
     def self.attribute_map
       {
         :'app_name' => :'app_name',
+        :'app_role_id' => :'app_role_id',
         :'network' => :'network',
         :'org_slug' => :'org_slug'
       }
@@ -39,6 +42,7 @@ module FlySDK
     def self.openapi_types
       {
         :'app_name' => :'String',
+        :'app_role_id' => :'String',
         :'network' => :'String',
         :'org_slug' => :'String'
       }
@@ -67,6 +71,10 @@ module FlySDK
 
       if attributes.key?(:'app_name')
         self.app_name = attributes[:'app_name']
+      end
+
+      if attributes.key?(:'app_role_id')
+        self.app_role_id = attributes[:'app_role_id']
       end
 
       if attributes.key?(:'network')
@@ -99,6 +107,7 @@ module FlySDK
       return true if self.equal?(o)
       self.class == o.class &&
           app_name == o.app_name &&
+          app_role_id == o.app_role_id &&
           network == o.network &&
           org_slug == o.org_slug
     end
@@ -112,7 +121,7 @@ module FlySDK
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [app_name, network, org_slug].hash
+      [app_name, app_role_id, network, org_slug].hash
     end
 
     # Builds the object from hash
@@ -177,7 +186,7 @@ module FlySDK
       else # model
         # models (e.g. Pet) or oneOf
         klass = FlySDK.const_get(type)
-        klass.respond_to?(:openapi_any_of) || klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+        klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
       end
     end
 

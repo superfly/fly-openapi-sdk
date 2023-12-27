@@ -20,6 +20,7 @@ var _ MappedNullable = &CreateAppRequest{}
 // CreateAppRequest struct for CreateAppRequest
 type CreateAppRequest struct {
 	AppName *string `json:"app_name,omitempty"`
+	AppRoleId *string `json:"app_role_id,omitempty"`
 	Network *string `json:"network,omitempty"`
 	OrgSlug *string `json:"org_slug,omitempty"`
 }
@@ -71,6 +72,38 @@ func (o *CreateAppRequest) HasAppName() bool {
 // SetAppName gets a reference to the given string and assigns it to the AppName field.
 func (o *CreateAppRequest) SetAppName(v string) {
 	o.AppName = &v
+}
+
+// GetAppRoleId returns the AppRoleId field value if set, zero value otherwise.
+func (o *CreateAppRequest) GetAppRoleId() string {
+	if o == nil || IsNil(o.AppRoleId) {
+		var ret string
+		return ret
+	}
+	return *o.AppRoleId
+}
+
+// GetAppRoleIdOk returns a tuple with the AppRoleId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateAppRequest) GetAppRoleIdOk() (*string, bool) {
+	if o == nil || IsNil(o.AppRoleId) {
+		return nil, false
+	}
+	return o.AppRoleId, true
+}
+
+// HasAppRoleId returns a boolean if a field has been set.
+func (o *CreateAppRequest) HasAppRoleId() bool {
+	if o != nil && !IsNil(o.AppRoleId) {
+		return true
+	}
+
+	return false
+}
+
+// SetAppRoleId gets a reference to the given string and assigns it to the AppRoleId field.
+func (o *CreateAppRequest) SetAppRoleId(v string) {
+	o.AppRoleId = &v
 }
 
 // GetNetwork returns the Network field value if set, zero value otherwise.
@@ -149,6 +182,9 @@ func (o CreateAppRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.AppName) {
 		toSerialize["app_name"] = o.AppName
+	}
+	if !IsNil(o.AppRoleId) {
+		toSerialize["app_role_id"] = o.AppRoleId
 	}
 	if !IsNil(o.Network) {
 		toSerialize["network"] = o.Network

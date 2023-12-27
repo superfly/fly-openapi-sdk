@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from fly-sdk.models.main_status_code import MainStatusCode
+from fly-sdk.models.main_status_code import MainStatusCode  # noqa: E501
 
 class TestMainStatusCode(unittest.TestCase):
     """MainStatusCode unit test stubs"""

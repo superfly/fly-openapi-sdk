@@ -32,6 +32,17 @@ describe 'VolumesApi' do
     end
   end
 
+  # unit tests for create_volume_snapshot
+  # @param app_name Fly App Name
+  # @param volume_id Volume ID
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'create_volume_snapshot test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for volume_delete
   # @param app_name Fly App Name
   # @param volume_id Volume ID
@@ -77,22 +88,22 @@ describe 'VolumesApi' do
     end
   end
 
-  # unit tests for volumes_get_snapshots
-  # @param app_name Fly App Name
-  # @param volume_id Volume ID
-  # @param [Hash] opts the optional parameters
-  # @return [Array<VolumeSnapshot>]
-  describe 'volumes_get_snapshots test' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
   # unit tests for volumes_list
   # @param app_name Fly App Name
   # @param [Hash] opts the optional parameters
   # @return [Array<Volume>]
   describe 'volumes_list test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for volumes_list_snapshots
+  # @param app_name Fly App Name
+  # @param volume_id Volume ID
+  # @param [Hash] opts the optional parameters
+  # @return [Array<VolumeSnapshot>]
+  describe 'volumes_list_snapshots test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

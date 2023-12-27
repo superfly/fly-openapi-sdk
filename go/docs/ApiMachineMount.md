@@ -4,10 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AddSizeGb** | Pointer to **int32** |  | [optional] 
 **Encrypted** | Pointer to **bool** |  | [optional] 
+**ExtendThresholdPercent** | Pointer to **int32** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
 **Path** | Pointer to **string** |  | [optional] 
 **SizeGb** | Pointer to **int32** |  | [optional] 
+**SizeGbLimit** | Pointer to **int32** |  | [optional] 
 **Volume** | Pointer to **string** |  | [optional] 
 
 ## Methods
@@ -28,6 +31,31 @@ will change when the set of required properties is changed
 NewApiMachineMountWithDefaults instantiates a new ApiMachineMount object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetAddSizeGb
+
+`func (o *ApiMachineMount) GetAddSizeGb() int32`
+
+GetAddSizeGb returns the AddSizeGb field if non-nil, zero value otherwise.
+
+### GetAddSizeGbOk
+
+`func (o *ApiMachineMount) GetAddSizeGbOk() (*int32, bool)`
+
+GetAddSizeGbOk returns a tuple with the AddSizeGb field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAddSizeGb
+
+`func (o *ApiMachineMount) SetAddSizeGb(v int32)`
+
+SetAddSizeGb sets AddSizeGb field to given value.
+
+### HasAddSizeGb
+
+`func (o *ApiMachineMount) HasAddSizeGb() bool`
+
+HasAddSizeGb returns a boolean if a field has been set.
 
 ### GetEncrypted
 
@@ -53,6 +81,31 @@ SetEncrypted sets Encrypted field to given value.
 `func (o *ApiMachineMount) HasEncrypted() bool`
 
 HasEncrypted returns a boolean if a field has been set.
+
+### GetExtendThresholdPercent
+
+`func (o *ApiMachineMount) GetExtendThresholdPercent() int32`
+
+GetExtendThresholdPercent returns the ExtendThresholdPercent field if non-nil, zero value otherwise.
+
+### GetExtendThresholdPercentOk
+
+`func (o *ApiMachineMount) GetExtendThresholdPercentOk() (*int32, bool)`
+
+GetExtendThresholdPercentOk returns a tuple with the ExtendThresholdPercent field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExtendThresholdPercent
+
+`func (o *ApiMachineMount) SetExtendThresholdPercent(v int32)`
+
+SetExtendThresholdPercent sets ExtendThresholdPercent field to given value.
+
+### HasExtendThresholdPercent
+
+`func (o *ApiMachineMount) HasExtendThresholdPercent() bool`
+
+HasExtendThresholdPercent returns a boolean if a field has been set.
 
 ### GetName
 
@@ -128,6 +181,31 @@ SetSizeGb sets SizeGb field to given value.
 `func (o *ApiMachineMount) HasSizeGb() bool`
 
 HasSizeGb returns a boolean if a field has been set.
+
+### GetSizeGbLimit
+
+`func (o *ApiMachineMount) GetSizeGbLimit() int32`
+
+GetSizeGbLimit returns the SizeGbLimit field if non-nil, zero value otherwise.
+
+### GetSizeGbLimitOk
+
+`func (o *ApiMachineMount) GetSizeGbLimitOk() (*int32, bool)`
+
+GetSizeGbLimitOk returns a tuple with the SizeGbLimit field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSizeGbLimit
+
+`func (o *ApiMachineMount) SetSizeGbLimit(v int32)`
+
+SetSizeGbLimit sets SizeGbLimit field to given value.
+
+### HasSizeGbLimit
+
+`func (o *ApiMachineMount) HasSizeGbLimit() bool`
+
+HasSizeGbLimit returns a boolean if a field has been set.
 
 ### GetVolume
 

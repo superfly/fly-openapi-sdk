@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from fly-sdk.models.create_app_request import CreateAppRequest
+from fly-sdk.models.create_app_request import CreateAppRequest  # noqa: E501
 
 class TestCreateAppRequest(unittest.TestCase):
     """CreateAppRequest unit test stubs"""
@@ -33,10 +33,11 @@ class TestCreateAppRequest(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `CreateAppRequest`
         """
-        model = CreateAppRequest()
+        model = CreateAppRequest()  # noqa: E501
         if include_optional:
             return CreateAppRequest(
                 app_name = '',
+                app_role_id = '',
                 network = '',
                 org_slug = ''
             )

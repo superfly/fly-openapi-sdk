@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **string** |  | [optional] 
-**Values** | Pointer to **[]string** |  | [optional] 
+**Name** | Pointer to **string** | The header name | [optional] 
+**Values** | Pointer to **[]string** | The header value | [optional] 
 
 ## Methods
 

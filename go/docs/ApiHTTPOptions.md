@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Compress** | Pointer to **bool** |  | [optional] 
+**H2Backend** | Pointer to **bool** |  | [optional] 
 **Response** | Pointer to [**ApiHTTPResponseOptions**](ApiHTTPResponseOptions.md) |  | [optional] 
 
 ## Methods
@@ -50,6 +51,31 @@ SetCompress sets Compress field to given value.
 `func (o *ApiHTTPOptions) HasCompress() bool`
 
 HasCompress returns a boolean if a field has been set.
+
+### GetH2Backend
+
+`func (o *ApiHTTPOptions) GetH2Backend() bool`
+
+GetH2Backend returns the H2Backend field if non-nil, zero value otherwise.
+
+### GetH2BackendOk
+
+`func (o *ApiHTTPOptions) GetH2BackendOk() (*bool, bool)`
+
+GetH2BackendOk returns a tuple with the H2Backend field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetH2Backend
+
+`func (o *ApiHTTPOptions) SetH2Backend(v bool)`
+
+SetH2Backend sets H2Backend field to given value.
+
+### HasH2Backend
+
+`func (o *ApiHTTPOptions) HasH2Backend() bool`
+
+HasH2Backend returns a boolean if a field has been set.
 
 ### GetResponse
 

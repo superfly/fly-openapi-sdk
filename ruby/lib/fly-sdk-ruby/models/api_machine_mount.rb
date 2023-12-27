@@ -15,7 +15,11 @@ require 'time'
 
 module FlySDK
   class ApiMachineMount
+    attr_accessor :add_size_gb
+
     attr_accessor :encrypted
+
+    attr_accessor :extend_threshold_percent
 
     attr_accessor :name
 
@@ -23,15 +27,20 @@ module FlySDK
 
     attr_accessor :size_gb
 
+    attr_accessor :size_gb_limit
+
     attr_accessor :volume
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'add_size_gb' => :'add_size_gb',
         :'encrypted' => :'encrypted',
+        :'extend_threshold_percent' => :'extend_threshold_percent',
         :'name' => :'name',
         :'path' => :'path',
         :'size_gb' => :'size_gb',
+        :'size_gb_limit' => :'size_gb_limit',
         :'volume' => :'volume'
       }
     end
@@ -44,10 +53,13 @@ module FlySDK
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'add_size_gb' => :'Integer',
         :'encrypted' => :'Boolean',
+        :'extend_threshold_percent' => :'Integer',
         :'name' => :'String',
         :'path' => :'String',
         :'size_gb' => :'Integer',
+        :'size_gb_limit' => :'Integer',
         :'volume' => :'String'
       }
     end
@@ -73,8 +85,16 @@ module FlySDK
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'add_size_gb')
+        self.add_size_gb = attributes[:'add_size_gb']
+      end
+
       if attributes.key?(:'encrypted')
         self.encrypted = attributes[:'encrypted']
+      end
+
+      if attributes.key?(:'extend_threshold_percent')
+        self.extend_threshold_percent = attributes[:'extend_threshold_percent']
       end
 
       if attributes.key?(:'name')
@@ -87,6 +107,10 @@ module FlySDK
 
       if attributes.key?(:'size_gb')
         self.size_gb = attributes[:'size_gb']
+      end
+
+      if attributes.key?(:'size_gb_limit')
+        self.size_gb_limit = attributes[:'size_gb_limit']
       end
 
       if attributes.key?(:'volume')
@@ -114,10 +138,13 @@ module FlySDK
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          add_size_gb == o.add_size_gb &&
           encrypted == o.encrypted &&
+          extend_threshold_percent == o.extend_threshold_percent &&
           name == o.name &&
           path == o.path &&
           size_gb == o.size_gb &&
+          size_gb_limit == o.size_gb_limit &&
           volume == o.volume
     end
 
@@ -130,7 +157,7 @@ module FlySDK
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [encrypted, name, path, size_gb, volume].hash
+      [add_size_gb, encrypted, extend_threshold_percent, name, path, size_gb, size_gb_limit, volume].hash
     end
 
     # Builds the object from hash
@@ -195,7 +222,7 @@ module FlySDK
       else # model
         # models (e.g. Pet) or oneOf
         klass = FlySDK.const_get(type)
-        klass.respond_to?(:openapi_any_of) || klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+        klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
       end
     end
 

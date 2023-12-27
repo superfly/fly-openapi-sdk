@@ -17,18 +17,28 @@ import (
 // checks if the ApiMachineCheck type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &ApiMachineCheck{}
 
-// ApiMachineCheck struct for ApiMachineCheck
+// ApiMachineCheck An optional object that defines one or more named checks. The key for each check is the check name.
 type ApiMachineCheck struct {
+	// The time to wait after a VM starts before checking its health
 	GracePeriod *string `json:"grace_period,omitempty"`
 	Headers []ApiMachineHTTPHeader `json:"headers,omitempty"`
+	// The time between connectivity checks
 	Interval *string `json:"interval,omitempty"`
+	// For http checks, the HTTP method to use to when making the request
 	Method *string `json:"method,omitempty"`
+	// For http checks, the path to send the request to
 	Path *string `json:"path,omitempty"`
+	// The port to connect to, often the same as internal_port
 	Port *int32 `json:"port,omitempty"`
+	// For http checks, whether to use http or https
 	Protocol *string `json:"protocol,omitempty"`
+	// The maximum time a connection can take before being reported as failing its health check
 	Timeout *string `json:"timeout,omitempty"`
+	// If the protocol is https, the hostname to use for TLS certificate validation
 	TlsServerName *string `json:"tls_server_name,omitempty"`
+	// For http checks with https protocol, whether or not to verify the TLS certificate
 	TlsSkipVerify *bool `json:"tls_skip_verify,omitempty"`
+	// tcp or http
 	Type *string `json:"type,omitempty"`
 }
 

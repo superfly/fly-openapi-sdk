@@ -1,20 +1,21 @@
 # ApiMachineCheck
 
+An optional object that defines one or more named checks. The key for each check is the check name.
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**grace_period** | **str** |  | [optional] 
+**grace_period** | **str** | The time to wait after a VM starts before checking its health | [optional] 
 **headers** | [**List[ApiMachineHTTPHeader]**](ApiMachineHTTPHeader.md) |  | [optional] 
-**interval** | **str** |  | [optional] 
-**method** | **str** |  | [optional] 
-**path** | **str** |  | [optional] 
-**port** | **int** |  | [optional] 
-**protocol** | **str** |  | [optional] 
-**timeout** | **str** |  | [optional] 
-**tls_server_name** | **str** |  | [optional] 
-**tls_skip_verify** | **bool** |  | [optional] 
-**type** | **str** |  | [optional] 
+**interval** | **str** | The time between connectivity checks | [optional] 
+**method** | **str** | For http checks, the HTTP method to use to when making the request | [optional] 
+**path** | **str** | For http checks, the path to send the request to | [optional] 
+**port** | **int** | The port to connect to, often the same as internal_port | [optional] 
+**protocol** | **str** | For http checks, whether to use http or https | [optional] 
+**timeout** | **str** | The maximum time a connection can take before being reported as failing its health check | [optional] 
+**tls_server_name** | **str** | If the protocol is https, the hostname to use for TLS certificate validation | [optional] 
+**tls_skip_verify** | **bool** | For http checks with https protocol, whether or not to verify the TLS certificate | [optional] 
+**type** | **str** | tcp or http | [optional] 
 
 ## Example
 

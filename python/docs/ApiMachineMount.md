@@ -4,10 +4,13 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**add_size_gb** | **int** |  | [optional] 
 **encrypted** | **bool** |  | [optional] 
+**extend_threshold_percent** | **int** |  | [optional] 
 **name** | **str** |  | [optional] 
 **path** | **str** |  | [optional] 
 **size_gb** | **int** |  | [optional] 
+**size_gb_limit** | **int** |  | [optional] 
 **volume** | **str** |  | [optional] 
 
 ## Example

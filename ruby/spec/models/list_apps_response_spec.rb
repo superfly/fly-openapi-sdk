@@ -22,11 +22,9 @@ describe FlySDK::ListAppsResponse do
 
   describe 'test an instance of ListAppsResponse' do
     it 'should create an instance of ListAppsResponse' do
-      # uncomment below to test the instance creation
-      #expect(instance).to be_instance_of(FlySDK::ListAppsResponse)
+      expect(instance).to be_instance_of(FlySDK::ListAppsResponse)
     end
   end
-
   describe 'test attribute "apps"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from fly-sdk.models.volume_snapshot import VolumeSnapshot
+from fly-sdk.models.volume_snapshot import VolumeSnapshot  # noqa: E501
 
 class TestVolumeSnapshot(unittest.TestCase):
     """VolumeSnapshot unit test stubs"""
@@ -33,13 +33,14 @@ class TestVolumeSnapshot(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `VolumeSnapshot`
         """
-        model = VolumeSnapshot()
+        model = VolumeSnapshot()  # noqa: E501
         if include_optional:
             return VolumeSnapshot(
                 created_at = '',
                 digest = '',
                 id = '',
-                size = 56
+                size = 56,
+                status = ''
             )
         else:
             return VolumeSnapshot(

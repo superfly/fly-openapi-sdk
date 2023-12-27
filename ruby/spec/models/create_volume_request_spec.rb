@@ -22,11 +22,9 @@ describe FlySDK::CreateVolumeRequest do
 
   describe 'test an instance of CreateVolumeRequest' do
     it 'should create an instance of CreateVolumeRequest' do
-      # uncomment below to test the instance creation
-      #expect(instance).to be_instance_of(FlySDK::CreateVolumeRequest)
+      expect(instance).to be_instance_of(FlySDK::CreateVolumeRequest)
     end
   end
-
   describe 'test attribute "compute"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

@@ -12,7 +12,6 @@ package fly-sdk
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the ApiStatic type satisfies the MappedNullable interface at compile time
@@ -23,8 +22,6 @@ type ApiStatic struct {
 	GuestPath string `json:"guest_path"`
 	UrlPrefix string `json:"url_prefix"`
 }
-
-type _ApiStatic ApiStatic
 
 // NewApiStatic instantiates a new ApiStatic object
 // This constructor will assign default values to properties that have it defined,
@@ -106,42 +103,6 @@ func (o ApiStatic) ToMap() (map[string]interface{}, error) {
 	toSerialize["guest_path"] = o.GuestPath
 	toSerialize["url_prefix"] = o.UrlPrefix
 	return toSerialize, nil
-}
-
-func (o *ApiStatic) UnmarshalJSON(bytes []byte) (err error) {
-    // This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"guest_path",
-		"url_prefix",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(bytes, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varApiStatic := _ApiStatic{}
-
-	err = json.Unmarshal(bytes, &varApiStatic)
-
-	if err != nil {
-		return err
-	}
-
-	*o = ApiStatic(varApiStatic)
-
-	return err
 }
 
 type NullableApiStatic struct {

@@ -933,7 +933,7 @@ paths:
       x-codegen-request-body-name: request
   /apps/{app_name}/volumes/{volume_id}/snapshots:
     get:
-      operationId: Volumes_get_snapshots
+      operationId: Volumes_list_snapshots
       parameters:
       - description: Fly App Name
         in: path
@@ -955,6 +955,27 @@ paths:
                 items:
                   $ref: '#/components/schemas/VolumeSnapshot'
                 type: array
+          description: OK
+      tags:
+      - Volumes
+    post:
+      operationId: createVolumeSnapshot
+      parameters:
+      - description: Fly App Name
+        in: path
+        name: app_name
+        required: true
+        schema:
+          type: string
+      - description: Volume ID
+        in: path
+        name: volume_id
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content: {}
           description: OK
       tags:
       - Volumes
@@ -998,9 +1019,12 @@ components:
       example:
         app_name: app_name
         org_slug: org_slug
+        app_role_id: app_role_id
         network: network
       properties:
         app_name:
+          type: string
+        app_role_id:
           type: string
         network:
           type: string
@@ -1167,6 +1191,7 @@ components:
         expires_at: 0
         description: description
         nonce: nonce
+        version: version
       properties:
         description:
           description: Description or reason for the Lease.
@@ -1181,6 +1206,9 @@ components:
           type: string
         owner:
           description: Owner is the user identifier which acquired the Lease.
+          type: string
+        version:
+          description: Machine version
           type: string
       type: object
     ListApp:
@@ -1301,8 +1329,8 @@ components:
             - exec
             - exec
           restart:
-            max_retries: 7
-            policy: policy
+            max_retries: 2
+            policy: "no"
           auto_destroy: true
           dns:
             skip_registration: true
@@ -1310,15 +1338,21 @@ components:
           - volume: volume
             path: path
             encrypted: true
+            size_gb_limit: 3
+            extend_threshold_percent: 7
             name: name
-            size_gb: 2
+            add_size_gb: 2
+            size_gb: 9
           - volume: volume
             path: path
             encrypted: true
+            size_gb_limit: 3
+            extend_threshold_percent: 7
             name: name
-            size_gb: 2
+            add_size_gb: 2
+            size_gb: 9
           services:
-          - min_machines_running: 4
+          - min_machines_running: 1
             protocol: protocol
             checks:
             - headers:
@@ -1361,14 +1395,14 @@ components:
               timeout: timeout
             force_instance_key: force_instance_key
             autostart: true
-            internal_port: 2
+            internal_port: 1
             ports:
             - force_https: true
-              port: 1
+              port: 6
               handlers:
               - handlers
               - handlers
-              start_port: 1
+              start_port: 7
               tls_options:
                 alpn:
                 - alpn
@@ -1379,18 +1413,19 @@ components:
                 - versions
               proxy_proto_options:
                 version: version
-              end_port: 7
+              end_port: 1
               http_options:
                 compress: true
                 response:
                   headers:
                     key: "{}"
+                h2_backend: true
             - force_https: true
-              port: 1
+              port: 6
               handlers:
               - handlers
               - handlers
-              start_port: 1
+              start_port: 7
               tls_options:
                 alpn:
                 - alpn
@@ -1401,19 +1436,20 @@ components:
                 - versions
               proxy_proto_options:
                 version: version
-              end_port: 7
+              end_port: 1
               http_options:
                 compress: true
                 response:
                   headers:
                     key: "{}"
+                h2_backend: true
             force_instance_description: force_instance_description
             autostop: true
             concurrency:
-              soft_limit: 3
+              soft_limit: 7
               type: type
-              hard_limit: 9
-          - min_machines_running: 4
+              hard_limit: 4
+          - min_machines_running: 1
             protocol: protocol
             checks:
             - headers:
@@ -1456,14 +1492,14 @@ components:
               timeout: timeout
             force_instance_key: force_instance_key
             autostart: true
-            internal_port: 2
+            internal_port: 1
             ports:
             - force_https: true
-              port: 1
+              port: 6
               handlers:
               - handlers
               - handlers
-              start_port: 1
+              start_port: 7
               tls_options:
                 alpn:
                 - alpn
@@ -1474,18 +1510,19 @@ components:
                 - versions
               proxy_proto_options:
                 version: version
-              end_port: 7
+              end_port: 1
               http_options:
                 compress: true
                 response:
                   headers:
                     key: "{}"
+                h2_backend: true
             - force_https: true
-              port: 1
+              port: 6
               handlers:
               - handlers
               - handlers
-              start_port: 1
+              start_port: 7
               tls_options:
                 alpn:
                 - alpn
@@ -1496,18 +1533,19 @@ components:
                 - versions
               proxy_proto_options:
                 version: version
-              end_port: 7
+              end_port: 1
               http_options:
                 compress: true
                 response:
                   headers:
                     key: "{}"
+                h2_backend: true
             force_instance_description: force_instance_description
             autostop: true
             concurrency:
-              soft_limit: 3
+              soft_limit: 7
               type: type
-              hard_limit: 9
+              hard_limit: 4
           env:
             key: env
           statics:
@@ -1701,8 +1739,8 @@ components:
             - exec
             - exec
           restart:
-            max_retries: 7
-            policy: policy
+            max_retries: 2
+            policy: "no"
           auto_destroy: true
           dns:
             skip_registration: true
@@ -1710,15 +1748,21 @@ components:
           - volume: volume
             path: path
             encrypted: true
+            size_gb_limit: 3
+            extend_threshold_percent: 7
             name: name
-            size_gb: 2
+            add_size_gb: 2
+            size_gb: 9
           - volume: volume
             path: path
             encrypted: true
+            size_gb_limit: 3
+            extend_threshold_percent: 7
             name: name
-            size_gb: 2
+            add_size_gb: 2
+            size_gb: 9
           services:
-          - min_machines_running: 4
+          - min_machines_running: 1
             protocol: protocol
             checks:
             - headers:
@@ -1761,14 +1805,14 @@ components:
               timeout: timeout
             force_instance_key: force_instance_key
             autostart: true
-            internal_port: 2
+            internal_port: 1
             ports:
             - force_https: true
-              port: 1
+              port: 6
               handlers:
               - handlers
               - handlers
-              start_port: 1
+              start_port: 7
               tls_options:
                 alpn:
                 - alpn
@@ -1779,18 +1823,19 @@ components:
                 - versions
               proxy_proto_options:
                 version: version
-              end_port: 7
+              end_port: 1
               http_options:
                 compress: true
                 response:
                   headers:
                     key: "{}"
+                h2_backend: true
             - force_https: true
-              port: 1
+              port: 6
               handlers:
               - handlers
               - handlers
-              start_port: 1
+              start_port: 7
               tls_options:
                 alpn:
                 - alpn
@@ -1801,19 +1846,20 @@ components:
                 - versions
               proxy_proto_options:
                 version: version
-              end_port: 7
+              end_port: 1
               http_options:
                 compress: true
                 response:
                   headers:
                     key: "{}"
+                h2_backend: true
             force_instance_description: force_instance_description
             autostop: true
             concurrency:
-              soft_limit: 3
+              soft_limit: 7
               type: type
-              hard_limit: 9
-          - min_machines_running: 4
+              hard_limit: 4
+          - min_machines_running: 1
             protocol: protocol
             checks:
             - headers:
@@ -1856,14 +1902,14 @@ components:
               timeout: timeout
             force_instance_key: force_instance_key
             autostart: true
-            internal_port: 2
+            internal_port: 1
             ports:
             - force_https: true
-              port: 1
+              port: 6
               handlers:
               - handlers
               - handlers
-              start_port: 1
+              start_port: 7
               tls_options:
                 alpn:
                 - alpn
@@ -1874,18 +1920,19 @@ components:
                 - versions
               proxy_proto_options:
                 version: version
-              end_port: 7
+              end_port: 1
               http_options:
                 compress: true
                 response:
                   headers:
                     key: "{}"
+                h2_backend: true
             - force_https: true
-              port: 1
+              port: 6
               handlers:
               - handlers
               - handlers
-              start_port: 1
+              start_port: 7
               tls_options:
                 alpn:
                 - alpn
@@ -1896,18 +1943,19 @@ components:
                 - versions
               proxy_proto_options:
                 version: version
-              end_port: 7
+              end_port: 1
               http_options:
                 compress: true
                 response:
                   headers:
                     key: "{}"
+                h2_backend: true
             force_instance_description: force_instance_description
             autostop: true
             concurrency:
-              soft_limit: 3
+              soft_limit: 7
               type: type
-              hard_limit: 9
+              hard_limit: 4
           env:
             key: env
           statics:
@@ -2145,6 +2193,7 @@ components:
         digest: digest
         created_at: created_at
         id: id
+        status: status
       properties:
         created_at:
           type: string
@@ -2154,6 +2203,8 @@ components:
           type: string
         size:
           type: integer
+        status:
+          type: string
       type: object
     api.DNSConfig:
       example:
@@ -2163,6 +2214,8 @@ components:
           type: boolean
       type: object
     api.File:
+      description: A file that will be written to the Machine. One of RawValue or
+        SecretName must be set.
       example:
         secret_name: secret_name
         raw_value: raw_value
@@ -2171,14 +2224,14 @@ components:
         guest_path:
           description: |-
             GuestPath is the path on the machine where the file will be written and must be an absolute path.
-            i.e. /full/path/to/file.json
+            For example: /full/path/to/file.json
           type: string
         raw_value:
-          description: RawValue containts the base64 encoded string of the file contents.
+          description: The base64 encoded string of the file contents.
           type: string
         secret_name:
-          description: SecretName is the name of the secret that contains the base64
-            encoded file contents.
+          description: The name of the secret that contains the base64 encoded file
+            contents.
           type: string
       type: object
     api.HTTPOptions:
@@ -2187,8 +2240,11 @@ components:
         response:
           headers:
             key: "{}"
+        h2_backend: true
       properties:
         compress:
+          type: boolean
+        h2_backend:
           type: boolean
         response:
           $ref: '#/components/schemas/api.HTTPResponseOptions'
@@ -2204,6 +2260,8 @@ components:
           type: object
       type: object
     api.MachineCheck:
+      description: An optional object that defines one or more named checks. The key
+        for each check is the check name.
       example:
         headers:
         - values:
@@ -2226,28 +2284,42 @@ components:
         timeout: timeout
       properties:
         grace_period:
+          description: The time to wait after a VM starts before checking its health
           type: string
         headers:
           items:
             $ref: '#/components/schemas/api.MachineHTTPHeader'
           type: array
         interval:
+          description: The time between connectivity checks
           type: string
         method:
+          description: "For http checks, the HTTP method to use to when making the\
+            \ request"
           type: string
         path:
+          description: "For http checks, the path to send the request to"
           type: string
         port:
+          description: "The port to connect to, often the same as internal_port"
           type: integer
         protocol:
+          description: "For http checks, whether to use http or https"
           type: string
         timeout:
+          description: The maximum time a connection can take before being reported
+            as failing its health check
           type: string
         tls_server_name:
+          description: "If the protocol is https, the hostname to use for TLS certificate\
+            \ validation"
           type: string
         tls_skip_verify:
+          description: "For http checks with https protocol, whether or not to verify\
+            \ the TLS certificate"
           type: boolean
         type:
+          description: tcp or http
           type: string
       type: object
     api.MachineConfig:
@@ -2296,8 +2368,8 @@ components:
           - exec
           - exec
         restart:
-          max_retries: 7
-          policy: policy
+          max_retries: 2
+          policy: "no"
         auto_destroy: true
         dns:
           skip_registration: true
@@ -2305,15 +2377,21 @@ components:
         - volume: volume
           path: path
           encrypted: true
+          size_gb_limit: 3
+          extend_threshold_percent: 7
           name: name
-          size_gb: 2
+          add_size_gb: 2
+          size_gb: 9
         - volume: volume
           path: path
           encrypted: true
+          size_gb_limit: 3
+          extend_threshold_percent: 7
           name: name
-          size_gb: 2
+          add_size_gb: 2
+          size_gb: 9
         services:
-        - min_machines_running: 4
+        - min_machines_running: 1
           protocol: protocol
           checks:
           - headers:
@@ -2356,14 +2434,14 @@ components:
             timeout: timeout
           force_instance_key: force_instance_key
           autostart: true
-          internal_port: 2
+          internal_port: 1
           ports:
           - force_https: true
-            port: 1
+            port: 6
             handlers:
             - handlers
             - handlers
-            start_port: 1
+            start_port: 7
             tls_options:
               alpn:
               - alpn
@@ -2374,18 +2452,19 @@ components:
               - versions
             proxy_proto_options:
               version: version
-            end_port: 7
+            end_port: 1
             http_options:
               compress: true
               response:
                 headers:
                   key: "{}"
+              h2_backend: true
           - force_https: true
-            port: 1
+            port: 6
             handlers:
             - handlers
             - handlers
-            start_port: 1
+            start_port: 7
             tls_options:
               alpn:
               - alpn
@@ -2396,19 +2475,20 @@ components:
               - versions
             proxy_proto_options:
               version: version
-            end_port: 7
+            end_port: 1
             http_options:
               compress: true
               response:
                 headers:
                   key: "{}"
+              h2_backend: true
           force_instance_description: force_instance_description
           autostop: true
           concurrency:
-            soft_limit: 3
+            soft_limit: 7
             type: type
-            hard_limit: 9
-        - min_machines_running: 4
+            hard_limit: 4
+        - min_machines_running: 1
           protocol: protocol
           checks:
           - headers:
@@ -2451,14 +2531,14 @@ components:
             timeout: timeout
           force_instance_key: force_instance_key
           autostart: true
-          internal_port: 2
+          internal_port: 1
           ports:
           - force_https: true
-            port: 1
+            port: 6
             handlers:
             - handlers
             - handlers
-            start_port: 1
+            start_port: 7
             tls_options:
               alpn:
               - alpn
@@ -2469,18 +2549,19 @@ components:
               - versions
             proxy_proto_options:
               version: version
-            end_port: 7
+            end_port: 1
             http_options:
               compress: true
               response:
                 headers:
                   key: "{}"
+              h2_backend: true
           - force_https: true
-            port: 1
+            port: 6
             handlers:
             - handlers
             - handlers
-            start_port: 1
+            start_port: 7
             tls_options:
               alpn:
               - alpn
@@ -2491,18 +2572,19 @@ components:
               - versions
             proxy_proto_options:
               version: version
-            end_port: 7
+            end_port: 1
             http_options:
               compress: true
               response:
                 headers:
                   key: "{}"
+              h2_backend: true
           force_instance_description: force_instance_description
           autostop: true
           concurrency:
-            soft_limit: 3
+            soft_limit: 7
             type: type
-            hard_limit: 9
+            hard_limit: 4
         env:
           key: env
         statics:
@@ -2561,6 +2643,8 @@ components:
           timeout: timeout
       properties:
         auto_destroy:
+          description: Optional boolean telling the Machine to destroy itself once
+            it’s complete (default false)
           type: boolean
         checks:
           additionalProperties:
@@ -2574,9 +2658,8 @@ components:
         env:
           additionalProperties:
             type: string
-          description: |-
-            Fields managed from fly.toml
-            If you add anything here, ensure appconfig.Config.ToMachine() is updated
+          description: An object filled with key/value pairs to be set as environment
+            variables
           type: object
         files:
           items:
@@ -2585,7 +2668,7 @@ components:
         guest:
           $ref: '#/components/schemas/api.MachineGuest'
         image:
-          description: Set by fly deploy or fly machines commands
+          description: The docker image to run
           type: string
         init:
           $ref: '#/components/schemas/api.MachineInit'
@@ -2606,9 +2689,6 @@ components:
         restart:
           $ref: '#/components/schemas/api.MachineRestart'
         schedule:
-          description: |-
-            The following fields can only be set or updated by `fly machines run|update` commands
-            "fly deploy" must preserve them, if you add anything here, ensure it is propagated on deploys
           type: string
         services:
           items:
@@ -2658,6 +2738,9 @@ components:
           type: integer
       type: object
     api.MachineHTTPHeader:
+      description: "For http checks, an array of objects with string field Name and\
+        \ array of strings field Values. The key/value pairs specify header and header\
+        \ values that will get passed with the check call."
       example:
         values:
         - values
@@ -2665,8 +2748,10 @@ components:
         name: name
       properties:
         name:
+          description: The header name
           type: string
         values:
+          description: The header value
           items:
             type: string
           type: array
@@ -2724,16 +2809,25 @@ components:
         volume: volume
         path: path
         encrypted: true
+        size_gb_limit: 3
+        extend_threshold_percent: 7
         name: name
-        size_gb: 2
+        add_size_gb: 2
+        size_gb: 9
       properties:
+        add_size_gb:
+          type: integer
         encrypted:
           type: boolean
+        extend_threshold_percent:
+          type: integer
         name:
           type: string
         path:
           type: string
         size_gb:
+          type: integer
+        size_gb_limit:
           type: integer
         volume:
           type: string
@@ -2741,11 +2835,11 @@ components:
     api.MachinePort:
       example:
         force_https: true
-        port: 1
+        port: 6
         handlers:
         - handlers
         - handlers
-        start_port: 1
+        start_port: 7
         tls_options:
           alpn:
           - alpn
@@ -2756,12 +2850,13 @@ components:
           - versions
         proxy_proto_options:
           version: version
-        end_port: 7
+        end_port: 1
         http_options:
           compress: true
           response:
             headers:
               key: "{}"
+          h2_backend: true
       properties:
         end_port:
           type: integer
@@ -2817,19 +2912,30 @@ components:
           type: string
       type: object
     api.MachineRestart:
+      description: The Machine restart policy defines whether and how flyd restarts
+        a Machine after its main process exits. See https://fly.io/docs/machines/guides-examples/machine-restart-policy/.
       example:
-        max_retries: 7
-        policy: policy
+        max_retries: 2
+        policy: "no"
       properties:
         max_retries:
-          description: MaxRetries is only relevant with the on-failure policy.
+          description: "When policy is on-failure, the maximum number of times to\
+            \ attempt to restart the Machine before letting it stop."
           type: integer
         policy:
+          description: |-
+            * no - Never try to restart a Machine automatically when its main process exits, whether that’s on purpose or on a crash.
+            * always - Always restart a Machine automatically and never let it enter a stopped state, even when the main process exits cleanly.
+            * on-failure - Try up to MaxRetries times to automatically restart the Machine if it exits with a non-zero exit code. Default when no explicit policy is set, and for Machines with schedules.
+          enum:
+          - "no"
+          - always
+          - on-failure
           type: string
       type: object
     api.MachineService:
       example:
-        min_machines_running: 4
+        min_machines_running: 1
         protocol: protocol
         checks:
         - headers:
@@ -2872,14 +2978,14 @@ components:
           timeout: timeout
         force_instance_key: force_instance_key
         autostart: true
-        internal_port: 2
+        internal_port: 1
         ports:
         - force_https: true
-          port: 1
+          port: 6
           handlers:
           - handlers
           - handlers
-          start_port: 1
+          start_port: 7
           tls_options:
             alpn:
             - alpn
@@ -2890,18 +2996,19 @@ components:
             - versions
           proxy_proto_options:
             version: version
-          end_port: 7
+          end_port: 1
           http_options:
             compress: true
             response:
               headers:
                 key: "{}"
+            h2_backend: true
         - force_https: true
-          port: 1
+          port: 6
           handlers:
           - handlers
           - handlers
-          start_port: 1
+          start_port: 7
           tls_options:
             alpn:
             - alpn
@@ -2912,18 +3019,19 @@ components:
             - versions
           proxy_proto_options:
             version: version
-          end_port: 7
+          end_port: 1
           http_options:
             compress: true
             response:
               headers:
                 key: "{}"
+            h2_backend: true
         force_instance_description: force_instance_description
         autostop: true
         concurrency:
-          soft_limit: 3
+          soft_limit: 7
           type: type
-          hard_limit: 9
+          hard_limit: 4
       properties:
         autostart:
           type: boolean
@@ -2952,9 +3060,9 @@ components:
       type: object
     api.MachineServiceConcurrency:
       example:
-        soft_limit: 3
+        soft_limit: 7
         type: type
-        hard_limit: 9
+        hard_limit: 4
       properties:
         hard_limit:
           type: integer

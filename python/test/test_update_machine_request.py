@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from fly-sdk.models.update_machine_request import UpdateMachineRequest
+from fly-sdk.models.update_machine_request import UpdateMachineRequest  # noqa: E501
 
 class TestUpdateMachineRequest(unittest.TestCase):
     """UpdateMachineRequest unit test stubs"""
@@ -33,7 +33,7 @@ class TestUpdateMachineRequest(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `UpdateMachineRequest`
         """
-        model = UpdateMachineRequest()
+        model = UpdateMachineRequest()  # noqa: E501
         if include_optional:
             return UpdateMachineRequest(
                 config = fly-sdk.models.api/machine_config.api.MachineConfig(
@@ -100,10 +100,13 @@ class TestUpdateMachineRequest(unittest.TestCase):
                         port = 56, ), 
                     mounts = [
                         fly-sdk.models.api/machine_mount.api.MachineMount(
+                            add_size_gb = 56, 
                             encrypted = True, 
+                            extend_threshold_percent = 56, 
                             name = '', 
                             path = '', 
                             size_gb = 56, 
+                            size_gb_limit = 56, 
                             volume = '', )
                         ], 
                     processes = [
@@ -112,7 +115,7 @@ class TestUpdateMachineRequest(unittest.TestCase):
                         ], 
                     restart = fly-sdk.models.api/machine_restart.api.MachineRestart(
                         max_retries = 56, 
-                        policy = '', ), 
+                        policy = 'no', ), 
                     schedule = '', 
                     services = [
                         fly-sdk.models.api/machine_service.api.MachineService(
@@ -135,6 +138,7 @@ class TestUpdateMachineRequest(unittest.TestCase):
                                         ], 
                                     http_options = fly-sdk.models.api/http_options.api.HTTPOptions(
                                         compress = True, 
+                                        h2_backend = True, 
                                         response = fly-sdk.models.api/http_response_options.api.HTTPResponseOptions(), ), 
                                     port = 56, 
                                     proxy_proto_options = fly-sdk.models.api/proxy_proto_options.api.ProxyProtoOptions(

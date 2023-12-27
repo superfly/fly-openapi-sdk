@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from fly-sdk.models.listen_socket import ListenSocket
+from fly-sdk.models.listen_socket import ListenSocket  # noqa: E501
 
 class TestListenSocket(unittest.TestCase):
     """ListenSocket unit test stubs"""
@@ -33,7 +33,7 @@ class TestListenSocket(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `ListenSocket`
         """
-        model = ListenSocket()
+        model = ListenSocket()  # noqa: E501
         if include_optional:
             return ListenSocket(
                 address = '',

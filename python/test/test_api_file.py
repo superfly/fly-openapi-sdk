@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from fly-sdk.models.api_file import ApiFile
+from fly-sdk.models.api_file import ApiFile  # noqa: E501
 
 class TestApiFile(unittest.TestCase):
     """ApiFile unit test stubs"""
@@ -33,7 +33,7 @@ class TestApiFile(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `ApiFile`
         """
-        model = ApiFile()
+        model = ApiFile()  # noqa: E501
         if include_optional:
             return ApiFile(
                 guest_path = '',

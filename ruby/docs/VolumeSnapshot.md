@@ -8,6 +8,7 @@
 | **digest** | **String** |  | [optional] |
 | **id** | **String** |  | [optional] |
 | **size** | **Integer** |  | [optional] |
+| **status** | **String** |  | [optional] |
 
 ## Example
 
@@ -18,7 +19,8 @@ instance = FlySDK::VolumeSnapshot.new(
   created_at: null,
   digest: null,
   id: null,
-  size: null
+  size: null,
+  status: null
 )
 ```
 

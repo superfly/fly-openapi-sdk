@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from fly-sdk.models.extend_volume_request import ExtendVolumeRequest
+from fly-sdk.models.extend_volume_request import ExtendVolumeRequest  # noqa: E501
 
 class TestExtendVolumeRequest(unittest.TestCase):
     """ExtendVolumeRequest unit test stubs"""
@@ -33,7 +33,7 @@ class TestExtendVolumeRequest(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `ExtendVolumeRequest`
         """
-        model = ExtendVolumeRequest()
+        model = ExtendVolumeRequest()  # noqa: E501
         if include_optional:
             return ExtendVolumeRequest(
                 size_gb = 56

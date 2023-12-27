@@ -20,6 +20,7 @@ var _ MappedNullable = &ApiHTTPOptions{}
 // ApiHTTPOptions struct for ApiHTTPOptions
 type ApiHTTPOptions struct {
 	Compress *bool `json:"compress,omitempty"`
+	H2Backend *bool `json:"h2_backend,omitempty"`
 	Response *ApiHTTPResponseOptions `json:"response,omitempty"`
 }
 
@@ -72,6 +73,38 @@ func (o *ApiHTTPOptions) SetCompress(v bool) {
 	o.Compress = &v
 }
 
+// GetH2Backend returns the H2Backend field value if set, zero value otherwise.
+func (o *ApiHTTPOptions) GetH2Backend() bool {
+	if o == nil || IsNil(o.H2Backend) {
+		var ret bool
+		return ret
+	}
+	return *o.H2Backend
+}
+
+// GetH2BackendOk returns a tuple with the H2Backend field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ApiHTTPOptions) GetH2BackendOk() (*bool, bool) {
+	if o == nil || IsNil(o.H2Backend) {
+		return nil, false
+	}
+	return o.H2Backend, true
+}
+
+// HasH2Backend returns a boolean if a field has been set.
+func (o *ApiHTTPOptions) HasH2Backend() bool {
+	if o != nil && !IsNil(o.H2Backend) {
+		return true
+	}
+
+	return false
+}
+
+// SetH2Backend gets a reference to the given bool and assigns it to the H2Backend field.
+func (o *ApiHTTPOptions) SetH2Backend(v bool) {
+	o.H2Backend = &v
+}
+
 // GetResponse returns the Response field value if set, zero value otherwise.
 func (o *ApiHTTPOptions) GetResponse() ApiHTTPResponseOptions {
 	if o == nil || IsNil(o.Response) {
@@ -116,6 +149,9 @@ func (o ApiHTTPOptions) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.Compress) {
 		toSerialize["compress"] = o.Compress
+	}
+	if !IsNil(o.H2Backend) {
+		toSerialize["h2_backend"] = o.H2Backend
 	}
 	if !IsNil(o.Response) {
 		toSerialize["response"] = o.Response

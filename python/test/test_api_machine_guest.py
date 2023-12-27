@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from fly-sdk.models.api_machine_guest import ApiMachineGuest
+from fly-sdk.models.api_machine_guest import ApiMachineGuest  # noqa: E501
 
 class TestApiMachineGuest(unittest.TestCase):
     """ApiMachineGuest unit test stubs"""
@@ -33,7 +33,7 @@ class TestApiMachineGuest(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `ApiMachineGuest`
         """
-        model = ApiMachineGuest()
+        model = ApiMachineGuest()  # noqa: E501
         if include_optional:
             return ApiMachineGuest(
                 cpu_kind = '',

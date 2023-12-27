@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from fly-sdk.models.lease import Lease
+from fly-sdk.models.lease import Lease  # noqa: E501
 
 class TestLease(unittest.TestCase):
     """Lease unit test stubs"""
@@ -33,13 +33,14 @@ class TestLease(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `Lease`
         """
-        model = Lease()
+        model = Lease()  # noqa: E501
         if include_optional:
             return Lease(
                 description = '',
                 expires_at = 56,
                 nonce = '',
-                owner = ''
+                owner = '',
+                version = ''
             )
         else:
             return Lease(

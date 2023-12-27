@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**GuestPath** | Pointer to **string** | GuestPath is the path on the machine where the file will be written and must be an absolute path. i.e. /full/path/to/file.json | [optional] 
-**RawValue** | Pointer to **string** | RawValue containts the base64 encoded string of the file contents. | [optional] 
-**SecretName** | Pointer to **string** | SecretName is the name of the secret that contains the base64 encoded file contents. | [optional] 
+**GuestPath** | Pointer to **string** | GuestPath is the path on the machine where the file will be written and must be an absolute path. For example: /full/path/to/file.json | [optional] 
+**RawValue** | Pointer to **string** | The base64 encoded string of the file contents. | [optional] 
+**SecretName** | Pointer to **string** | The name of the secret that contains the base64 encoded file contents. | [optional] 
 
 ## Methods
 

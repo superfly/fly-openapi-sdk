@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from fly-sdk.models.organization import Organization
+from fly-sdk.models.organization import Organization  # noqa: E501
 
 class TestOrganization(unittest.TestCase):
     """Organization unit test stubs"""
@@ -33,7 +33,7 @@ class TestOrganization(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `Organization`
         """
-        model = Organization()
+        model = Organization()  # noqa: E501
         if include_optional:
             return Organization(
                 name = '',

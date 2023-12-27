@@ -22,11 +22,9 @@ describe FlySDK::ApiMachineMetrics do
 
   describe 'test an instance of ApiMachineMetrics' do
     it 'should create an instance of ApiMachineMetrics' do
-      # uncomment below to test the instance creation
-      #expect(instance).to be_instance_of(FlySDK::ApiMachineMetrics)
+      expect(instance).to be_instance_of(FlySDK::ApiMachineMetrics)
     end
   end
-
   describe 'test attribute "path"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from fly-sdk.models.api_machine_port import ApiMachinePort
+from fly-sdk.models.api_machine_port import ApiMachinePort  # noqa: E501
 
 class TestApiMachinePort(unittest.TestCase):
     """ApiMachinePort unit test stubs"""
@@ -33,7 +33,7 @@ class TestApiMachinePort(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `ApiMachinePort`
         """
-        model = ApiMachinePort()
+        model = ApiMachinePort()  # noqa: E501
         if include_optional:
             return ApiMachinePort(
                 end_port = 56,
@@ -43,6 +43,7 @@ class TestApiMachinePort(unittest.TestCase):
                     ],
                 http_options = fly-sdk.models.api/http_options.api.HTTPOptions(
                     compress = True, 
+                    h2_backend = True, 
                     response = fly-sdk.models.api/http_response_options.api.HTTPResponseOptions(
                         headers = {
                             'key' : None

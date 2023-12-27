@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AppName** | Pointer to **string** |  | [optional] 
+**AppRoleId** | Pointer to **string** |  | [optional] 
 **Network** | Pointer to **string** |  | [optional] 
 **OrgSlug** | Pointer to **string** |  | [optional] 
 
@@ -51,6 +52,31 @@ SetAppName sets AppName field to given value.
 `func (o *CreateAppRequest) HasAppName() bool`
 
 HasAppName returns a boolean if a field has been set.
+
+### GetAppRoleId
+
+`func (o *CreateAppRequest) GetAppRoleId() string`
+
+GetAppRoleId returns the AppRoleId field if non-nil, zero value otherwise.
+
+### GetAppRoleIdOk
+
+`func (o *CreateAppRequest) GetAppRoleIdOk() (*string, bool)`
+
+GetAppRoleIdOk returns a tuple with the AppRoleId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAppRoleId
+
+`func (o *CreateAppRequest) SetAppRoleId(v string)`
+
+SetAppRoleId sets AppRoleId field to given value.
+
+### HasAppRoleId
+
+`func (o *CreateAppRequest) HasAppRoleId() bool`
+
+HasAppRoleId returns a boolean if a field has been set.
 
 ### GetNetwork
 

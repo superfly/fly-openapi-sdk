@@ -19,16 +19,17 @@ var _ MappedNullable = &ApiMachineConfig{}
 
 // ApiMachineConfig struct for ApiMachineConfig
 type ApiMachineConfig struct {
+	// Optional boolean telling the Machine to destroy itself once it’s complete (default false)
 	AutoDestroy *bool `json:"auto_destroy,omitempty"`
 	Checks *map[string]ApiMachineCheck `json:"checks,omitempty"`
 	// Deprecated: use Service.Autostart instead
 	DisableMachineAutostart *bool `json:"disable_machine_autostart,omitempty"`
 	Dns *ApiDNSConfig `json:"dns,omitempty"`
-	// Fields managed from fly.toml If you add anything here, ensure appconfig.Config.ToMachine() is updated
+	// An object filled with key/value pairs to be set as environment variables
 	Env *map[string]string `json:"env,omitempty"`
 	Files []ApiFile `json:"files,omitempty"`
 	Guest *ApiMachineGuest `json:"guest,omitempty"`
-	// Set by fly deploy or fly machines commands
+	// The docker image to run
 	Image *string `json:"image,omitempty"`
 	Init *ApiMachineInit `json:"init,omitempty"`
 	Metadata *map[string]string `json:"metadata,omitempty"`
@@ -36,7 +37,6 @@ type ApiMachineConfig struct {
 	Mounts []ApiMachineMount `json:"mounts,omitempty"`
 	Processes []ApiMachineProcess `json:"processes,omitempty"`
 	Restart *ApiMachineRestart `json:"restart,omitempty"`
-	// The following fields can only be set or updated by `fly machines run|update` commands \"fly deploy\" must preserve them, if you add anything here, ensure it is propagated on deploys
 	Schedule *string `json:"schedule,omitempty"`
 	Services []ApiMachineService `json:"services,omitempty"`
 	// Deprecated: use Guest instead

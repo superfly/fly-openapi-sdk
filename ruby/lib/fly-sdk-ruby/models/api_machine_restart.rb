@@ -14,11 +14,35 @@ require 'date'
 require 'time'
 
 module FlySDK
+  # The Machine restart policy defines whether and how flyd restarts a Machine after its main process exits. See https://fly.io/docs/machines/guides-examples/machine-restart-policy/.
   class ApiMachineRestart
-    # MaxRetries is only relevant with the on-failure policy.
+    # When policy is on-failure, the maximum number of times to attempt to restart the Machine before letting it stop.
     attr_accessor :max_retries
 
+    # * no - Never try to restart a Machine automatically when its main process exits, whether that’s on purpose or on a crash. * always - Always restart a Machine automatically and never let it enter a stopped state, even when the main process exits cleanly. * on-failure - Try up to MaxRetries times to automatically restart the Machine if it exits with a non-zero exit code. Default when no explicit policy is set, and for Machines with schedules.
     attr_accessor :policy
+
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -83,7 +107,19 @@ module FlySDK
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
+      policy_validator = EnumAttributeValidator.new('String', ["no", "always", "on-failure"])
+      return false unless policy_validator.valid?(@policy)
       true
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] policy Object to be assigned
+    def policy=(policy)
+      validator = EnumAttributeValidator.new('String', ["no", "always", "on-failure"])
+      unless validator.valid?(policy)
+        fail ArgumentError, "invalid value for \"policy\", must be one of #{validator.allowable_values}."
+      end
+      @policy = policy
     end
 
     # Checks equality by comparing each attribute.
@@ -169,7 +205,7 @@ module FlySDK
       else # model
         # models (e.g. Pet) or oneOf
         klass = FlySDK.const_get(type)
-        klass.respond_to?(:openapi_any_of) || klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+        klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
       end
     end
 

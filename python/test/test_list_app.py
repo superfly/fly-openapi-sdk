@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from fly-sdk.models.list_app import ListApp
+from fly-sdk.models.list_app import ListApp  # noqa: E501
 
 class TestListApp(unittest.TestCase):
     """ListApp unit test stubs"""
@@ -33,7 +33,7 @@ class TestListApp(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `ListApp`
         """
-        model = ListApp()
+        model = ListApp()  # noqa: E501
         if include_optional:
             return ListApp(
                 id = '',

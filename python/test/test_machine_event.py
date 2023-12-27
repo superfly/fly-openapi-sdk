@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from fly-sdk.models.machine_event import MachineEvent
+from fly-sdk.models.machine_event import MachineEvent  # noqa: E501
 
 class TestMachineEvent(unittest.TestCase):
     """MachineEvent unit test stubs"""
@@ -33,7 +33,7 @@ class TestMachineEvent(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `MachineEvent`
         """
-        model = MachineEvent()
+        model = MachineEvent()  # noqa: E501
         if include_optional:
             return MachineEvent(
                 id = '',

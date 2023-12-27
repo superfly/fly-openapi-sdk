@@ -22,11 +22,9 @@ describe FlySDK::Machine do
 
   describe 'test an instance of Machine' do
     it 'should create an instance of Machine' do
-      # uncomment below to test the instance creation
-      #expect(instance).to be_instance_of(FlySDK::Machine)
+      expect(instance).to be_instance_of(FlySDK::Machine)
     end
   end
-
   describe 'test attribute "checks"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

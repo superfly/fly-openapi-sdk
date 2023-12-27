@@ -18,18 +18,14 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import List, Optional
 from pydantic import BaseModel, StrictInt, StrictStr
 from fly-sdk.models.listen_socket import ListenSocket
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
 
 class ProcessStat(BaseModel):
     """
     ProcessStat
-    """ # noqa: E501
+    """
     command: Optional[StrictStr] = None
     cpu: Optional[StrictInt] = None
     directory: Optional[StrictStr] = None
@@ -38,17 +34,16 @@ class ProcessStat(BaseModel):
     rss: Optional[StrictInt] = None
     rtime: Optional[StrictInt] = None
     stime: Optional[StrictInt] = None
-    __properties: ClassVar[List[str]] = ["command", "cpu", "directory", "listen_sockets", "pid", "rss", "rtime", "stime"]
+    __properties = ["command", "cpu", "directory", "listen_sockets", "pid", "rss", "rtime", "stime"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True
-    }
-
+    class Config:
+        """Pydantic configuration"""
+        allow_population_by_field_name = True
+        validate_assignment = True
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.model_dump(by_alias=True))
+        return pprint.pformat(self.dict(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
@@ -56,26 +51,16 @@ class ProcessStat(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> ProcessStat:
         """Create an instance of ProcessStat from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
-        """Return the dictionary representation of the model using alias.
-
-        This has the following differences from calling pydantic's
-        `self.model_dump(by_alias=True)`:
-
-        * `None` is only added to the output dict for nullable fields that
-          were set at model initialization. Other fields with value `None`
-          are ignored.
-        """
-        _dict = self.model_dump(
-            by_alias=True,
-            exclude={
-            },
-            exclude_none=True,
-        )
+    def to_dict(self):
+        """Returns the dictionary representation of the model using alias"""
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in listen_sockets (list)
         _items = []
         if self.listen_sockets:
@@ -86,15 +71,15 @@ class ProcessStat(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: dict) -> ProcessStat:
         """Create an instance of ProcessStat from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return cls.model_validate(obj)
+            return ProcessStat.parse_obj(obj)
 
-        _obj = cls.model_validate({
+        _obj = ProcessStat.parse_obj({
             "command": obj.get("command"),
             "cpu": obj.get("cpu"),
             "directory": obj.get("directory"),

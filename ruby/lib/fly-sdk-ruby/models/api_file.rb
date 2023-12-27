@@ -14,14 +14,15 @@ require 'date'
 require 'time'
 
 module FlySDK
+  # A file that will be written to the Machine. One of RawValue or SecretName must be set.
   class ApiFile
-    # GuestPath is the path on the machine where the file will be written and must be an absolute path. i.e. /full/path/to/file.json
+    # GuestPath is the path on the machine where the file will be written and must be an absolute path. For example: /full/path/to/file.json
     attr_accessor :guest_path
 
-    # RawValue containts the base64 encoded string of the file contents.
+    # The base64 encoded string of the file contents.
     attr_accessor :raw_value
 
-    # SecretName is the name of the secret that contains the base64 encoded file contents.
+    # The name of the secret that contains the base64 encoded file contents.
     attr_accessor :secret_name
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -180,7 +181,7 @@ module FlySDK
       else # model
         # models (e.g. Pet) or oneOf
         klass = FlySDK.const_get(type)
-        klass.respond_to?(:openapi_any_of) || klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+        klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
       end
     end
 

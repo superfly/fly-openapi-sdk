@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from fly-sdk.models.volume import Volume
+from fly-sdk.models.volume import Volume  # noqa: E501
 
 class TestVolume(unittest.TestCase):
     """Volume unit test stubs"""
@@ -33,7 +33,7 @@ class TestVolume(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `Volume`
         """
-        model = Volume()
+        model = Volume()  # noqa: E501
         if include_optional:
             return Volume(
                 attached_alloc_id = '',

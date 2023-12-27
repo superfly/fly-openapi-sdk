@@ -22,11 +22,9 @@ describe FlySDK::ApiMachineProcess do
 
   describe 'test an instance of ApiMachineProcess' do
     it 'should create an instance of ApiMachineProcess' do
-      # uncomment below to test the instance creation
-      #expect(instance).to be_instance_of(FlySDK::ApiMachineProcess)
+      expect(instance).to be_instance_of(FlySDK::ApiMachineProcess)
     end
   end
-
   describe 'test attribute "cmd"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

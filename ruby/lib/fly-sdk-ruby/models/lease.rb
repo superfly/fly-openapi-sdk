@@ -27,13 +27,17 @@ module FlySDK
     # Owner is the user identifier which acquired the Lease.
     attr_accessor :owner
 
+    # Machine version
+    attr_accessor :version
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'description' => :'description',
         :'expires_at' => :'expires_at',
         :'nonce' => :'nonce',
-        :'owner' => :'owner'
+        :'owner' => :'owner',
+        :'version' => :'version'
       }
     end
 
@@ -48,7 +52,8 @@ module FlySDK
         :'description' => :'String',
         :'expires_at' => :'Integer',
         :'nonce' => :'String',
-        :'owner' => :'String'
+        :'owner' => :'String',
+        :'version' => :'String'
       }
     end
 
@@ -88,6 +93,10 @@ module FlySDK
       if attributes.key?(:'owner')
         self.owner = attributes[:'owner']
       end
+
+      if attributes.key?(:'version')
+        self.version = attributes[:'version']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -113,7 +122,8 @@ module FlySDK
           description == o.description &&
           expires_at == o.expires_at &&
           nonce == o.nonce &&
-          owner == o.owner
+          owner == o.owner &&
+          version == o.version
     end
 
     # @see the `==` method
@@ -125,7 +135,7 @@ module FlySDK
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [description, expires_at, nonce, owner].hash
+      [description, expires_at, nonce, owner, version].hash
     end
 
     # Builds the object from hash
@@ -190,7 +200,7 @@ module FlySDK
       else # model
         # models (e.g. Pet) or oneOf
         klass = FlySDK.const_get(type)
-        klass.respond_to?(:openapi_any_of) || klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+        klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
       end
     end
 

@@ -23,6 +23,100 @@ import (
 // VolumesAPIService VolumesAPI service
 type VolumesAPIService service
 
+type ApiCreateVolumeSnapshotRequest struct {
+	ctx context.Context
+	ApiService *VolumesAPIService
+	appName string
+	volumeId string
+}
+
+func (r ApiCreateVolumeSnapshotRequest) Execute() (*http.Response, error) {
+	return r.ApiService.CreateVolumeSnapshotExecute(r)
+}
+
+/*
+CreateVolumeSnapshot Method for CreateVolumeSnapshot
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param appName Fly App Name
+ @param volumeId Volume ID
+ @return ApiCreateVolumeSnapshotRequest
+*/
+func (a *VolumesAPIService) CreateVolumeSnapshot(ctx context.Context, appName string, volumeId string) ApiCreateVolumeSnapshotRequest {
+	return ApiCreateVolumeSnapshotRequest{
+		ApiService: a,
+		ctx: ctx,
+		appName: appName,
+		volumeId: volumeId,
+	}
+}
+
+// Execute executes the request
+func (a *VolumesAPIService) CreateVolumeSnapshotExecute(r ApiCreateVolumeSnapshotRequest) (*http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VolumesAPIService.CreateVolumeSnapshot")
+	if err != nil {
+		return nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/apps/{app_name}/volumes/{volume_id}/snapshots"
+	localVarPath = strings.Replace(localVarPath, "{"+"app_name"+"}", url.PathEscape(parameterValueToString(r.appName, "appName")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"volume_id"+"}", url.PathEscape(parameterValueToString(r.volumeId, "volumeId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
 type ApiVolumeDeleteRequest struct {
 	ctx context.Context
 	ApiService *VolumesAPIService
@@ -463,52 +557,48 @@ func (a *VolumesAPIService) VolumesGetByIdExecute(r ApiVolumesGetByIdRequest) (*
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiVolumesGetSnapshotsRequest struct {
+type ApiVolumesListRequest struct {
 	ctx context.Context
 	ApiService *VolumesAPIService
 	appName string
-	volumeId string
 }
 
-func (r ApiVolumesGetSnapshotsRequest) Execute() ([]VolumeSnapshot, *http.Response, error) {
-	return r.ApiService.VolumesGetSnapshotsExecute(r)
+func (r ApiVolumesListRequest) Execute() ([]Volume, *http.Response, error) {
+	return r.ApiService.VolumesListExecute(r)
 }
 
 /*
-VolumesGetSnapshots Method for VolumesGetSnapshots
+VolumesList Method for VolumesList
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param appName Fly App Name
- @param volumeId Volume ID
- @return ApiVolumesGetSnapshotsRequest
+ @return ApiVolumesListRequest
 */
-func (a *VolumesAPIService) VolumesGetSnapshots(ctx context.Context, appName string, volumeId string) ApiVolumesGetSnapshotsRequest {
-	return ApiVolumesGetSnapshotsRequest{
+func (a *VolumesAPIService) VolumesList(ctx context.Context, appName string) ApiVolumesListRequest {
+	return ApiVolumesListRequest{
 		ApiService: a,
 		ctx: ctx,
 		appName: appName,
-		volumeId: volumeId,
 	}
 }
 
 // Execute executes the request
-//  @return []VolumeSnapshot
-func (a *VolumesAPIService) VolumesGetSnapshotsExecute(r ApiVolumesGetSnapshotsRequest) ([]VolumeSnapshot, *http.Response, error) {
+//  @return []Volume
+func (a *VolumesAPIService) VolumesListExecute(r ApiVolumesListRequest) ([]Volume, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []VolumeSnapshot
+		localVarReturnValue  []Volume
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VolumesAPIService.VolumesGetSnapshots")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VolumesAPIService.VolumesList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/apps/{app_name}/volumes/{volume_id}/snapshots"
+	localVarPath := localBasePath + "/apps/{app_name}/volumes"
 	localVarPath = strings.Replace(localVarPath, "{"+"app_name"+"}", url.PathEscape(parameterValueToString(r.appName, "appName")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"volume_id"+"}", url.PathEscape(parameterValueToString(r.volumeId, "volumeId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -568,48 +658,52 @@ func (a *VolumesAPIService) VolumesGetSnapshotsExecute(r ApiVolumesGetSnapshotsR
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiVolumesListRequest struct {
+type ApiVolumesListSnapshotsRequest struct {
 	ctx context.Context
 	ApiService *VolumesAPIService
 	appName string
+	volumeId string
 }
 
-func (r ApiVolumesListRequest) Execute() ([]Volume, *http.Response, error) {
-	return r.ApiService.VolumesListExecute(r)
+func (r ApiVolumesListSnapshotsRequest) Execute() ([]VolumeSnapshot, *http.Response, error) {
+	return r.ApiService.VolumesListSnapshotsExecute(r)
 }
 
 /*
-VolumesList Method for VolumesList
+VolumesListSnapshots Method for VolumesListSnapshots
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param appName Fly App Name
- @return ApiVolumesListRequest
+ @param volumeId Volume ID
+ @return ApiVolumesListSnapshotsRequest
 */
-func (a *VolumesAPIService) VolumesList(ctx context.Context, appName string) ApiVolumesListRequest {
-	return ApiVolumesListRequest{
+func (a *VolumesAPIService) VolumesListSnapshots(ctx context.Context, appName string, volumeId string) ApiVolumesListSnapshotsRequest {
+	return ApiVolumesListSnapshotsRequest{
 		ApiService: a,
 		ctx: ctx,
 		appName: appName,
+		volumeId: volumeId,
 	}
 }
 
 // Execute executes the request
-//  @return []Volume
-func (a *VolumesAPIService) VolumesListExecute(r ApiVolumesListRequest) ([]Volume, *http.Response, error) {
+//  @return []VolumeSnapshot
+func (a *VolumesAPIService) VolumesListSnapshotsExecute(r ApiVolumesListSnapshotsRequest) ([]VolumeSnapshot, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []Volume
+		localVarReturnValue  []VolumeSnapshot
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VolumesAPIService.VolumesList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VolumesAPIService.VolumesListSnapshots")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/apps/{app_name}/volumes"
+	localVarPath := localBasePath + "/apps/{app_name}/volumes/{volume_id}/snapshots"
 	localVarPath = strings.Replace(localVarPath, "{"+"app_name"+"}", url.PathEscape(parameterValueToString(r.appName, "appName")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"volume_id"+"}", url.PathEscape(parameterValueToString(r.volumeId, "volumeId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

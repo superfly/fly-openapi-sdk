@@ -22,11 +22,9 @@ describe FlySDK::UpdateVolumeRequest do
 
   describe 'test an instance of UpdateVolumeRequest' do
     it 'should create an instance of UpdateVolumeRequest' do
-      # uncomment below to test the instance creation
-      #expect(instance).to be_instance_of(FlySDK::UpdateVolumeRequest)
+      expect(instance).to be_instance_of(FlySDK::UpdateVolumeRequest)
     end
   end
-
   describe 'test attribute "snapshot_retention"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

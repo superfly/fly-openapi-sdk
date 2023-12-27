@@ -4,14 +4,78 @@ All URIs are relative to *https://api.machines.dev/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**create_volume_snapshot**](VolumesApi.md#create_volume_snapshot) | **POST** /apps/{app_name}/volumes/{volume_id}/snapshots | 
 [**volume_delete**](VolumesApi.md#volume_delete) | **DELETE** /apps/{app_name}/volumes/{volume_id} | 
 [**volumes_create**](VolumesApi.md#volumes_create) | **POST** /apps/{app_name}/volumes | 
 [**volumes_extend**](VolumesApi.md#volumes_extend) | **PUT** /apps/{app_name}/volumes/{volume_id}/extend | 
 [**volumes_get_by_id**](VolumesApi.md#volumes_get_by_id) | **GET** /apps/{app_name}/volumes/{volume_id} | 
-[**volumes_get_snapshots**](VolumesApi.md#volumes_get_snapshots) | **GET** /apps/{app_name}/volumes/{volume_id}/snapshots | 
 [**volumes_list**](VolumesApi.md#volumes_list) | **GET** /apps/{app_name}/volumes | 
+[**volumes_list_snapshots**](VolumesApi.md#volumes_list_snapshots) | **GET** /apps/{app_name}/volumes/{volume_id}/snapshots | 
 [**volumes_update**](VolumesApi.md#volumes_update) | **POST** /apps/{app_name}/volumes/{volume_id} | 
 
+
+# **create_volume_snapshot**
+> create_volume_snapshot(app_name, volume_id)
+
+
+
+### Example
+
+```python
+import time
+import os
+import fly-sdk
+from fly-sdk.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.machines.dev/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = fly-sdk.Configuration(
+    host = "https://api.machines.dev/v1"
+)
+
+
+# Enter a context with an instance of the API client
+with fly-sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = fly-sdk.VolumesApi(api_client)
+    app_name = 'app_name_example' # str | Fly App Name
+    volume_id = 'volume_id_example' # str | Volume ID
+
+    try:
+        api_instance.create_volume_snapshot(app_name, volume_id)
+    except Exception as e:
+        print("Exception when calling VolumesApi->create_volume_snapshot: %s\n" % e)
+```
+
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **app_name** | **str**| Fly App Name | 
+ **volume_id** | **str**| Volume ID | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **volume_delete**
 > Volume volume_delete(app_name, volume_id)
@@ -281,72 +345,6 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **volumes_get_snapshots**
-> List[VolumeSnapshot] volumes_get_snapshots(app_name, volume_id)
-
-
-
-### Example
-
-```python
-import time
-import os
-import fly-sdk
-from fly-sdk.models.volume_snapshot import VolumeSnapshot
-from fly-sdk.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to https://api.machines.dev/v1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fly-sdk.Configuration(
-    host = "https://api.machines.dev/v1"
-)
-
-
-# Enter a context with an instance of the API client
-with fly-sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = fly-sdk.VolumesApi(api_client)
-    app_name = 'app_name_example' # str | Fly App Name
-    volume_id = 'volume_id_example' # str | Volume ID
-
-    try:
-        api_response = api_instance.volumes_get_snapshots(app_name, volume_id)
-        print("The response of VolumesApi->volumes_get_snapshots:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling VolumesApi->volumes_get_snapshots: %s\n" % e)
-```
-
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **app_name** | **str**| Fly App Name | 
- **volume_id** | **str**| Volume ID | 
-
-### Return type
-
-[**List[VolumeSnapshot]**](VolumeSnapshot.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | OK |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **volumes_list**
 > List[Volume] volumes_list(app_name)
 
@@ -394,6 +392,72 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**List[Volume]**](Volume.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **volumes_list_snapshots**
+> List[VolumeSnapshot] volumes_list_snapshots(app_name, volume_id)
+
+
+
+### Example
+
+```python
+import time
+import os
+import fly-sdk
+from fly-sdk.models.volume_snapshot import VolumeSnapshot
+from fly-sdk.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.machines.dev/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = fly-sdk.Configuration(
+    host = "https://api.machines.dev/v1"
+)
+
+
+# Enter a context with an instance of the API client
+with fly-sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = fly-sdk.VolumesApi(api_client)
+    app_name = 'app_name_example' # str | Fly App Name
+    volume_id = 'volume_id_example' # str | Volume ID
+
+    try:
+        api_response = api_instance.volumes_list_snapshots(app_name, volume_id)
+        print("The response of VolumesApi->volumes_list_snapshots:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling VolumesApi->volumes_list_snapshots: %s\n" % e)
+```
+
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **app_name** | **str**| Fly App Name | 
+ **volume_id** | **str**| Volume ID | 
+
+### Return type
+
+[**List[VolumeSnapshot]**](VolumeSnapshot.md)
 
 ### Authorization
 

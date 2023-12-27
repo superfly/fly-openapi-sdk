@@ -18,40 +18,36 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import List, Optional
 from pydantic import BaseModel, StrictBool, StrictInt, StrictStr
+from pydantic import Field
 from fly-sdk.models.api_machine_http_header import ApiMachineHTTPHeader
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
 
 class ApiMachineCheck(BaseModel):
     """
-    ApiMachineCheck
-    """ # noqa: E501
-    grace_period: Optional[StrictStr] = None
+    An optional object that defines one or more named checks. The key for each check is the check name.  # noqa: E501
+    """
+    grace_period: Optional[StrictStr] = Field(default=None, description="The time to wait after a VM starts before checking its health")
     headers: Optional[List[ApiMachineHTTPHeader]] = None
-    interval: Optional[StrictStr] = None
-    method: Optional[StrictStr] = None
-    path: Optional[StrictStr] = None
-    port: Optional[StrictInt] = None
-    protocol: Optional[StrictStr] = None
-    timeout: Optional[StrictStr] = None
-    tls_server_name: Optional[StrictStr] = None
-    tls_skip_verify: Optional[StrictBool] = None
-    type: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["grace_period", "headers", "interval", "method", "path", "port", "protocol", "timeout", "tls_server_name", "tls_skip_verify", "type"]
+    interval: Optional[StrictStr] = Field(default=None, description="The time between connectivity checks")
+    method: Optional[StrictStr] = Field(default=None, description="For http checks, the HTTP method to use to when making the request")
+    path: Optional[StrictStr] = Field(default=None, description="For http checks, the path to send the request to")
+    port: Optional[StrictInt] = Field(default=None, description="The port to connect to, often the same as internal_port")
+    protocol: Optional[StrictStr] = Field(default=None, description="For http checks, whether to use http or https")
+    timeout: Optional[StrictStr] = Field(default=None, description="The maximum time a connection can take before being reported as failing its health check")
+    tls_server_name: Optional[StrictStr] = Field(default=None, description="If the protocol is https, the hostname to use for TLS certificate validation")
+    tls_skip_verify: Optional[StrictBool] = Field(default=None, description="For http checks with https protocol, whether or not to verify the TLS certificate")
+    type: Optional[StrictStr] = Field(default=None, description="tcp or http")
+    __properties = ["grace_period", "headers", "interval", "method", "path", "port", "protocol", "timeout", "tls_server_name", "tls_skip_verify", "type"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True
-    }
-
+    class Config:
+        """Pydantic configuration"""
+        allow_population_by_field_name = True
+        validate_assignment = True
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.model_dump(by_alias=True))
+        return pprint.pformat(self.dict(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
@@ -59,26 +55,16 @@ class ApiMachineCheck(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> ApiMachineCheck:
         """Create an instance of ApiMachineCheck from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
-        """Return the dictionary representation of the model using alias.
-
-        This has the following differences from calling pydantic's
-        `self.model_dump(by_alias=True)`:
-
-        * `None` is only added to the output dict for nullable fields that
-          were set at model initialization. Other fields with value `None`
-          are ignored.
-        """
-        _dict = self.model_dump(
-            by_alias=True,
-            exclude={
-            },
-            exclude_none=True,
-        )
+    def to_dict(self):
+        """Returns the dictionary representation of the model using alias"""
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in headers (list)
         _items = []
         if self.headers:
@@ -89,15 +75,15 @@ class ApiMachineCheck(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: dict) -> ApiMachineCheck:
         """Create an instance of ApiMachineCheck from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return cls.model_validate(obj)
+            return ApiMachineCheck.parse_obj(obj)
 
-        _obj = cls.model_validate({
+        _obj = ApiMachineCheck.parse_obj({
             "grace_period": obj.get("grace_period"),
             "headers": [ApiMachineHTTPHeader.from_dict(_item) for _item in obj.get("headers")] if obj.get("headers") is not None else None,
             "interval": obj.get("interval"),

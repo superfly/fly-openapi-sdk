@@ -27,6 +27,8 @@ type Lease struct {
 	Nonce *string `json:"nonce,omitempty"`
 	// Owner is the user identifier which acquired the Lease.
 	Owner *string `json:"owner,omitempty"`
+	// Machine version
+	Version *string `json:"version,omitempty"`
 }
 
 // NewLease instantiates a new Lease object
@@ -174,6 +176,38 @@ func (o *Lease) SetOwner(v string) {
 	o.Owner = &v
 }
 
+// GetVersion returns the Version field value if set, zero value otherwise.
+func (o *Lease) GetVersion() string {
+	if o == nil || IsNil(o.Version) {
+		var ret string
+		return ret
+	}
+	return *o.Version
+}
+
+// GetVersionOk returns a tuple with the Version field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Lease) GetVersionOk() (*string, bool) {
+	if o == nil || IsNil(o.Version) {
+		return nil, false
+	}
+	return o.Version, true
+}
+
+// HasVersion returns a boolean if a field has been set.
+func (o *Lease) HasVersion() bool {
+	if o != nil && !IsNil(o.Version) {
+		return true
+	}
+
+	return false
+}
+
+// SetVersion gets a reference to the given string and assigns it to the Version field.
+func (o *Lease) SetVersion(v string) {
+	o.Version = &v
+}
+
 func (o Lease) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -195,6 +229,9 @@ func (o Lease) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Owner) {
 		toSerialize["owner"] = o.Owner
+	}
+	if !IsNil(o.Version) {
+		toSerialize["version"] = o.Version
 	}
 	return toSerialize, nil
 }

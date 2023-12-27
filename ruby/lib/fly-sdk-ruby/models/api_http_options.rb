@@ -17,12 +17,15 @@ module FlySDK
   class ApiHTTPOptions
     attr_accessor :compress
 
+    attr_accessor :h2_backend
+
     attr_accessor :response
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'compress' => :'compress',
+        :'h2_backend' => :'h2_backend',
         :'response' => :'response'
       }
     end
@@ -36,6 +39,7 @@ module FlySDK
     def self.openapi_types
       {
         :'compress' => :'Boolean',
+        :'h2_backend' => :'Boolean',
         :'response' => :'ApiHTTPResponseOptions'
       }
     end
@@ -65,6 +69,10 @@ module FlySDK
         self.compress = attributes[:'compress']
       end
 
+      if attributes.key?(:'h2_backend')
+        self.h2_backend = attributes[:'h2_backend']
+      end
+
       if attributes.key?(:'response')
         self.response = attributes[:'response']
       end
@@ -91,6 +99,7 @@ module FlySDK
       return true if self.equal?(o)
       self.class == o.class &&
           compress == o.compress &&
+          h2_backend == o.h2_backend &&
           response == o.response
     end
 
@@ -103,7 +112,7 @@ module FlySDK
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [compress, response].hash
+      [compress, h2_backend, response].hash
     end
 
     # Builds the object from hash
@@ -168,7 +177,7 @@ module FlySDK
       else # model
         # models (e.g. Pet) or oneOf
         klass = FlySDK.const_get(type)
-        klass.respond_to?(:openapi_any_of) || klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+        klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
       end
     end
 

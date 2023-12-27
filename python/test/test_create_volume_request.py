@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from fly-sdk.models.create_volume_request import CreateVolumeRequest
+from fly-sdk.models.create_volume_request import CreateVolumeRequest  # noqa: E501
 
 class TestCreateVolumeRequest(unittest.TestCase):
     """CreateVolumeRequest unit test stubs"""
@@ -33,7 +33,7 @@ class TestCreateVolumeRequest(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `CreateVolumeRequest`
         """
-        model = CreateVolumeRequest()
+        model = CreateVolumeRequest()  # noqa: E501
         if include_optional:
             return CreateVolumeRequest(
                 compute = fly-sdk.models.api/machine_guest.api.MachineGuest(

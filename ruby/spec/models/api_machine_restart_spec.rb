@@ -22,11 +22,9 @@ describe FlySDK::ApiMachineRestart do
 
   describe 'test an instance of ApiMachineRestart' do
     it 'should create an instance of ApiMachineRestart' do
-      # uncomment below to test the instance creation
-      #expect(instance).to be_instance_of(FlySDK::ApiMachineRestart)
+      expect(instance).to be_instance_of(FlySDK::ApiMachineRestart)
     end
   end
-
   describe 'test attribute "max_retries"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -36,6 +34,10 @@ describe FlySDK::ApiMachineRestart do
   describe 'test attribute "policy"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["no", "always", "on-failure"])
+      # validator.allowable_values.each do |value|
+      #   expect { instance.policy = value }.not_to raise_error
+      # end
     end
   end
 

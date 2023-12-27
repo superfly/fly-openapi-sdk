@@ -14,27 +14,38 @@ require 'date'
 require 'time'
 
 module FlySDK
+  # An optional object that defines one or more named checks. The key for each check is the check name.
   class ApiMachineCheck
+    # The time to wait after a VM starts before checking its health
     attr_accessor :grace_period
 
     attr_accessor :headers
 
+    # The time between connectivity checks
     attr_accessor :interval
 
+    # For http checks, the HTTP method to use to when making the request
     attr_accessor :method
 
+    # For http checks, the path to send the request to
     attr_accessor :path
 
+    # The port to connect to, often the same as internal_port
     attr_accessor :port
 
+    # For http checks, whether to use http or https
     attr_accessor :protocol
 
+    # The maximum time a connection can take before being reported as failing its health check
     attr_accessor :timeout
 
+    # If the protocol is https, the hostname to use for TLS certificate validation
     attr_accessor :tls_server_name
 
+    # For http checks with https protocol, whether or not to verify the TLS certificate
     attr_accessor :tls_skip_verify
 
+    # tcp or http
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -251,7 +262,7 @@ module FlySDK
       else # model
         # models (e.g. Pet) or oneOf
         klass = FlySDK.const_get(type)
-        klass.respond_to?(:openapi_any_of) || klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+        klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
       end
     end
 
