@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from fly-sdk.models.api_machine_check import ApiMachineCheck
+from fly_sdk.models.api_machine_check import ApiMachineCheck
 
 # TODO update the JSON string below
 json = "{}"

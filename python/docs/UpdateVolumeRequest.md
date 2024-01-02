@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from fly-sdk.models.update_volume_request import UpdateVolumeRequest
+from fly_sdk.models.update_volume_request import UpdateVolumeRequest
 
 # TODO update the JSON string below
 json = "{}"

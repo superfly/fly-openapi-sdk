@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from fly-sdk.models.api_dns_config import ApiDNSConfig
+from fly_sdk.models.api_dns_config import ApiDNSConfig
 
 # TODO update the JSON string below
 json = "{}"

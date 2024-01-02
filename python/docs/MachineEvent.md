@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from fly-sdk.models.machine_event import MachineEvent
+from fly_sdk.models.machine_event import MachineEvent
 
 # TODO update the JSON string below
 json = "{}"

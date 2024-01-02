@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from fly-sdk.models.error_response import ErrorResponse
+from fly_sdk.models.error_response import ErrorResponse
 
 # TODO update the JSON string below
 json = "{}"

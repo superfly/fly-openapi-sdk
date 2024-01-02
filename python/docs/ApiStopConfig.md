@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from fly-sdk.models.api_stop_config import ApiStopConfig
+from fly_sdk.models.api_stop_config import ApiStopConfig
 
 # TODO update the JSON string below
 json = "{}"

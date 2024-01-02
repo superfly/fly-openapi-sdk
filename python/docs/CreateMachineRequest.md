@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from fly-sdk.models.create_machine_request import CreateMachineRequest
+from fly_sdk.models.create_machine_request import CreateMachineRequest
 
 # TODO update the JSON string below
 json = "{}"

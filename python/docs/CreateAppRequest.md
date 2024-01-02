@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from fly-sdk.models.create_app_request import CreateAppRequest
+from fly_sdk.models.create_app_request import CreateAppRequest
 
 # TODO update the JSON string below
 json = "{}"

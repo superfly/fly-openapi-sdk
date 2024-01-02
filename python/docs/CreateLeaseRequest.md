@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from fly-sdk.models.create_lease_request import CreateLeaseRequest
+from fly_sdk.models.create_lease_request import CreateLeaseRequest
 
 # TODO update the JSON string below
 json = "{}"

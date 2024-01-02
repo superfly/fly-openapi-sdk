@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from fly-sdk.models.api_http_response_options import ApiHTTPResponseOptions
+from fly_sdk.models.api_http_response_options import ApiHTTPResponseOptions
 
 # TODO update the JSON string below
 json = "{}"

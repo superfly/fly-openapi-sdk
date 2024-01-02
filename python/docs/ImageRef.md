@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from fly-sdk.models.image_ref import ImageRef
+from fly_sdk.models.image_ref import ImageRef
 
 # TODO update the JSON string below
 json = "{}"

@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from fly-sdk.models.process_stat import ProcessStat
+from fly_sdk.models.process_stat import ProcessStat
 
 # TODO update the JSON string below
 json = "{}"

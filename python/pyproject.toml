@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "fly-sdk"
+name = "fly_sdk"
 version = "1.0.0"
 description = "Fly Machines API"
 authors = ["OpenAPI Generator Community <team@openapitools.org>"]
@@ -7,7 +7,7 @@ license = "Apache 2.0"
 readme = "README.md"
 repository = "https://github.com/GIT_USER_ID/GIT_REPO_ID"
 keywords = ["OpenAPI", "OpenAPI-Generator", "Fly Machines API"]
-include = ["fly-sdk/py.typed"]
+include = ["fly_sdk/py.typed"]
 
 [tool.poetry.dependencies]
 python = "^3.7"
@@ -15,7 +15,6 @@ python = "^3.7"
 urllib3 = ">= 1.25.3"
 python-dateutil = ">=2.8.2"
 pydantic = ">=2"
-aenum = ">=3.1.11"
 typing-extensions = ">=4.7.1"
 
 [tool.poetry.dev-dependencies]

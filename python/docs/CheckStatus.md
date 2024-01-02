@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from fly-sdk.models.check_status import CheckStatus
+from fly_sdk.models.check_status import CheckStatus
 
 # TODO update the JSON string below
 json = "{}"

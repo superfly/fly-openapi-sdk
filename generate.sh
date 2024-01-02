@@ -8,4 +8,4 @@ docker run --rm -v "${PWD}:/local" openapitools/openapi-generator-cli generate -
 
 docker run --rm -v "${PWD}:/local" openapitools/openapi-generator-cli generate -i https://docs.machines.dev/swagger/doc.json  -g go -o /local/go --additional-properties packageName=fly-sdk
 
-docker run --rm -v "${PWD}:/local" openapitools/openapi-generator-cli generate -i https://docs.machines.dev/swagger/doc.json  -g python -o /local/python --additional-properties packageName=fly-sdk --additional-properties projectName=fly-sdk
+docker run --rm -v "${PWD}:/local" openapitools/openapi-generator-cli generate -i https://docs.machines.dev/swagger/doc.json  -g python -o /local/python --additional-properties packageName=fly_sdk --additional-properties projectName=fly_sdk

@@ -1,4 +1,4 @@
-# fly-sdk.VolumesApi
+# fly_sdk.VolumesApi
 
 All URIs are relative to *https://api.machines.dev/v1*
 
@@ -24,21 +24,21 @@ Method | HTTP request | Description
 ```python
 import time
 import os
-import fly-sdk
-from fly-sdk.rest import ApiException
+import fly_sdk
+from fly_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.machines.dev/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = fly-sdk.Configuration(
+configuration = fly_sdk.Configuration(
     host = "https://api.machines.dev/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with fly-sdk.ApiClient(configuration) as api_client:
+with fly_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = fly-sdk.VolumesApi(api_client)
+    api_instance = fly_sdk.VolumesApi(api_client)
     app_name = 'app_name_example' # str | Fly App Name
     volume_id = 'volume_id_example' # str | Volume ID
 
@@ -87,22 +87,22 @@ No authorization required
 ```python
 import time
 import os
-import fly-sdk
-from fly-sdk.models.volume import Volume
-from fly-sdk.rest import ApiException
+import fly_sdk
+from fly_sdk.models.volume import Volume
+from fly_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.machines.dev/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = fly-sdk.Configuration(
+configuration = fly_sdk.Configuration(
     host = "https://api.machines.dev/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with fly-sdk.ApiClient(configuration) as api_client:
+with fly_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = fly-sdk.VolumesApi(api_client)
+    api_instance = fly_sdk.VolumesApi(api_client)
     app_name = 'app_name_example' # str | Fly App Name
     volume_id = 'volume_id_example' # str | Volume ID
 
@@ -153,25 +153,25 @@ No authorization required
 ```python
 import time
 import os
-import fly-sdk
-from fly-sdk.models.create_volume_request import CreateVolumeRequest
-from fly-sdk.models.volume import Volume
-from fly-sdk.rest import ApiException
+import fly_sdk
+from fly_sdk.models.create_volume_request import CreateVolumeRequest
+from fly_sdk.models.volume import Volume
+from fly_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.machines.dev/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = fly-sdk.Configuration(
+configuration = fly_sdk.Configuration(
     host = "https://api.machines.dev/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with fly-sdk.ApiClient(configuration) as api_client:
+with fly_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = fly-sdk.VolumesApi(api_client)
+    api_instance = fly_sdk.VolumesApi(api_client)
     app_name = 'app_name_example' # str | Fly App Name
-    request = fly-sdk.CreateVolumeRequest() # CreateVolumeRequest | Request body
+    request = fly_sdk.CreateVolumeRequest() # CreateVolumeRequest | Request body
 
     try:
         api_response = api_instance.volumes_create(app_name, request)
@@ -220,26 +220,26 @@ No authorization required
 ```python
 import time
 import os
-import fly-sdk
-from fly-sdk.models.extend_volume_request import ExtendVolumeRequest
-from fly-sdk.models.extend_volume_response import ExtendVolumeResponse
-from fly-sdk.rest import ApiException
+import fly_sdk
+from fly_sdk.models.extend_volume_request import ExtendVolumeRequest
+from fly_sdk.models.extend_volume_response import ExtendVolumeResponse
+from fly_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.machines.dev/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = fly-sdk.Configuration(
+configuration = fly_sdk.Configuration(
     host = "https://api.machines.dev/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with fly-sdk.ApiClient(configuration) as api_client:
+with fly_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = fly-sdk.VolumesApi(api_client)
+    api_instance = fly_sdk.VolumesApi(api_client)
     app_name = 'app_name_example' # str | Fly App Name
     volume_id = 'volume_id_example' # str | Volume ID
-    request = fly-sdk.ExtendVolumeRequest() # ExtendVolumeRequest | Request body
+    request = fly_sdk.ExtendVolumeRequest() # ExtendVolumeRequest | Request body
 
     try:
         api_response = api_instance.volumes_extend(app_name, volume_id, request)
@@ -289,22 +289,22 @@ No authorization required
 ```python
 import time
 import os
-import fly-sdk
-from fly-sdk.models.volume import Volume
-from fly-sdk.rest import ApiException
+import fly_sdk
+from fly_sdk.models.volume import Volume
+from fly_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.machines.dev/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = fly-sdk.Configuration(
+configuration = fly_sdk.Configuration(
     host = "https://api.machines.dev/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with fly-sdk.ApiClient(configuration) as api_client:
+with fly_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = fly-sdk.VolumesApi(api_client)
+    api_instance = fly_sdk.VolumesApi(api_client)
     app_name = 'app_name_example' # str | Fly App Name
     volume_id = 'volume_id_example' # str | Volume ID
 
@@ -355,22 +355,22 @@ No authorization required
 ```python
 import time
 import os
-import fly-sdk
-from fly-sdk.models.volume import Volume
-from fly-sdk.rest import ApiException
+import fly_sdk
+from fly_sdk.models.volume import Volume
+from fly_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.machines.dev/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = fly-sdk.Configuration(
+configuration = fly_sdk.Configuration(
     host = "https://api.machines.dev/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with fly-sdk.ApiClient(configuration) as api_client:
+with fly_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = fly-sdk.VolumesApi(api_client)
+    api_instance = fly_sdk.VolumesApi(api_client)
     app_name = 'app_name_example' # str | Fly App Name
 
     try:
@@ -419,22 +419,22 @@ No authorization required
 ```python
 import time
 import os
-import fly-sdk
-from fly-sdk.models.volume_snapshot import VolumeSnapshot
-from fly-sdk.rest import ApiException
+import fly_sdk
+from fly_sdk.models.volume_snapshot import VolumeSnapshot
+from fly_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.machines.dev/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = fly-sdk.Configuration(
+configuration = fly_sdk.Configuration(
     host = "https://api.machines.dev/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with fly-sdk.ApiClient(configuration) as api_client:
+with fly_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = fly-sdk.VolumesApi(api_client)
+    api_instance = fly_sdk.VolumesApi(api_client)
     app_name = 'app_name_example' # str | Fly App Name
     volume_id = 'volume_id_example' # str | Volume ID
 
@@ -485,26 +485,26 @@ No authorization required
 ```python
 import time
 import os
-import fly-sdk
-from fly-sdk.models.update_volume_request import UpdateVolumeRequest
-from fly-sdk.models.volume import Volume
-from fly-sdk.rest import ApiException
+import fly_sdk
+from fly_sdk.models.update_volume_request import UpdateVolumeRequest
+from fly_sdk.models.volume import Volume
+from fly_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.machines.dev/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = fly-sdk.Configuration(
+configuration = fly_sdk.Configuration(
     host = "https://api.machines.dev/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with fly-sdk.ApiClient(configuration) as api_client:
+with fly_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = fly-sdk.VolumesApi(api_client)
+    api_instance = fly_sdk.VolumesApi(api_client)
     app_name = 'app_name_example' # str | Fly App Name
     volume_id = 'volume_id_example' # str | Volume ID
-    request = fly-sdk.UpdateVolumeRequest() # UpdateVolumeRequest | Request body
+    request = fly_sdk.UpdateVolumeRequest() # UpdateVolumeRequest | Request body
 
     try:
         api_response = api_instance.volumes_update(app_name, volume_id, request)

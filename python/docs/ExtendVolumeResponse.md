@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from fly-sdk.models.extend_volume_response import ExtendVolumeResponse
+from fly_sdk.models.extend_volume_response import ExtendVolumeResponse
 
 # TODO update the JSON string below
 json = "{}"
