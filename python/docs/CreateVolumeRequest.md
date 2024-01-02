@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from fly-sdk.models.create_volume_request import CreateVolumeRequest
+from fly_sdk.models.create_volume_request import CreateVolumeRequest
 
 # TODO update the JSON string below
 json = "{}"

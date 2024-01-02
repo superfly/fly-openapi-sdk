@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from fly-sdk.models.machine_version import MachineVersion
+from fly_sdk.models.machine_version import MachineVersion
 
 # TODO update the JSON string below
 json = "{}"

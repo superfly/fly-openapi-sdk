@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from fly-sdk.models.signal_request import SignalRequest
+from fly_sdk.models.signal_request import SignalRequest
 
 # TODO update the JSON string below
 json = "{}"

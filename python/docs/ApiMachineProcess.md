@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from fly-sdk.models.api_machine_process import ApiMachineProcess
+from fly_sdk.models.api_machine_process import ApiMachineProcess
 
 # TODO update the JSON string below
 json = "{}"

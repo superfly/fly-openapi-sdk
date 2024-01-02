@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from fly-sdk.models.api_proxy_proto_options import ApiProxyProtoOptions
+from fly_sdk.models.api_proxy_proto_options import ApiProxyProtoOptions
 
 # TODO update the JSON string below
 json = "{}"

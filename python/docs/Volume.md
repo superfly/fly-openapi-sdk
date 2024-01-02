@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from fly-sdk.models.volume import Volume
+from fly_sdk.models.volume import Volume
 
 # TODO update the JSON string below
 json = "{}"
