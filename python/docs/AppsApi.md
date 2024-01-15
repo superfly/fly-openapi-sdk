@@ -1,4 +1,4 @@
-# fly-sdk.AppsApi
+# fly_sdk.AppsApi
 
 All URIs are relative to *https://api.machines.dev/v1*
 
@@ -20,23 +20,23 @@ Method | HTTP request | Description
 ```python
 import time
 import os
-import fly-sdk
-from fly-sdk.models.create_app_request import CreateAppRequest
-from fly-sdk.rest import ApiException
+import fly_sdk
+from fly_sdk.models.create_app_request import CreateAppRequest
+from fly_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.machines.dev/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = fly-sdk.Configuration(
+configuration = fly_sdk.Configuration(
     host = "https://api.machines.dev/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with fly-sdk.ApiClient(configuration) as api_client:
+with fly_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = fly-sdk.AppsApi(api_client)
-    request = fly-sdk.CreateAppRequest() # CreateAppRequest | App body
+    api_instance = fly_sdk.AppsApi(api_client)
+    request = fly_sdk.CreateAppRequest() # CreateAppRequest | App body
 
     try:
         api_instance.apps_create(request)
@@ -83,21 +83,21 @@ No authorization required
 ```python
 import time
 import os
-import fly-sdk
-from fly-sdk.rest import ApiException
+import fly_sdk
+from fly_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.machines.dev/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = fly-sdk.Configuration(
+configuration = fly_sdk.Configuration(
     host = "https://api.machines.dev/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with fly-sdk.ApiClient(configuration) as api_client:
+with fly_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = fly-sdk.AppsApi(api_client)
+    api_instance = fly_sdk.AppsApi(api_client)
     app_name = 'app_name_example' # str | Fly App Name
 
     try:
@@ -144,22 +144,22 @@ No authorization required
 ```python
 import time
 import os
-import fly-sdk
-from fly-sdk.models.list_apps_response import ListAppsResponse
-from fly-sdk.rest import ApiException
+import fly_sdk
+from fly_sdk.models.list_apps_response import ListAppsResponse
+from fly_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.machines.dev/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = fly-sdk.Configuration(
+configuration = fly_sdk.Configuration(
     host = "https://api.machines.dev/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with fly-sdk.ApiClient(configuration) as api_client:
+with fly_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = fly-sdk.AppsApi(api_client)
+    api_instance = fly_sdk.AppsApi(api_client)
     org_slug = 'org_slug_example' # str | The org slug, or 'personal', to filter apps
 
     try:
@@ -208,22 +208,22 @@ No authorization required
 ```python
 import time
 import os
-import fly-sdk
-from fly-sdk.models.app import App
-from fly-sdk.rest import ApiException
+import fly_sdk
+from fly_sdk.models.app import App
+from fly_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.machines.dev/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = fly-sdk.Configuration(
+configuration = fly_sdk.Configuration(
     host = "https://api.machines.dev/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with fly-sdk.ApiClient(configuration) as api_client:
+with fly_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = fly-sdk.AppsApi(api_client)
+    api_instance = fly_sdk.AppsApi(api_client)
     app_name = 'app_name_example' # str | Fly App Name
 
     try:

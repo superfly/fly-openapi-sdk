@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from fly-sdk.models.api_machine_http_header import ApiMachineHTTPHeader
+from fly_sdk.models.api_machine_http_header import ApiMachineHTTPHeader
 
 # TODO update the JSON string below
 json = "{}"

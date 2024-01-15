@@ -1,4 +1,4 @@
-# fly-sdk.MachinesApi
+# fly_sdk.MachinesApi
 
 All URIs are relative to *https://api.machines.dev/v1*
 
@@ -40,21 +40,21 @@ Method | HTTP request | Description
 ```python
 import time
 import os
-import fly-sdk
-from fly-sdk.rest import ApiException
+import fly_sdk
+from fly_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.machines.dev/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = fly-sdk.Configuration(
+configuration = fly_sdk.Configuration(
     host = "https://api.machines.dev/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with fly-sdk.ApiClient(configuration) as api_client:
+with fly_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = fly-sdk.MachinesApi(api_client)
+    api_instance = fly_sdk.MachinesApi(api_client)
     app_name = 'app_name_example' # str | Fly App Name
     machine_id = 'machine_id_example' # str | Machine ID
 
@@ -103,25 +103,25 @@ No authorization required
 ```python
 import time
 import os
-import fly-sdk
-from fly-sdk.models.create_machine_request import CreateMachineRequest
-from fly-sdk.models.machine import Machine
-from fly-sdk.rest import ApiException
+import fly_sdk
+from fly_sdk.models.create_machine_request import CreateMachineRequest
+from fly_sdk.models.machine import Machine
+from fly_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.machines.dev/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = fly-sdk.Configuration(
+configuration = fly_sdk.Configuration(
     host = "https://api.machines.dev/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with fly-sdk.ApiClient(configuration) as api_client:
+with fly_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = fly-sdk.MachinesApi(api_client)
+    api_instance = fly_sdk.MachinesApi(api_client)
     app_name = 'app_name_example' # str | Fly App Name
-    request = fly-sdk.CreateMachineRequest() # CreateMachineRequest | Create machine request
+    request = fly_sdk.CreateMachineRequest() # CreateMachineRequest | Create machine request
 
     try:
         api_response = api_instance.machines_create(app_name, request)
@@ -170,26 +170,26 @@ No authorization required
 ```python
 import time
 import os
-import fly-sdk
-from fly-sdk.models.create_lease_request import CreateLeaseRequest
-from fly-sdk.models.lease import Lease
-from fly-sdk.rest import ApiException
+import fly_sdk
+from fly_sdk.models.create_lease_request import CreateLeaseRequest
+from fly_sdk.models.lease import Lease
+from fly_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.machines.dev/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = fly-sdk.Configuration(
+configuration = fly_sdk.Configuration(
     host = "https://api.machines.dev/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with fly-sdk.ApiClient(configuration) as api_client:
+with fly_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = fly-sdk.MachinesApi(api_client)
+    api_instance = fly_sdk.MachinesApi(api_client)
     app_name = 'app_name_example' # str | Fly App Name
     machine_id = 'machine_id_example' # str | Machine ID
-    request = fly-sdk.CreateLeaseRequest() # CreateLeaseRequest | Request body
+    request = fly_sdk.CreateLeaseRequest() # CreateLeaseRequest | Request body
 
     try:
         api_response = api_instance.machines_create_lease(app_name, machine_id, request)
@@ -239,21 +239,21 @@ No authorization required
 ```python
 import time
 import os
-import fly-sdk
-from fly-sdk.rest import ApiException
+import fly_sdk
+from fly_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.machines.dev/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = fly-sdk.Configuration(
+configuration = fly_sdk.Configuration(
     host = "https://api.machines.dev/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with fly-sdk.ApiClient(configuration) as api_client:
+with fly_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = fly-sdk.MachinesApi(api_client)
+    api_instance = fly_sdk.MachinesApi(api_client)
     app_name = 'app_name_example' # str | Fly App Name
     machine_id = 'machine_id_example' # str | Machine ID
 
@@ -302,21 +302,21 @@ No authorization required
 ```python
 import time
 import os
-import fly-sdk
-from fly-sdk.rest import ApiException
+import fly_sdk
+from fly_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.machines.dev/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = fly-sdk.Configuration(
+configuration = fly_sdk.Configuration(
     host = "https://api.machines.dev/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with fly-sdk.ApiClient(configuration) as api_client:
+with fly_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = fly-sdk.MachinesApi(api_client)
+    api_instance = fly_sdk.MachinesApi(api_client)
     app_name = 'app_name_example' # str | Fly App Name
     machine_id = 'machine_id_example' # str | Machine ID
     key = 'key_example' # str | Metadata Key
@@ -367,25 +367,25 @@ No authorization required
 ```python
 import time
 import os
-import fly-sdk
-from fly-sdk.models.machine_exec_request import MachineExecRequest
-from fly-sdk.rest import ApiException
+import fly_sdk
+from fly_sdk.models.machine_exec_request import MachineExecRequest
+from fly_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.machines.dev/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = fly-sdk.Configuration(
+configuration = fly_sdk.Configuration(
     host = "https://api.machines.dev/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with fly-sdk.ApiClient(configuration) as api_client:
+with fly_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = fly-sdk.MachinesApi(api_client)
+    api_instance = fly_sdk.MachinesApi(api_client)
     app_name = 'app_name_example' # str | Fly App Name
     machine_id = 'machine_id_example' # str | Machine ID
-    request = fly-sdk.MachineExecRequest() # MachineExecRequest | Request body
+    request = fly_sdk.MachineExecRequest() # MachineExecRequest | Request body
 
     try:
         api_response = api_instance.machines_exec(app_name, machine_id, request)
@@ -436,22 +436,22 @@ No authorization required
 ```python
 import time
 import os
-import fly-sdk
-from fly-sdk.models.machine import Machine
-from fly-sdk.rest import ApiException
+import fly_sdk
+from fly_sdk.models.machine import Machine
+from fly_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.machines.dev/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = fly-sdk.Configuration(
+configuration = fly_sdk.Configuration(
     host = "https://api.machines.dev/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with fly-sdk.ApiClient(configuration) as api_client:
+with fly_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = fly-sdk.MachinesApi(api_client)
+    api_instance = fly_sdk.MachinesApi(api_client)
     app_name = 'app_name_example' # str | Fly App Name
     include_deleted = True # bool | Include deleted machines (optional)
     region = 'region_example' # str | Region filter (optional)
@@ -504,22 +504,22 @@ No authorization required
 ```python
 import time
 import os
-import fly-sdk
-from fly-sdk.models.machine_event import MachineEvent
-from fly-sdk.rest import ApiException
+import fly_sdk
+from fly_sdk.models.machine_event import MachineEvent
+from fly_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.machines.dev/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = fly-sdk.Configuration(
+configuration = fly_sdk.Configuration(
     host = "https://api.machines.dev/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with fly-sdk.ApiClient(configuration) as api_client:
+with fly_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = fly-sdk.MachinesApi(api_client)
+    api_instance = fly_sdk.MachinesApi(api_client)
     app_name = 'app_name_example' # str | Fly App Name
     machine_id = 'machine_id_example' # str | Machine ID
 
@@ -570,22 +570,22 @@ No authorization required
 ```python
 import time
 import os
-import fly-sdk
-from fly-sdk.models.process_stat import ProcessStat
-from fly-sdk.rest import ApiException
+import fly_sdk
+from fly_sdk.models.process_stat import ProcessStat
+from fly_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.machines.dev/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = fly-sdk.Configuration(
+configuration = fly_sdk.Configuration(
     host = "https://api.machines.dev/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with fly-sdk.ApiClient(configuration) as api_client:
+with fly_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = fly-sdk.MachinesApi(api_client)
+    api_instance = fly_sdk.MachinesApi(api_client)
     app_name = 'app_name_example' # str | Fly App Name
     machine_id = 'machine_id_example' # str | Machine ID
     sort_by = 'sort_by_example' # str | Sort by (optional)
@@ -641,22 +641,22 @@ No authorization required
 ```python
 import time
 import os
-import fly-sdk
-from fly-sdk.models.machine_version import MachineVersion
-from fly-sdk.rest import ApiException
+import fly_sdk
+from fly_sdk.models.machine_version import MachineVersion
+from fly_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.machines.dev/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = fly-sdk.Configuration(
+configuration = fly_sdk.Configuration(
     host = "https://api.machines.dev/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with fly-sdk.ApiClient(configuration) as api_client:
+with fly_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = fly-sdk.MachinesApi(api_client)
+    api_instance = fly_sdk.MachinesApi(api_client)
     app_name = 'app_name_example' # str | Fly App Name
     machine_id = 'machine_id_example' # str | Machine ID
 
@@ -707,21 +707,21 @@ No authorization required
 ```python
 import time
 import os
-import fly-sdk
-from fly-sdk.rest import ApiException
+import fly_sdk
+from fly_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.machines.dev/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = fly-sdk.Configuration(
+configuration = fly_sdk.Configuration(
     host = "https://api.machines.dev/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with fly-sdk.ApiClient(configuration) as api_client:
+with fly_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = fly-sdk.MachinesApi(api_client)
+    api_instance = fly_sdk.MachinesApi(api_client)
     app_name = 'app_name_example' # str | Fly App Name
     machine_id = 'machine_id_example' # str | Machine ID
 
@@ -770,21 +770,21 @@ No authorization required
 ```python
 import time
 import os
-import fly-sdk
-from fly-sdk.rest import ApiException
+import fly_sdk
+from fly_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.machines.dev/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = fly-sdk.Configuration(
+configuration = fly_sdk.Configuration(
     host = "https://api.machines.dev/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with fly-sdk.ApiClient(configuration) as api_client:
+with fly_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = fly-sdk.MachinesApi(api_client)
+    api_instance = fly_sdk.MachinesApi(api_client)
     app_name = 'app_name_example' # str | Fly App Name
     machine_id = 'machine_id_example' # str | Machine ID
     timeout = 'timeout_example' # str | Restart timeout as a Go duration string or number of seconds (optional)
@@ -836,22 +836,22 @@ No authorization required
 ```python
 import time
 import os
-import fly-sdk
-from fly-sdk.models.machine import Machine
-from fly-sdk.rest import ApiException
+import fly_sdk
+from fly_sdk.models.machine import Machine
+from fly_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.machines.dev/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = fly-sdk.Configuration(
+configuration = fly_sdk.Configuration(
     host = "https://api.machines.dev/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with fly-sdk.ApiClient(configuration) as api_client:
+with fly_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = fly-sdk.MachinesApi(api_client)
+    api_instance = fly_sdk.MachinesApi(api_client)
     app_name = 'app_name_example' # str | Fly App Name
     machine_id = 'machine_id_example' # str | Machine ID
 
@@ -902,22 +902,22 @@ No authorization required
 ```python
 import time
 import os
-import fly-sdk
-from fly-sdk.models.lease import Lease
-from fly-sdk.rest import ApiException
+import fly_sdk
+from fly_sdk.models.lease import Lease
+from fly_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.machines.dev/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = fly-sdk.Configuration(
+configuration = fly_sdk.Configuration(
     host = "https://api.machines.dev/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with fly-sdk.ApiClient(configuration) as api_client:
+with fly_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = fly-sdk.MachinesApi(api_client)
+    api_instance = fly_sdk.MachinesApi(api_client)
     app_name = 'app_name_example' # str | Fly App Name
     machine_id = 'machine_id_example' # str | Machine ID
 
@@ -968,21 +968,21 @@ No authorization required
 ```python
 import time
 import os
-import fly-sdk
-from fly-sdk.rest import ApiException
+import fly_sdk
+from fly_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.machines.dev/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = fly-sdk.Configuration(
+configuration = fly_sdk.Configuration(
     host = "https://api.machines.dev/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with fly-sdk.ApiClient(configuration) as api_client:
+with fly_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = fly-sdk.MachinesApi(api_client)
+    api_instance = fly_sdk.MachinesApi(api_client)
     app_name = 'app_name_example' # str | Fly App Name
     machine_id = 'machine_id_example' # str | Machine ID
 
@@ -1033,25 +1033,25 @@ No authorization required
 ```python
 import time
 import os
-import fly-sdk
-from fly-sdk.models.signal_request import SignalRequest
-from fly-sdk.rest import ApiException
+import fly_sdk
+from fly_sdk.models.signal_request import SignalRequest
+from fly_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.machines.dev/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = fly-sdk.Configuration(
+configuration = fly_sdk.Configuration(
     host = "https://api.machines.dev/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with fly-sdk.ApiClient(configuration) as api_client:
+with fly_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = fly-sdk.MachinesApi(api_client)
+    api_instance = fly_sdk.MachinesApi(api_client)
     app_name = 'app_name_example' # str | Fly App Name
     machine_id = 'machine_id_example' # str | Machine ID
-    request = fly-sdk.SignalRequest() # SignalRequest | Request body
+    request = fly_sdk.SignalRequest() # SignalRequest | Request body
 
     try:
         api_instance.machines_signal(app_name, machine_id, request)
@@ -1100,21 +1100,21 @@ No authorization required
 ```python
 import time
 import os
-import fly-sdk
-from fly-sdk.rest import ApiException
+import fly_sdk
+from fly_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.machines.dev/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = fly-sdk.Configuration(
+configuration = fly_sdk.Configuration(
     host = "https://api.machines.dev/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with fly-sdk.ApiClient(configuration) as api_client:
+with fly_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = fly-sdk.MachinesApi(api_client)
+    api_instance = fly_sdk.MachinesApi(api_client)
     app_name = 'app_name_example' # str | Fly App Name
     machine_id = 'machine_id_example' # str | Machine ID
 
@@ -1163,25 +1163,25 @@ No authorization required
 ```python
 import time
 import os
-import fly-sdk
-from fly-sdk.models.stop_request import StopRequest
-from fly-sdk.rest import ApiException
+import fly_sdk
+from fly_sdk.models.stop_request import StopRequest
+from fly_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.machines.dev/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = fly-sdk.Configuration(
+configuration = fly_sdk.Configuration(
     host = "https://api.machines.dev/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with fly-sdk.ApiClient(configuration) as api_client:
+with fly_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = fly-sdk.MachinesApi(api_client)
+    api_instance = fly_sdk.MachinesApi(api_client)
     app_name = 'app_name_example' # str | Fly App Name
     machine_id = 'machine_id_example' # str | Machine ID
-    request = fly-sdk.StopRequest() # StopRequest | Optional request body (optional)
+    request = fly_sdk.StopRequest() # StopRequest | Optional request body (optional)
 
     try:
         api_instance.machines_stop(app_name, machine_id, request=request)
@@ -1232,21 +1232,21 @@ No authorization required
 ```python
 import time
 import os
-import fly-sdk
-from fly-sdk.rest import ApiException
+import fly_sdk
+from fly_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.machines.dev/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = fly-sdk.Configuration(
+configuration = fly_sdk.Configuration(
     host = "https://api.machines.dev/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with fly-sdk.ApiClient(configuration) as api_client:
+with fly_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = fly-sdk.MachinesApi(api_client)
+    api_instance = fly_sdk.MachinesApi(api_client)
     app_name = 'app_name_example' # str | Fly App Name
     machine_id = 'machine_id_example' # str | Machine ID
 
@@ -1295,26 +1295,26 @@ No authorization required
 ```python
 import time
 import os
-import fly-sdk
-from fly-sdk.models.machine import Machine
-from fly-sdk.models.update_machine_request import UpdateMachineRequest
-from fly-sdk.rest import ApiException
+import fly_sdk
+from fly_sdk.models.machine import Machine
+from fly_sdk.models.update_machine_request import UpdateMachineRequest
+from fly_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.machines.dev/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = fly-sdk.Configuration(
+configuration = fly_sdk.Configuration(
     host = "https://api.machines.dev/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with fly-sdk.ApiClient(configuration) as api_client:
+with fly_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = fly-sdk.MachinesApi(api_client)
+    api_instance = fly_sdk.MachinesApi(api_client)
     app_name = 'app_name_example' # str | Fly App Name
     machine_id = 'machine_id_example' # str | Machine ID
-    request = fly-sdk.UpdateMachineRequest() # UpdateMachineRequest | Request body
+    request = fly_sdk.UpdateMachineRequest() # UpdateMachineRequest | Request body
 
     try:
         api_response = api_instance.machines_update(app_name, machine_id, request)
@@ -1365,21 +1365,21 @@ No authorization required
 ```python
 import time
 import os
-import fly-sdk
-from fly-sdk.rest import ApiException
+import fly_sdk
+from fly_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.machines.dev/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = fly-sdk.Configuration(
+configuration = fly_sdk.Configuration(
     host = "https://api.machines.dev/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with fly-sdk.ApiClient(configuration) as api_client:
+with fly_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = fly-sdk.MachinesApi(api_client)
+    api_instance = fly_sdk.MachinesApi(api_client)
     app_name = 'app_name_example' # str | Fly App Name
     machine_id = 'machine_id_example' # str | Machine ID
     key = 'key_example' # str | Metadata Key
@@ -1431,21 +1431,21 @@ No authorization required
 ```python
 import time
 import os
-import fly-sdk
-from fly-sdk.rest import ApiException
+import fly_sdk
+from fly_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.machines.dev/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = fly-sdk.Configuration(
+configuration = fly_sdk.Configuration(
     host = "https://api.machines.dev/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with fly-sdk.ApiClient(configuration) as api_client:
+with fly_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = fly-sdk.MachinesApi(api_client)
+    api_instance = fly_sdk.MachinesApi(api_client)
     app_name = 'app_name_example' # str | Fly App Name
     machine_id = 'machine_id_example' # str | Machine ID
     instance_id = 'instance_id_example' # str | instance? version? TODO (optional)

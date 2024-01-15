@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from fly-sdk.models.api_machine_config import ApiMachineConfig
+from fly_sdk.models.api_machine_config import ApiMachineConfig
 
 # TODO update the JSON string below
 json = "{}"

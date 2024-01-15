@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from fly-sdk.models.api_http_options import ApiHTTPOptions
+from fly_sdk.models.api_http_options import ApiHTTPOptions
 
 # TODO update the JSON string below
 json = "{}"

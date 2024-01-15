@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from fly-sdk.models.api_machine_restart import ApiMachineRestart
+from fly_sdk.models.api_machine_restart import ApiMachineRestart
 
 # TODO update the JSON string below
 json = "{}"

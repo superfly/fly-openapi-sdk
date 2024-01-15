@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from fly-sdk.models.listen_socket import ListenSocket
+from fly_sdk.models.listen_socket import ListenSocket
 
 # TODO update the JSON string below
 json = "{}"

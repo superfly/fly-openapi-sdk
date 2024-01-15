@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from fly-sdk.models.api_tls_options import ApiTLSOptions
+from fly_sdk.models.api_tls_options import ApiTLSOptions
 
 # TODO update the JSON string below
 json = "{}"

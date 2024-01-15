@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from fly-sdk.models.api_machine_service_concurrency import ApiMachineServiceConcurrency
+from fly_sdk.models.api_machine_service_concurrency import ApiMachineServiceConcurrency
 
 # TODO update the JSON string below
 json = "{}"

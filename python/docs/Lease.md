@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from fly-sdk.models.lease import Lease
+from fly_sdk.models.lease import Lease
 
 # TODO update the JSON string below
 json = "{}"

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from fly-sdk.models.api_static import ApiStatic
+from fly_sdk.models.api_static import ApiStatic
 
 # TODO update the JSON string below
 json = "{}"
